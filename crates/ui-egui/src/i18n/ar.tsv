@@ -2828,7 +2828,7 @@ fontWeight	Italic	مائل
 	Move Panel	تحريك اللوحة
 	Group with	تجميع مع
 	Panel menu	قائمة اللوحة
-	Resize panel تغيير حجم اللوحة
+	Resize panel	تغيير حجم اللوحة
 	Resize panels	تغيير حجم اللوحات
 	Open EXR Parts…	فتح أجزاء EXR…
 	Add beauty precomp from the AOVs	إضافة تركيبة مسبقة للجمال من قنوات AOV
@@ -2857,7 +2857,7 @@ fontWeight	Italic	مائل
 	Single Row Marquee Tool	أداة تحديد صف واحد
 	Single Column Marquee Tool	أداة تحديد عمود واحد
 	Could not complete the Free Transform command because the layer is locked.	تعذر إكمال أمر التحويل الحر لأن الطبقة مقفلة.
-{w} {unit} x {h} {unit} ({ppi} ppi)	{w} {unit} × {h} {unit} ({ppi} بكسل/بوصة)
+	{w} {unit} x {h} {unit} ({ppi} ppi)	{w} {unit} × {h} {unit} ({ppi} بكسل/بوصة)
 	Show canvas dots	إظهار نقاط لوحة الرسم
 	Show highlight on rollover	إظهار التمييز عند التمرير فوقه
 	Rasterize Layer Style	تحويل نمط الطبقة إلى نقطية
@@ -2872,4 +2872,10 @@ fontWeight	Italic	مائل
 cameraData	Date Taken	تاريخ الالتقاط
 cameraData	F-Stop	فتحة العدسة
 cameraData	Focal Length (35 mm)	البعد البؤري (35 مم)
+cameraData	Make	الشركة المصنعة
+cameraData	Model	الطراز
+cameraData	Exposure<TAB>زمن التعريض
+cameraData	ISO Speed	حساسية ISO
+cameraData	Focal Length	البعد البؤري
+cameraData	Lens	عدسة
 	Resize panel window	تغيير حجم نافذة اللوحة
