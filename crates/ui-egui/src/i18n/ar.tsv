@@ -522,7 +522,7 @@
 	Picture Frame…	إطار صورة…
 	Tree…	شجرة…
 	Sharpen	تحديد
-	Sharpen Edges	تحديد الحواف
+	Sharpen Edges	تمضية الحواف
 	Sharpen More	تحديد أكثر
 	Smart Sharpen…	تحديد ذكي…
 	Unsharp Mask…	قناع عدم التحديد…
@@ -665,7 +665,7 @@
 	Brushes	فرش
 	Channels	قنوات
 	Character	حرف
-	Character Styles	أنماط الأحرف
+	Character Styles	ستايل الأحرف
 	Clone Source	مصدر الاستنساخ
 	Color	لون
 	Glyphs	رموز
@@ -678,12 +678,12 @@
 	Navigator	مستكشف
 	Options	خيارات
 	Paragraph	فقرة
-	Paragraph Styles	أنماط الفقرات
+	Paragraph Styles	ستايل الفقرات
 	Paths	مسارات
 	Patterns	أنماط
 	Properties	خصائص
 	Shapes	أشكال
-	Styles	أنماط
+	Styles	الستايل
 	Swatches	عينات
 	Timeline	جدول زمني
 	Tool Presets	إعدادات الأدوات المسبقة
@@ -1423,7 +1423,7 @@
 	Transparency	شفافية
 	Transparent	شفاف
 	Trilinear	ثلاثي الخطية
-	Type Styles	أنماط النص
+	Type Styles	ستايل النص
 	Type:	نوع:
 	Underline	تسطير
 	Untitled	بدون عنوان
@@ -1792,7 +1792,7 @@
 	Jpg	JPG
 	Language	لغة
 	Large tabs	علامات تبويب كبيرة
-	Legacy compositing	تركيب تراثي
+	Legacy compositing	تركيب قديم
 	Light gray	رمادي فاتح
 	Line	خط
 	Lines	خطوط
