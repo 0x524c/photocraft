@@ -46,7 +46,7 @@
 	Top Right	أعلى اليمين
 	Bottom Left	أسفل اليسار
 	Bottom Right	أسفل اليمين
-	Filter	الفلتر
+	Filter	مرشح
 	View	عرض
 	Window	نافذة
 	Help	مساعدة
@@ -71,8 +71,8 @@
 	Export As…	تصدير باسم…
 	Export Preferences…	تفضيلات التصدير…
 	Save for Web (Legacy)…	حفظ للويب (قديم)…
-	Artboards to Files…	لوحات الرسم إلى ملفات…
-	Artboards to PDF…	لوحات الرسم إلى PDF…
+	Artboards to Files…	ألواح التصميم إلى ملفات…
+	Artboards to PDF…	ألواح التصميم إلى PDF…
 	Layers to Files…	الطبقات إلى ملفات…
 	Layer Comps to Files…	تراكيب الطبقات إلى ملفات…
 	Color Lookup Tables…	جداول البحث عن اللون…
@@ -87,7 +87,7 @@
 	Automate	أتمتة
 	Batch…	دفعة…
 	Create Droplet…	إنشاء قطرة…
-	Crop and Straighten Photos	قص الصور وتسويتها
+	Crop and Straighten Photos	اقتصاص الصور وتسويتها
 	Contact Sheet II…	ورقة اتصال II…
 	Conditional Mode Change…	تغيير الوضع المشروط…
 	Fit Image…	ملاءمة الصورة…
@@ -97,8 +97,8 @@
 	Scripts	نصوص برمجية
 	Image Processor…	معالج الصور…
 	Delete All Empty Layers	حذف جميع الطبقات الفارغة
-	Flatten All Layer Effects	تسوية جميع تأثيرات الطبقات
-	Flatten All Masks	تسوية جميع الأقنعة
+	Flatten All Layer Effects	تسطيح جميع تأثيرات الطبقات
+	Flatten All Masks	تسطيح جميع الأقنعة
 	Script Events Manager…	مدير أحداث النص البرمجي…
 	Import	استيراد
 	Browse…	تصفح…
@@ -127,7 +127,7 @@
 	Check Spelling…	التدقيق الإملائي…
 	Find and Replace Text…	البحث عن النص واستبداله…
 	Fill…	تعبئة…
-	Stroke…	حدود…
+	Stroke…	حدّ…
 	Content-Aware Fill…	تعبئة حسب المحتوى…
 	Delete and Fill Selection	حذف وتعبئة التحديد
 	Content-Aware Scale	تحجيم حسب المحتوى
@@ -154,7 +154,7 @@
 	Auto-Align Layers…	محاذاة الطبقات تلقائياً…
 	Auto-Blend Layers…	دمج الطبقات تلقائياً…
 	Define Brush Preset…	تحديد إعداد مسبق للفرشاة…
-	Define Pattern…	تحديد نمط…
+	Define Pattern…	تعريف نقش…
 	Define Custom Shape…	تحديد شكل مخصص…
 	Purge	تفريغ
 	Clipboard	الحافظة
@@ -223,7 +223,7 @@
 	Photo Filter…	مرشح الصور…
 	Channel Mixer…	خلاط القنوات…
 	Color Lookup…	بحث اللون…
-	Invert	عكس
+	Invert	عكس الألوان
 	Posterize…	تأثير الملصق…
 	Threshold…	العتبة…
 	Gradient Map…	خريطة التدرج…
@@ -233,7 +233,7 @@
 	Desaturate	إزالة التشبع
 	Match Color…	مطابقة اللون…
 	Replace Color…	استبدال اللون…
-	Equalize	تسوية
+	Equalize	موازنة
 	Auto Tone	تدرج تلقائي
 	Auto Contrast	تباين تلقائي
 	Auto Color	لون تلقائي
@@ -242,7 +242,7 @@
 	Image Rotation	تدوير الصورة
 	Flip Canvas Horizontal	قلب لوحة الرسم أفقياً
 	Flip Canvas Vertical	قلب لوحة الرسم عمودياً
-	Crop	قص
+	Crop	اقتصاص
 	Trim…	تقليم…
 	Reveal All	إظهار الكل
 	Duplicate…	نسخ مكرر…
@@ -266,9 +266,9 @@
 	Layer…	طبقة…
 	Group…	مجموعة…
 	Group from Layers…	مجموعة من الطبقات…
-	Artboard…	لوحة رسم…
-	Artboard from Group…	لوحة رسم من مجموعة…
-	Artboard from Layers…	لوحة رسم من طبقات…
+	Artboard…	لوح التصميم…
+	Artboard from Group…	لوح تصميم من مجموعة…
+	Artboard from Layers…	لوح تصميم من طبقات…
 	Layer via Copy	طبقة عبر النسخ
 	Layer via Cut	طبقة عبر القص
 	Layer From Background…	طبقة من الخلفية…
@@ -294,7 +294,7 @@
 	Satin…	ساتان…
 	Color Overlay…	تراكب اللون…
 	Gradient Overlay…	تراكب التدرج…
-	Pattern Overlay…	تراكب النمط…
+	Pattern Overlay…	تراكب النقش…
 	Outer Glow…	توهج خارجي…
 	Drop Shadow…	ظل مسقط…
 	Copy Layer Style	نسخ نمط الطبقة
@@ -311,7 +311,7 @@
 	Disable Filter Mask	تعطيل قناع المرشح
 	Solid Color…	لون خالص…
 	Gradient…	تدرج…
-	Pattern…	نمط…
+	Pattern…	نقش…
 	Layer Mask	قناع الطبقة
 	Vector Mask	قناع متجه
 	Reveal Selection	إظهار التحديد
@@ -379,8 +379,8 @@
 	Merge Visible	دمج المرئي
 	Stamp Visible	ختم المرئي
 	Stamp Down	ختم للأسفل
-	Flatten Image	تسوية الصورة
-	Matting	تحديد الحواف
+	Flatten Image	تسطيح الصورة
+	Matting	تنقية الحواف
 	Color Decontaminate…	إزالة تلوث اللون…
 	Remove Black Matte	إزالة الحافة السوداء
 	Remove White Matte	إزالة الحافة البيضاء
@@ -473,7 +473,7 @@
 	Save Default Type Styles	حفظ أنماط النص الافتراضية
 	Deselect	إلغاء التحديد
 	Reselect	إعادة التحديد
-	Inverse	عكس
+	Inverse	عكس التحديد
 	Inverse Selection	عكس التحديد
 	Similar	مشابه
 	Color Range…	نطاق اللون…
@@ -518,7 +518,7 @@
 	Pinch…	قرص…
 	Polar Coordinates…	إحداثيات قطبية…
 	Ripple…	تموج…
-	Shear…	قص…
+	Shear…	إمالة…
 	Spherize…	تكوير…
 	Twirl…	لف…
 	Wave…	موجة…
@@ -547,10 +547,10 @@
 	Relight…	إعادة إضاءة…
 	Picture Frame…	إطار صورة…
 	Tree…	شجرة…
-	Sharpen	تحديد
-	Sharpen Edges	تمضية الحواف
-	Sharpen More	تحديد أكثر
-	Smart Sharpen…	تحديد ذكي…
+	Sharpen	تحسين الحدة
+	Sharpen Edges	تحسين حدة الحواف
+	Sharpen More	تحسين الحدة أكثر
+	Smart Sharpen…	تحسين الحدة الذكي…
 	Unsharp Mask…	قناع عدم التحديد…
 	High Pass…	مرور عالي…
 	Stylize	تنميق
@@ -589,7 +589,7 @@
 	Zoom Out	تصغير
 	Fit on Screen	ملاءمة على الشاشة
 	Fit Layer(s) on Screen	ملاءمة الطبقة(ات) على الشاشة
-	Fit Artboard on Screen	ملاءمة لوحة الرسم على الشاشة
+	Fit Artboard on Screen	ملاءمة لوح التصميم على الشاشة
 	100%	100%
 	200%	200%
 	75%	75%
@@ -624,7 +624,7 @@
 	Grid	شبكة
 	Guides	أدلة
 	Canvas Guides	أدلة لوحة الرسم
-	Artboard Guides	أدلة لوحة الرسم
+	Artboard Guides	أدلة لوح التصميم
 	Count	عد
 	Smart Guides	أدلة ذكية
 	Slices	شرائح
@@ -632,7 +632,7 @@
 	Pixel Grid	شبكة البكسل
 	Pixel Art	فن البكسل
 	Pixel Art Preview	معاينة فن البكسل
-	Pattern Preview	معاينة النمط
+	Pattern Preview	معاينة النقش
 	Brush Preview	معاينة الفرشاة
 	Mesh	شبكة
 	Edit Pins	تحرير الدبابيس
@@ -643,7 +643,7 @@
 	Snap To	محاذاة إلى
 	Lock Guides	قفل الأدلة
 	Clear Guides	مسح الأدلة
-	Clear Selected Artboard Guides	مسح أدلة لوحة الرسم المحددة
+	Clear Selected Artboard Guides	مسح أدلة لوح التصميم المحددة
 	Clear Canvas Guides	مسح أدلة لوحة الرسم
 	New Guide…	دليل جديد…
 	Lock Slices	قفل الشرائح
@@ -691,7 +691,7 @@
 	Brushes	فرش
 	Channels	قنوات
 	Character	حرف
-	Character Styles	ستايل الأحرف
+	Character Styles	أنماط الأحرف
 	Clone Source	مصدر الاستنساخ
 	Color	لون
 	Glyphs	رموز
@@ -704,12 +704,12 @@
 	Navigator	مستكشف
 	Options	خيارات
 	Paragraph	فقرة
-	Paragraph Styles	ستايل الفقرات
+	Paragraph Styles	أنماط الفقرات
 	Paths	مسارات
-	Patterns	أنماط
+	Patterns	نقوش
 	Properties	خصائص
 	Shapes	أشكال
-	Styles	الستايل
+	Styles	أنماط
 	Swatches	عينات
 	Timeline	جدول زمني
 	Tool Presets	إعدادات الأدوات المسبقة
@@ -723,7 +723,7 @@
 	WIA Support…	دعم WIA…
 	Apply	تطبيق
 	HSB/HSL	HSB/HSL
-	Invert…	عكس…
+	Invert…	عكس الألوان…
 	Load Files into Stack…	تحميل الملفات في مكدس…
 	Motion	حركة
 	Notes…	ملاحظات…
@@ -785,8 +785,8 @@
 	Apply Per Tip	تطبيق لكل طرف
 	Apply next selected layer comp	تطبيق تركيبة الطبقة المحددة التالية
 	Apply previous selected layer comp	تطبيق تركيبة الطبقة المحددة السابقة
-	Artboard	لوحة رسم
-	Artboard Background Color	لون خلفية لوحة الرسم
+	Artboard	لوح التصميم
+	Artboard Background Color	لون خلفية لوح التصميم
 	Assign working space	تعيين مساحة العمل
 	Author:	المؤلف:
 	Auto Hide	إخفاء تلقائي
@@ -838,7 +838,7 @@
 	Canvas extension color:	لون تمديد لوحة الرسم:
 	Capture	التقاط
 	Capture the visibility, position and style of every layer with + below, then switch between versions.	التقط رؤية وموقع ونمط كل طبقة باستخدام + أدناه، ثم انتقل بين الإصدارات.
-	Catch-up on Stroke End	ملاحقة في نهاية الشدّة
+	Catch-up on Stroke End	ملاحقة في نهاية الضربة
 	Center	مركز
 	Center Crop Marks	علامات قص المركز
 	Center text	توسيط النص
@@ -919,7 +919,7 @@
 	Create new shape from the current path	إنشاء شكل جديد من المسار الحالي
 	Create new snapshot	إنشاء لقطة جديدة
 	Create new tool preset	إنشاء إعداد مسبق جديد للأداة
-	Crop Factor	عامل القص
+	Crop Factor	عامل الاقتصاص
 	Ctrl	Ctrl
 	Current & Below	الحالي وما تحته
 	Current Layer	الطبقة الحالية
@@ -941,7 +941,7 @@
 	Define	تحديد
 	Define at least one variable first.	حدد متغيراً واحداً على الأقل أولاً.
 	Dehaze	إزالة الضباب
-	Delete Cropped Pixels	حذف البكسلات المقصوصة
+	Delete Cropped Pixels	حذف البكسلات المقتصة
 	Delete Group	حذف المجموعة
 	Delete Layer Mask	حذف قناع الطبقة
 	Delete Layers	حذف الطبقات
@@ -1052,9 +1052,9 @@
 	Font	خط
 	Font Size:	حجم الخط:
 	Font size	حجم الخط
-	Foreground	الأمامية
-	Foreground to Background	من الأمامية إلى الخلفية
-	Foreground/Background Jitter	تباين الأمامية/الخلفية
+	Foreground	لون المقدمة
+	Foreground to Background	من المقدمة إلى الخلفية
+	Foreground/Background Jitter	تباين المقدمة/الخلفية
 	Format	تنسيق
 	Frame from Layers…	إطار من الطبقات…
 	Free	حر
@@ -1105,7 +1105,7 @@
 	Interpolation:	استيفاء:
 	Intersect with selection  ({key})	تقاطع مع التحديد ({key})
 	Invert All	عكس الكل
-	Invert has no settings.	العكس ليس له إعدادات.
+	Invert has no settings.	عكس الألوان ليس له إعدادات.
 	Italic	مائل
 	Join us on Discord	انضم إلينا على Discord
 	Justify all	ضبط الكل
@@ -1234,8 +1234,8 @@
 	Panel locations are saved in the workspace. Keyboard shortcuts, menus and toolbar are optional.	تُحفظ مواقع اللوحات في مساحة العمل. اختصارات لوحة المفاتيح والقوائم وشريط الأدوات اختيارية.
 	Paper	ورق
 	Path	مسار
-	Pattern	نمط
-	Pattern Size	حجم النمط
+	Pattern	نقش
+	Pattern Size	حجم النقش
 	Pause	إيقاف مؤقت
 	Percent	نسبة مئوية
 	Perceptual	إدراكي
@@ -1266,7 +1266,7 @@
 	Pressure	ضغط
 	Pressure for Opacity	ضغط للعتامة
 	Pressure for Size	ضغط للحجم
-	Prevent auto-nesting in and out of Artboards and Frames	منع التداخل التلقائي داخل وخارج لوحات الرسم والإطارات
+	Prevent auto-nesting in and out of Artboards and Frames	منع التداخل التلقائي داخل وخارج ألواح التصميم والإطارات
 	Preview	معاينة
 	Previous frame	الإطار السابق
 	Previous note	الملاحظة السابقة
@@ -1278,7 +1278,7 @@
 	Progressive	تدريجي
 	Promote	ترقية
 	Protect Detail	حماية التفاصيل
-	Protect Foreground Color	حماية لون الأمامية
+	Protect Foreground Color	حماية لون المقدمة
 	Protect Tones	حماية الدرجات
 	Proximity Match	مطابقة القرب
 	Pulled String Mode	وضع الخيط المشدود
@@ -1373,11 +1373,11 @@
 	Set painting symmetry options	تعيين خيارات تناظر الرسم
 	Symmetry Off	التناظر معطل
 	Set shape fill type	تعيين نوع تعبئة الشكل
-	Set shape stroke type	تعيين نوع حدود الشكل
+	Set shape stroke type	تعيين نوع حدّ الشكل
 	Set the text color	تعيين لون النص
 	Shadows	ظلال
 	Shape:	شكل:
-	Sharpening	تحديد
+	Sharpening	تحسين الحدة
 	Shift	Shift
 	Shortcut removed.	تمت إزالة الاختصار.
 	Show All Menu Items	إظهار جميع عناصر القائمة
@@ -1410,9 +1410,9 @@
 	Straighten Layer	تسوية الطبقة
 	Strength:	قوة:
 	Strikethrough	يتوسطه خط
-	Stroke	حدود
-	Stroke Catch-up	ملاحقة الحدود
-	Stroke:	حدود:
+	Stroke	حدّ
+	Stroke Catch-up	ملاحقة الضربة
+	Stroke:	حدّ:
 	Location:	موقع:
 	Style	نمط
 	Style Options	خيارات النمط
@@ -1449,7 +1449,7 @@
 	Transparency	شفافية
 	Transparent	شفاف
 	Trilinear	ثلاثي الخطية
-	Type Styles	ستايل النص
+	Type Styles	أنماط النص
 	Type:	نوع:
 	Underline	تسطير
 	Untitled	بدون عنوان
@@ -1514,25 +1514,25 @@
 	Brush Tip Shape	شكل طرف الفرشاة
 	Brush Tool	أداة الفرشاة
 	Build-up	تراكم
-	Burn Tool	أداة التغميق
+	Burn Tool	أداة زيادة الكثافة
 	Centimeters	سنتيمترات
 	Choke	خنق
 	Classic	كلاسيكي
 	Click to add text	انقر لإضافة نص
 	Click to fill similar colours	انقر لملء الألوان المتشابهة
 	Clone Stamp Tool	أداة ختم الاستنساخ
-	Color Burn	حرق اللون
-	Color Dodge	تفادي اللون
+	Color Burn	زيادة كثافة اللون
+	Color Dodge	إنقاص كثافة اللون
 	Color Dynamics	ديناميكيات اللون
 	Color Overlay	تراكب اللون
 	Comic Book	كتاب هزلي
-	Conform	موافق
+	Conform	مطابقة
 	Content-Aware Fill needs a selection on a pixel layer	تحتاج التعبئة حسب المحتوى إلى تحديد على طبقة بكسل
 	Could not transform: the layer is empty	تعذر التحويل: الطبقة فارغة
 	Could not use Perspective Warp: the layer is empty	تعذر استخدام تشويه المنظور: الطبقة فارغة
 	Could not use Puppet Warp: no opaque pixels	تعذر استخدام تشويه الدمية: لا توجد بكسلات غير شفافة
 	Could not use Puppet Warp: the layer is empty	تعذر استخدام تشويه الدمية: الطبقة فارغة
-	Crop Tool	أداة القص
+	Crop Tool	أداة الاقتصاص
 	Crosswise	عرضي
 	Current Tool	الأداة الحالية
 	Custom Shape Tool	أداة الشكل المخصص
@@ -1546,7 +1546,7 @@
 	Document Dimensions	أبعاد المستند
 	Document Profile	ملف تعريف المستند
 	Document Sizes	أحجام المستند
-	Dodge Tool	أداة التفتيح
+	Dodge Tool	أداة إنقاص الكثافة
 	Down	أسفل
 	Drag to draw a gradient	اسحب لرسم تدرج
 	Drag to move the active layer	اسحب لنقل الطبقة النشطة
@@ -1600,14 +1600,14 @@
 	Light	فاتح
 	Line Tool	أداة الخط
 	Linear	خطي
-	Linear Burn	حرق خطي
+	Linear Burn	زيادة الكثافة الخطية
 	Linear Height	ارتفاع خطي
 	Link with Layer	ربط مع الطبقة
 	Lorem Ipsum	Lorem Ipsum
 	Magentas	أرجواني
 	Magic Eraser Tool	أداة الممحاة السحرية
 	Magic Wand Tool	أداة العصا السحرية
-	Marquee	تحديد
+	Marquee	إطار التحديد
 	Mean:	متوسط:
 	Measurement Scale	مقياس القياس
 	Measurement Scale Marker	علامة مقياس القياس
@@ -1633,7 +1633,7 @@
 	Paints from the document's opening state	يرسم من حالة فتح المستند
 	Path Selection Tool	أداة تحديد المسار
 	Direct Selection Tool	أداة التحديد المباشر
-	Pattern Overlay	تراكب النمط
+	Pattern Overlay	تراكب النقش
 	Pen Pressure	ضغط القلم
 	Pen Tilt	ميل القلم
 	Pen Tool	أداة القلم
@@ -1677,7 +1677,7 @@
 	SemiBold	نصف غامق
 	Shadows up to:	ظلال حتى:
 	Shape Dynamics	ديناميكيات الشكل
-	Sharpen Tool	أداة التحديد
+	Sharpen Tool	أداة تحسين الحدة
 	Show Extras Options	خيارات إظهار الإضافات
 	Slice Select Tool	أداة تحديد الشريحة
 	Slice Tool	أداة الشريحة
@@ -1862,7 +1862,7 @@
 	Screen resolution	دقة الشاشة
 	Scrubby slider acceleration	تسريع أشرطة التمرير السريعة
 	Sessions only	جلسات فقط
-	Sharpen for	تحديد لـ
+	Sharpen for	تحسين الحدة لـ
 	Show channels in color	إظهار القنوات بالألوان
 	Show crosshair in brush tip	إظهار علامة التصويب في طرف الفرشاة
 	Show extension panels	إظهار لوحات التمديد
@@ -1908,7 +1908,7 @@
 	Pass Through	مرور
 	Dissolve	ذوبان
 	Darker Color	لون أغمق
-	Linear Dodge (Add)	تفادي خطي (إضافة)
+	Linear Dodge (Add)	إنقاص الكثافة الخطي (إضافة)
 	Lighter Color	لون أفتح
 	Soft Light	ضوء ناعم
 	Hard Light	ضوء قوي
@@ -2066,7 +2066,7 @@
 	Chrome	كروم
 	Conté Crayon	قلم Conté
 	Graphic Pen	قلم رسومي
-	Halftone Pattern	نمط نصف نغمة
+	Halftone Pattern	نقش نصف نغمة
 	Note Paper	ورق ملاحظات
 	Photocopy	نسخ ضوئي
 	Plaster	جبس
@@ -2084,8 +2084,8 @@
 	Pencil	قلم رصاص
 	Clone Stamp	ختم الاستنساخ
 	Healing	معالجة
-	Dodge	تفتيح
-	Burn	تغميق
+	Dodge	إنقاص الكثافة
+	Burn	زيادة الكثافة
 	Pen	قلم
 	Hand	يد
 	Sampler	أداة أخذ العينات
@@ -2094,15 +2094,15 @@
 	Magnetic Lasso	لاسو مغناطيسي
 	History Brush	فرشاة السجل
 	Art History Brush	فرشاة السجل الفني
-	Pattern Stamp	ختم النمط
+	Pattern Stamp	ختم النقش
 	Spot Healing	معالجة موضعية
 	Red Eye	عين حمراء
 	Patch	رقعة
 	Content-Aware Move	نقل حسب المحتوى
 	Rotate View	تدوير العرض
-	Perspective Crop	قص منظور
+	Perspective Crop	اقتصاص منظوري
 	Color Replacement	استبدال اللون
-	Dodge/Burn	تفتيح/تغميق
+	Dodge/Burn	إنقاص/زيادة الكثافة
 	Dynamics	ديناميكيات
 	Tilt	ميل
 	Reset	إعادة تعيين
@@ -2149,7 +2149,7 @@
 	Industry Standard	معيار الصناعة
 	Uncoated CMYK	CMYK غير مطلي
 	Newspaper	صحيفة
-	Working Spaces	مساحات العمل
+	Working Spaces	مساحات الألوان العاملة
 	Color Management Policies	سياسات إدارة الألوان
 	Detect Faces	اكتشاف الوجوه
 	Localize Color Clusters	تحديد مواقع عناقيد الألوان
@@ -2177,8 +2177,8 @@
 	Keep view in sync	إبقاء العرض متزامناً
 	{zoom}%	{zoom}%
 	Mouse Controls	عناصر تحكم الماوس
-	Initial Direction of Stroke	الاتجاه الأولي للشدة
-	Direction of Stroke	اتجاه الشدة
+	Initial Direction of Stroke	الاتجاه الأولي للضربة
+	Direction of Stroke	اتجاه الضربة
 	Humidity	رطوبة
 	Auto Clean Brush	تنظيف الفرشاة تلقائياً
 	Spacing:	تباعد:
@@ -2246,10 +2246,10 @@
 	Quick Sync	مزامنة سريعة
 	Audio	صوت
 	Frame Duration	مدة الإطار
-	Loop	تكرار
+	Loop	حلقة
 	Split at Playhead	تقسيم عند رأس التشغيل
-	Flatten Frames Into Clips	تسوية الإطارات في مقاطع
-	Flatten Frames Into Layers	تسوية الإطارات في طبقات
+	Flatten Frames Into Clips	تسطيح الإطارات في مقاطع
+	Flatten Frames Into Layers	تسطيح الإطارات في طبقات
 	Convert Frames > Video Layers	تحويل الإطارات > طبقات فيديو
 	New Video Layer	طبقة فيديو جديدة
 	New Video Group	مجموعة فيديو جديدة
@@ -2363,7 +2363,7 @@
 	Errors	أخطاء
 	Settings	إعدادات
 	Settings:	إعدادات:
-	Working Space	مساحة العمل
+	Working Space	مساحة الألوان العاملة
 	RGB:	RGB:
 	CMYK:	CMYK:
 	Gray:	رمادي:
@@ -2653,15 +2653,15 @@ cameraRaw	Blending	دمج
 # Layer Style > Blending Options (Advanced Blending)
 	Blend If:	دمج إذا:
 	Channels:	قنوات:
-	Knockout	قص
+	Knockout	تفريغ
 	Apply At Canvas Bounds	تطبيق عند حدود لوحة الرسم
 
 # Shared screen eyedropper and text Color Picker (#1128).
 	Color Picker (Text Color)	منتقي الألوان (لون النص)
 	Color Picker (Fill Color)	منتقي الألوان (لون التعبئة)
 	Fill color	لون التعبئة
-	Color Picker (Stroke Color)	منتقي الألوان (لون الحدود)
-	Stroke color	لون الحدود
+	Color Picker (Stroke Color)	منتقي الألوان (لون الحدّ)
+	Stroke color	لون الحدّ
 	Pick screen color	اختيار لون الشاشة
 	Sample a pixel anywhere on the screen	أخذ عينة من بكسل في أي مكان على الشاشة
 	Click to pick · Esc to cancel	انقر للاختيار · Esc للإلغاء
@@ -2674,8 +2674,8 @@ cameraRaw	Blending	دمج
 
 # Fill dialog, layer style contours and Image Size
 	Contents:	محتويات:
-	Custom Pattern:	نمط مخصص:
-	Foreground Color	لون الأمامية
+	Custom Pattern:	نقش مخصص:
+	Foreground Color	لون المقدمة
 	Color…	لون…
 	50% Gray	رمادي 50%
 	{size} (was {old})	{size} (كان {old})
@@ -2723,7 +2723,7 @@ fontWeight	Black	أسود
 fontWeight	Italic	مائل
 
 # Pattern Stamp tool
-	Pattern Stamp Tool	أداة ختم النمط
+	Pattern Stamp Tool	أداة ختم النقش
 	Impressionist	انطباعي
 	Rotate View Tool	أداة تدوير العرض
 	Reset View	إعادة تعيين العرض
@@ -2765,7 +2765,7 @@ fontWeight	Italic	مائل
 	Never Show Overlay	عدم إظهار التراكب أبداً
 	Cycle Overlay	تبديل التراكب
 	Cycle Orientation	تبديل الاتجاه
-	Set the overlay options for the Crop tool	تعيين خيارات التراكب لأداة القص
+	Set the overlay options for the Crop tool	تعيين خيارات التراكب لأداة الاقتصاص
 	Alt-click went to the desktop, which moves windows with Alt-drag. Set its window-move key to Super, or latch Alt in Window › Modifier Keys.	تم اعتراض النقر مع Alt بواسطة سطح المكتب، الذي يحرك النوافذ بالسحب مع Alt. اضبط مفتاح تحريك النوافذ على Super، أو اقفل Alt في نافذة › مفاتيح التعديل.
 
 # Shared Layer Style color picker
@@ -2782,13 +2782,13 @@ fontWeight	Italic	مائل
 	Active	نشط
 	Color Picker (Solid Color)	منتقي الألوان (لون خالص)
 	Straighten the image by drawing a line on it	تسوية الصورة برسم خط عليها
-	Set additional Crop options	تعيين خيارات قص إضافية
-	Show Cropped Area	إظهار المنطقة المقصوصة
-	Enable Crop Shield	تمكين درع القص
+	Set additional Crop options	تعيين خيارات اقتصاص إضافية
+	Show Cropped Area	إظهار المنطقة المقتصة
+	Enable Crop Shield	تمكين درع الاقتصاص
 	Match Canvas	مطابقة لوحة الرسم
 	Auto Adjust Opacity	ضبط العتامة تلقائياً
-	Crop Shield color	لون درع القص
-	Color Picker (Crop Shield Color)	منتقي الألوان (لون درع القص)
+	Crop Shield color	لون درع الاقتصاص
+	Color Picker (Crop Shield Color)	منتقي الألوان (لون درع الاقتصاص)
 	From Center	من المركز
 	Link radii	ربط أنصاف الأقطار
 	Star Ratio:	نسبة النجمة:
@@ -2808,9 +2808,9 @@ fontWeight	Italic	مائل
 	Glow	توهج
 	Negation	نفي
 	XOR	XOR
-	Color Burn (Paint.NET)	حرق اللون (Paint.NET)
-	Color Dodge (Paint.NET)	تفادي اللون (Paint.NET)
-	Stroke Options	خيارات الحدود
+	Color Burn (Paint.NET)	زيادة كثافة اللون (Paint.NET)
+	Color Dodge (Paint.NET)	إنقاص كثافة اللون (Paint.NET)
+	Stroke Options	خيارات الحدّ
 	Solid	متصل
 	Dashed	متقطع
 	Dotted	منقط
@@ -2852,5 +2852,62 @@ fontWeight	Italic	مائل
 	Move Panel	تحريك اللوحة
 	Group with	تجميع مع
 	Panel menu	قائمة اللوحة
-	Resize panel تغيير حجم اللوحة
+	Resize panel	تغيير حجم اللوحة
 	Resize panels	تغيير حجم اللوحات
+# Strings added to main after this catalog was started (translated with the same glossary)
+	Background From Layer	خلفية من طبقة
+	Breeze Dark Theme	سمة Breeze الداكنة
+	Breeze Light Theme	سمة Breeze الفاتحة
+	Open EXR Parts…	فتح أجزاء EXR…
+	Reset All Tools	إعادة تعيين كل الأدوات
+	Reset Tool	إعادة تعيين الأداة
+	24 bits/pixel	24 بت/بكسل
+	32 bits/pixel	32 بت/بكسل
+	Add to favorites	إضافة إلى المفضلة
+	Appearance Settings…	إعدادات المظهر…
+	Block	مربع
+	Brush Name	اسم الفرشاة
+	Brush Stroke	ضربة الفرشاة
+	Click a segment to add an anchor point · {alt}-click an anchor to delete it	انقر على مقطع لإضافة نقطة ربط · انقر مع {alt} على نقطة ربط لحذفها
+	Click an anchor point to delete it · {alt}-click a segment to add one	انقر على نقطة ربط لحذفها · انقر مع {alt} على مقطع لإضافة نقطة
+	Click the first point or press {key} to close · {del} removes a point · Esc cancels	انقر على النقطة الأولى أو اضغط {key} للإغلاق · {del} يزيل نقطة · Esc للإلغاء
+	Click, then move along an edge · click to fasten a point · {alt}-click for a straight segment · double-click to close	انقر ثم تحرك على طول حافة · انقر لتثبيت نقطة · انقر مع {alt} لمقطع مستقيم · انقر نقراً مزدوجاً للإغلاق
+	Click: smooth point · Double-click: corner · Drag a point: move · Click first point: close · {key} finish	نقرة: نقطة منحنية · نقرة مزدوجة: زاوية · اسحب نقطة: تحريك · انقر النقطة الأولى: إغلاق · {key} إنهاء
+	Coated CMYK	CMYK للورق المطلي
+	Color & Swatches	اللون وعينات الألوان
+	Color Balance	توازن اللون
+	Color Picker ({name})	منتقي الألوان ({name})
+	Curve Fit:	ملاءمة المنحنى:
+	Delete Crop Preset…	حذف إعداد اقتصاص مسبق…
+	Don't Import	عدم الاستيراد
+	Drag: draw freehand · Release on the start point: close	اسحب: رسم حر · أفلت على نقطة البداية: إغلاق
+	Edit › Keyboard Shortcuts › Reset All to Defaults undoes an import.	تحرير › اختصارات لوحة المفاتيح › إعادة تعيين الكل إلى الافتراضي يلغي الاستيراد.
+	Enter a name for the crop preset	أدخل اسماً لإعداد الاقتصاص المسبق
+	Follows only edges this close to the pointer ([ and ] change it)	يتتبع الحواف القريبة من المؤشر بهذه المسافة فقط ([ و ] لتغييرها)
+	Higher values follow only edges that contrast sharply with their surroundings	القيم الأعلى تتتبع فقط الحواف شديدة التباين مع ما حولها
+	How often fastening points are placed by themselves	عدد مرات وضع نقاط التثبيت تلقائياً
+	Import keyboard shortcuts?	استيراد اختصارات لوحة المفاتيح؟
+	New Crop Preset…	إعداد اقتصاص مسبق جديد…
+	PhotoCraft — Screen Color Picker	PhotoCraft — منتقي ألوان الشاشة
+	Refine	تحسين
+	Remove from Recent	إزالة من الأخيرة
+	Remove from favorites	إزالة من المفضلة
+	Remove {name} from Recent	إزالة {name} من الأخيرة
+	Reset all tools to their default settings?	إعادة تعيين كل الأدوات إلى إعداداتها الافتراضية؟
+	Resize panel window	تغيير حجم نافذة اللوحة
+	Select the crop presets to delete	اختر إعدادات الاقتصاص المسبقة المراد حذفها
+	Select the crop presets to delete:	اختر إعدادات الاقتصاص المسبقة المراد حذفها:
+	Targa Options	خيارات Targa
+	The keyboard shortcut set was not imported: {error}	لم يتم استيراد مجموعة اختصارات لوحة المفاتيح: {error}
+	There is no crop size or ratio to save	لا يوجد حجم أو نسبة اقتصاص لحفظها
+	{w} {unit} x {h} {unit} ({ppi} ppi)	{w} {unit} × {h} {unit} ({ppi} ppi)
+	Color Detail	تفاصيل اللون
+cameraData	Make	الشركة المصنعة
+cameraData	Model	الطراز
+cameraData	Date Taken	تاريخ الالتقاط
+cameraData	Exposure	زمن التعريض
+cameraData	F-Stop	فتحة العدسة
+cameraData	ISO Speed	حساسية ISO
+cameraData	Focal Length	البعد البؤري
+cameraData	Focal Length (35 mm)	البعد البؤري (35 مم)
+cameraData	Lens	العدسة
