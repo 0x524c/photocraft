@@ -1,15 +1,39 @@
 # Used French (fr) TRANSLATION to add arabic here
 # Note that arabic is correct as long as you use UTF-8
 # There is some Text editors even in the late 2026 and still fail to render arabic correctly (Sublime Text)
+# if arabic appear wrong here its your app fault, The file is still correct.
 # Used with the help of AI, because im not translating all of this!
 #
 #
-#
-# Use Notepad++ HERE FOR CORRECT ARABIC TEXT
-#
+# Use Notepad++ HERE FOR CORRECT ARABIC TEXT or VS Code.
 #
 #
+# Arabic (ar) catalog. Columns, separated by a TAB:  context <TAB> source <TAB> translation
+# Based on the French (fr) catalog; same context kinds (empty, @id, @plural, named contexts).
+# A native Arabic speaker should review it.
 #
+# Editing: save as UTF-8 (no BOM) with LF line endings.
+
+# Never reverse the text or add invisible RTL marks to fix how it looks.
+#
+# FILE RULES
+#   - Three TAB-separated columns. Rows with no context still start with a TAB.
+#   - {n}, {name}, {key} and other placeholders must match the English. Their order may change.
+#   - The trailing "…" must match the English. Use the single character "…", not "...".
+#   - @plural has 6 forms: zero|one|two|few|many|other
+#       3-10: plural noun | 11-99: singular + tanween | 100+: plain singular
+#   - Keep key names (Alt, Ctrl, Shift), product names (PhotoCraft, GitHub, OpenType),
+#     technical acronyms (RGB, CMYK) and file formats in Latin letters.
+#   - Use Arabic punctuation (، ؟ ؛) and Western digits (0-9), as in the English.
+#   - Every English key appears once per context. No duplicates.
+#
+# TRANSLATION RULES
+#   - Translate the meaning, not the words (Sharpen is not "select"; Greens is a colour range).
+#   - One English term = one Arabic term, and the reverse. Do not reuse one word for
+#     different English terms (Cut / Crop / Knockout, Revert / Restore, Filter / Type).
+#   - Commands use the verbal noun (فتح، حفظ، إغلاق). Menus use nouns.
+#   - Modern Standard Arabic only. No slang. Use established technical terms (بكسل).
+
 	File	ملف
 	Edit	تعديل
 	Image	صورة
