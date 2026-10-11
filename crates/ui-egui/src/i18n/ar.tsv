@@ -926,7 +926,7 @@
 	Delete current channel	حذف القناة الحالية
 	Delete current state	حذف الحالة الحالية
 	Delete effect layer	حذف طبقة التأثير
-	
+
 # Layers-panel trash confirmation
 	Delete layer ‘{name}’?	حذف الطبقة '{name}'؟
 	Delete {count} layers? {names}	حذف {count} طبقات؟ {names}
@@ -1106,7 +1106,7 @@
 	Levels	مستويات
 	Lighten	تفتيح
 	Lightness	خفة
-	Lights	إضاءات
+	Lights	الأضواء
 	Limits:	حدود:
 	Linear Gradient	تدرج خطي
 	Link layers	ربط الطبقات
@@ -2534,7 +2534,7 @@
 cameraRaw	Light	ضوء
 	Camera Raw Filter ({layer})	مرشح Camera Raw ({layer})
 	Camera Raw ({name})	Camera Raw ({name})
-cameraRaw	Lights	إضاءات
+cameraRaw	Lights	الضوء
 cameraRaw	Darks	درجات داكنة
 cameraRaw	Blacks	سود
 cameraRaw	Amount	كمية
