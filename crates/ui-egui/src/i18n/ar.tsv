@@ -2830,3 +2830,46 @@ fontWeight	Italic	مائل
 	Panel menu	قائمة اللوحة
 	Resize panel تغيير حجم اللوحة
 	Resize panels	تغيير حجم اللوحات
+	Open EXR Parts…	فتح أجزاء EXR…
+	Add beauty precomp from the AOVs	إضافة تركيبة مسبقة للجمال من قنوات AOV
+	Remove from Recent	إزالة من الملفات الحديثة
+	Remove {name} from Recent	إزالة {name} من الملفات الحديثة
+	Background From Layer	خلفية من الطبقة
+	80%	80%
+	85%	85%
+	90%	90%
+	95%	95%
+	Breeze dark	Breeze داكن
+	Breeze Dark Theme	سمة Breeze الداكنة
+	Breeze light	Breeze فاتح
+	Breeze Light Theme	سمة Breeze الفاتحة
+	Coated CMYK	CMYK ورق مصقول
+	Color & Swatches	اللون وعينات الألوان
+	Color Balance	توازن اللون
+	Color Detail	تفاصيل اللون
+	Refine	تحسين
+	Import keyboard shortcuts?	هل تريد استيراد اختصارات لوحة المفاتيح؟
+	PhotoCraft found your keyboard shortcut set {set} from another image editor on this computer: {n} of its shortcuts differ from PhotoCraft's. Import it?	عثر PhotoCraft على مجموعة اختصارات لوحة المفاتيح {set} من محرر صور آخر على هذا الكمبيوتر: {n} من اختصاراتها تختلف عن اختصارات PhotoCraft. هل تريد استيرادها؟
+	Edit › Keyboard Shortcuts › Reset All to Defaults undoes an import.	تحرير › اختصارات لوحة المفاتيح › إعادة تعيين الكل إلى الافتراضي يلغي الاستيراد.
+	Don't Import	عدم الاستيراد
+	The keyboard shortcut set was not imported: {error}	لم يتم استيراد مجموعة اختصارات لوحة المفاتيح: {error}
+	Block	كتلة
+	Single Row Marquee Tool	أداة تحديد صف واحد
+	Single Column Marquee Tool	أداة تحديد عمود واحد
+	Could not complete the Free Transform command because the layer is locked.	تعذر إكمال أمر التحويل الحر لأن الطبقة مقفلة.
+{w} {unit} x {h} {unit} ({ppi} ppi)	{w} {unit} × {h} {unit} ({ppi} بكسل/بوصة)
+	Show canvas dots	إظهار نقاط لوحة الرسم
+	Show highlight on rollover	إظهار التمييز عند التمرير فوقه
+	Rasterize Layer Style	تحويل نمط الطبقة إلى نقطية
+	Brush Name	اسم الفرشاة
+	Brush Stroke	ضربة الفرشاة
+	Saved {name}	تم حفظ {name}
+	Color Picker ({name})	منتقي الألوان ({name})
+	PhotoCraft — Screen Color Picker	PhotoCraft — منتقي ألوان الشاشة
+	Appearance Settings…	إعدادات المظهر…
+	Add to favorites	إضافة إلى المفضلة
+	Remove from favorites	إزالة من المفضلة
+cameraData	Date Taken	تاريخ الالتقاط
+cameraData	F-Stop	فتحة العدسة
+cameraData	Focal Length (35 mm)	البعد البؤري (35 مم)
+	Resize panel window	تغيير حجم نافذة اللوحة
