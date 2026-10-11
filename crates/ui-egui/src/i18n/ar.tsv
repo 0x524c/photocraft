@@ -927,7 +927,7 @@
 	Delete current state	حذف الحالة الحالية
 	Delete effect layer	حذف طبقة التأثير
 	
-	# Layers-panel trash confirmation
+# Layers-panel trash confirmation
 	Delete layer ‘{name}’?	حذف الطبقة '{name}'؟
 	Delete {count} layers? {names}	حذف {count} طبقات؟ {names}
 	Delete layer?	حذف الطبقة؟
