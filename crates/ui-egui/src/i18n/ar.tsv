@@ -11,7 +11,7 @@
 #
 #
 	File	ملف
-	Edit	تحرير
+	Edit	تعديل
 	Image	صورة
 	Layer	طبقة
 	Type	نص
@@ -22,7 +22,7 @@
 	Top Right	أعلى اليمين
 	Bottom Left	أسفل اليسار
 	Bottom Right	أسفل اليمين
-	Filter	مرشح
+	Filter	الفلتر
 	View	عرض
 	Window	نافذة
 	Help	مساعدة
@@ -39,7 +39,7 @@
 	Close All	إغلاق الكل
 	Close Others	إغلاق الأخرى
 	Save	حفظ
-	Save As…	حفظ باسم…
+	Save As…	حفظ كـ...
 	Save a Copy…	حفظ نسخة…
 	Revert	استعادة
 	Export	تصدير
