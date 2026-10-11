@@ -1702,9 +1702,9 @@
 	BLANK DOCUMENT PRESETS ({n})	إعدادات مسبقة لمستند فارغ ({n})
 	Constraints ({n})	قيود ({n})
 	Align {what}	محاذاة {what}
-	@plural	{n} Layer|{n} Layers	{n} طبقة|{n} طبقة|{n} طبقتان|{n} طبقات|{n} طبقةً|{n} طبقات
-	@plural	{n} layer|{n} layers	{n} طبقة|{n} طبقة|{n} طبقتان|{n} طبقات|{n} طبقةً|{n} طبقات
-	@plural	Group · {n} layer|Group · {n} layers	مجموعة · {n} طبقة|مجموعة · {n} طبقة|مجموعة · {n} طبقتان|مجموعة · {n} طبقات|مجموعة · {n} طبقةً|مجموعة · {n} طبقات
+@plural	{n} Layer|{n} Layers	{n} طبقة|{n} طبقة|{n} طبقتان|{n} طبقات|{n} طبقةً|{n} طبقات
+@plural	{n} layer|{n} layers	{n} طبقة|{n} طبقة|{n} طبقتان|{n} طبقات|{n} طبقةً|{n} طبقات
+@plural	Group · {n} layer|Group · {n} layers	مجموعة · {n} طبقة|مجموعة · {n} طبقة|مجموعة · {n} طبقتان|مجموعة · {n} طبقات|مجموعة · {n} طبقةً|مجموعة · {n} طبقات
 	Additional plugins folder	مجلد الإضافات الإضافي
 	Adobe	Adobe
 	Adobe rgb	Adobe RGB
