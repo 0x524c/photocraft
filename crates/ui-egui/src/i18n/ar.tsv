@@ -14,7 +14,7 @@
 	Edit	تعديل
 	Image	صورة
 	Layer	طبقة
-	Type	نص
+	Type	كتابة
 	Select	تحديد
 	Selected	محدد
 	Scope	نطاق
@@ -113,7 +113,7 @@
 	Transform	تحويل
 	Again	مرة أخرى
 	Scale	تحجيم
-	Rotate	تدوير
+	Rotate	تدوير/شقلبة
 	Skew	إمالة
 	Distort	تشويه
 	Perspective	منظور
@@ -168,7 +168,7 @@
 	Raw Defaults…	إعدادات Raw الافتراضية…
 	Integrations…	تكاملات…
 	AI Integrations…	تكاملات الذكاء الاصطناعي…
-	Install Plug-in…	تثبيت إضافة…
+	Install Plug-in…	تثبيت Plug-in
 	Language Options	خيارات اللغة
 	Settings…	إعدادات…
 	Mode	وضع
