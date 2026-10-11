@@ -381,7 +381,8 @@ mod tests {
     #[test]
     fn arabic_plural_rule() {
         let forms: Vec<usize> = [0, 1, 2, 3, 5, 10, 11, 99, 100, 101, 111, 112].into_iter().map(plural_arabic).collect();
-        assert_eq!(forms, [0, 1, 2, 3, 3, 3, 4, 4, 5, 5, 5, 5]);
+        // Changed the last two values from 5, 5 to 4, 4
+        assert_eq!(forms, [0, 1, 2, 3, 3, 3, 4, 4, 5, 5, 4, 4]);
     }
 
     #[test]

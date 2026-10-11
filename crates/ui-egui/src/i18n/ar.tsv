@@ -1891,7 +1891,7 @@
 	Pin Light	ضوء دبوس
 	Exclusion	استبعاد
 	Divide	قسمة
-Luminosity	لمعان
+	Luminosity	لمعان
 @plural	{n} sample|{n} samples	{n} عينة|{n} عينة|{n} عينتان|{n} عينات|{n} عينةً|{n} عينات
 	{added}, {removed} subtracted	{added}، {removed} مطروحة
 	Adjustment Preview	معاينة التعديل
@@ -2788,3 +2788,14 @@ fontWeight	Italic	مائل
 	Quick Selection found nothing there	لم يجد التحديد السريع شيئاً هناك
 	Object Selection found nothing there — try a tighter rectangle	لم يجد تحديد الكائن شيئاً هناك — جرب مستطيلاً أضيق
 	No subject found — try a rectangle around the object	لم يتم العثور على موضوع — جرب مستطيلاً حول الكائن
+	Background From Layer	خلفية من الطبقة
+	Breeze Dark Theme	سمة Breeze الداكنة
+	Breeze Light Theme	سمة Breeze الفاتحة
+	Next Document	المستند التالي
+	Previous Document	المستند السابق
+	Open EXR Parts…	فتح أجزاء EXR…
+	Show in Explorer	إظهار في المستكشف
+	Color Detail	تفاصيل اللون
+	Search settings…	بحث في الإعدادات…
+	Stroke Options	خيارات الحدود
+	Reveal	إظهار
