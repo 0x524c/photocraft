@@ -79,6 +79,8 @@
 	Import	استيراد
 	Browse…	تصفح…
 	Reveal in Finder	إظهار في Finder
+	Show in Explorer	العرض في Explorer
+	Show in Folder	العرض في مجلد
 	File Info…	معلومات الملف…
 	Print…	طباعة…
 	Print One Copy	طباعة نسخة واحدة
@@ -2784,18 +2786,35 @@ fontWeight	Italic	مائل
 	XOR	XOR
 	Color Burn (Paint.NET)	حرق اللون (Paint.NET)
 	Color Dodge (Paint.NET)	تفادي اللون (Paint.NET)
+	Stroke Options	خيارات الحدود
+	Solid	متصل
+	Dashed	متقطع
+	Dotted	منقط
+	Caps	أطراف
+	Butt / Flat	مسطح
+	Corners	زوايا
+	Miter	زاوية حادة
+	Round	مستدير
+	Bevel	مشطوف
+	Miter limit	حد الزاوية الحادة
+	Dashed line	خط متقطع
+	Dash	شرطة
+	Gap	فجوة
+	Dash / gap lengths × stroke width	أطوال الشرطات / الفجوات × عرض الحد
+	Add pair	إضافة زوج
+	Remove pair	إزالة زوج
+	Dash offset	إزاحة الشرطة
+	Open paths use centered strokes	المسارات المفتوحة تستخدم حدوداً مركزية
+	Use finite lengths and a positive pattern total	استخدام أطوال محدودة ومجموع نمط موجب
 	No subject found — try Object Selection or the Lasso	لم يتم العثور على موضوع — جرب تحديد الكائن أو اللاسو
 	Quick Selection found nothing there	لم يجد التحديد السريع شيئاً هناك
 	Object Selection found nothing there — try a tighter rectangle	لم يجد تحديد الكائن شيئاً هناك — جرب مستطيلاً أضيق
 	No subject found — try a rectangle around the object	لم يتم العثور على موضوع — جرب مستطيلاً حول الكائن
-	Background From Layer	خلفية من الطبقة
-	Breeze Dark Theme	سمة Breeze الداكنة
-	Breeze Light Theme	سمة Breeze الفاتحة
+	Use Classic Mode	استخدام الوضع الكلاسيكي
+	Auto Center Preview	توسيط المعاينة تلقائياً
 	Next Document	المستند التالي
 	Previous Document	المستند السابق
-	Open EXR Parts…	فتح أجزاء EXR…
-	Show in Explorer	إظهار في المستكشف
-	Color Detail	تفاصيل اللون
+	W x H x Resolution	العرض × الارتفاع × الدقة
+	Front Image	الصورة الأمامية
 	Search settings…	بحث في الإعدادات…
-	Stroke Options	خيارات الحدود
-	Reveal	إظهار
+	No matching settings	لا توجد إعدادات مطابقة
