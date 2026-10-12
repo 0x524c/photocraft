@@ -202,10 +202,10 @@
 	Lab Color	Laboratuvar Rengi
 	Multichannel	Çok kanallı
 	8 Bits/Channel	8 Bit/Kanal
-	8 bit	8 bit
+	8 bit	8 Bit
 	Integer	Tamsayı
 	16 Bits/Channel	16 Bit/Kanal
-	16 bit	16 bit
+	16 bit	16 Bit
 	32 Bits/Channel	32 Bit/Kanal
 	32 bit (float)	32 bit (kayan)
 	Floating point	Kayan nokta
@@ -3782,3 +3782,6 @@ cameraData	Lens	Lens
 @plural	{n} step|{n} steps	{n} adım
 @plural	{warning} (+{n} more brush preset warning)|{warning} (+{n} more brush preset warnings)	{warning} (+{n} fırça ön ayarı uyarısı daha)
 @plural	{what} with {n} warning|{what} with {n} warnings	{what}, {n} uyarı ile
+
+
+	Enable animations	Animasyonları etkinleştir
