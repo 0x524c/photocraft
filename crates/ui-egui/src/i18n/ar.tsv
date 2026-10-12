@@ -1571,7 +1571,6 @@
 	Letter	خطاب
 	Light	فاتح
 	Line Tool	أداة الخط
-	Linear	خطي
 	Linear Burn	زيادة الكثافة الخطية
 	Linear Height	ارتفاع خطي
 	Link with Layer	ربط مع الطبقة
@@ -2970,10 +2969,8 @@ cameraData	Lens	العدسة
 	Cove	تجويف
 	Ring	حلقة
 	Ring - Double	حلقة مزدوجة
-	Custom	مخصص
 	Half Round	نصف دائري
 	Diagonal (Descending)	قطري (تنازلي)
 	Rolling Slope - Descending	منحدر متدحرج - تنازلي
 	Rounded Steps	درجات مستديرة
 	Sawtooth 1	منشاري 1
-   	Linear	خطي
