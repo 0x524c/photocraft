@@ -115,6 +115,22 @@ fn plural_polish(n: u64) -> usize {
     }
 }
 
+/// Arabic (CLDR): zero (0), one (1), two (2), `few` when the last two digits are 3–10
+/// (3–10, 103–110…), `many` when they are 11–99 (11–99, 111–199…) and everything else
+/// (100, 101, 102…) otherwise. Six forms, in that order in every `@plural` row.
+fn plural_arabic(n: u64) -> usize {
+    match n {
+        0 => 0,
+        1 => 1,
+        2 => 2,
+        _ => match n % 100 {
+            3..=10 => 3,
+            11..=99 => 4,
+            _ => 5,
+        },
+    }
+}
+
 /// A catalog file as packed by build.rs (`pack_catalogs`; the binary would otherwise carry ~2.2 MB
 /// of translations, which the web build's size gate can't afford). See [`unpack`].
 macro_rules! catalog {
@@ -220,6 +236,9 @@ pub static LANGUAGES: [LangInfo; 21] = [
     LangInfo { code: "tr", name: "Türkçe", source: catalog!("tr"), plural: plural_none, complete_menus: true, catalog: OnceLock::new() },
     // Vietnamese; `vi-VN` resolves here.
     LangInfo { code: "vi", name: "Tiếng Việt", source: catalog!("vi"), plural: plural_none, complete_menus: true, catalog: OnceLock::new() },
+    // العربية: the whole interface with six-form plurals; it reads right-to-left (see
+    // [`dir_for_code`] and [`crate::direction`]), so the shell mirrors for it.
+    LangInfo { code: "ar", name: "العربية", source: catalog!("ar"), plural: plural_arabic, complete_menus: true, catalog: OnceLock::new() },
 ];
 
 impl LangInfo {
