@@ -1947,6 +1947,7 @@ navigator	Zoom	Nagyítás mértéke
 	Burlap	Zsákvászon
 	Camera Calibration	Fényképezőgép-kalibráció
 	Cancel (Esc)	Mégse (Esc)
+	Manage submitted jobs in the system print queue	Az elküldött feladatok kezelése a rendszer nyomtatási sorában
 	Candle Light	Gyertyaláng
 	Cell Size	Cellaméret
 	Center X	Középpont X
@@ -3161,6 +3162,7 @@ cameraRaw	Yellow	Sárga
 	Ellipse Tool	Ellipszis
 	Elliptical Marquee Tool	Ellipszis-kijelölés
 	Enable	Bekapcsolás
+	Enable animations	Animációk engedélyezése
 	Enable flick panning	Lendítéses pásztázás engedélyezése
 	Enable floating document window docking	Lebegő dokumentumablakok dokkolásának engedélyezése
 	Enable narrow options bar	Keskeny beállítósáv engedélyezése
@@ -3970,4 +3972,24 @@ cameraRaw	Yellow	Sárga
 	Transform On Drop	Átalakítás elengedéskor
 	Vanishing Point is not active	Az Enyészpont nem aktív
 	Vanishing Point: click four corners to create a plane	Enyészpont: sík létrehozásához kattintson a négy sarokra
-	Enable animations	Animációk engedélyezése
+
+# Actions panel: Load/Save Actions (.atn) and kept Photoshop steps
+	Load Actions…	Műveletek betöltése…
+	Save Actions…	Műveletek mentése…
+	{name} (Photoshop)	{name} (Photoshop)
+	{message} ({note})	{message} ({note})
+@plural	Loaded {n} action from {file}|Loaded {n} actions from {file}	{n} művelet betöltve. Forrás: {file}
+@plural	{n} step has no PhotoCraft equivalent yet|{n} steps have no PhotoCraft equivalent yet	{n} lépésnek még nincs megfelelője a PhotoCraftban
+@plural	Saved {n} action to {file}|Saved {n} actions to {file}	{n} művelet mentve. Cél: {file}
+@plural	{n} step with no Photoshop equivalent left out|{n} steps with no Photoshop equivalent left out	{n} Photoshop-megfelelő nélküli lépés kihagyva
+
+# Actions panel: set folders, dialog toggle, Insert Stop
+	Insert Stop…	Leállítás beszúrása…
+	Save Set…	Készlet mentése…
+	Message:	Üzenet:
+	Allow Continue	Folytatás engedélyezése
+	Show dialog during playback	Párbeszédablak megjelenítése lejátszáskor
+	Select an action first	Először válasszon ki egy műveletet
+	Action playback stopped	A művelet lejátszása leállt
+	Step {step} is waiting for its dialog	A(z) {step}. lépés a párbeszédablakára vár
+@plural	{n} action|{n} actions	{n} művelet

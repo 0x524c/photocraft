@@ -207,7 +207,7 @@
 	16 Bits/Channel	16 Bit/Kanal
 	16 bit	16 Bit
 	32 Bits/Channel	32 Bit/Kanal
-	32 bit (float)	32 bit (kayan)
+	32 bit (float)	32 bitlik (kayan noktalı)
 	Floating point	Kayan nokta
 	Color Table…	Renk Tablosu…
 	Bitmap…	Bit eşlem…
@@ -852,6 +852,7 @@
 	Cancel	İptal
 	Reset	Sıfırla
 	Cancel (Esc)	İptal (Esc)
+	Manage submitted jobs in the system print queue	Gönderilen işleri sistem yazdırma kuyruğunda yönetin
 	Cancel any current edits (Esc)	Mevcut düzenlemeleri iptal et (Esc)
 	Cancel current crop operation  (Esc)	Geçerli kırpma işlemini iptal et (Esc)
 	Cancel transform (Esc)	Dönüşümü iptal et (Esc)
@@ -2422,6 +2423,7 @@ cameraRaw	Color	Renk
 	Remove All	Tümünü Kaldır
 	Unlock	Kilidi aç
 	Enable	Etkinleştir
+	Enable animations	Animasyonları etkinleştir
 	Disable	Devre dışı bırak
 	On	Açık
 	Selected	Seçilen
@@ -3784,4 +3786,24 @@ cameraData	Lens	Lens
 @plural	{what} with {n} warning|{what} with {n} warnings	{what}, {n} uyarı ile
 
 
-	Enable animations	Animasyonları etkinleştir
+
+# Actions panel: Load/Save Actions (.atn) and kept Photoshop steps
+	Load Actions…	Eylemleri Yükle…
+	Save Actions…	Eylemleri Kaydet…
+	{name} (Photoshop)	{name} (Photoshop)
+	{message} ({note})	{message} ({note})
+@plural	Loaded {n} action from {file}|Loaded {n} actions from {file}	{file} dosyasından {n} eylem yüklendi
+@plural	{n} step has no PhotoCraft equivalent yet|{n} steps have no PhotoCraft equivalent yet	{n} adımın PhotoCraft’ta henüz karşılığı yok
+@plural	Saved {n} action to {file}|Saved {n} actions to {file}	{n} eylem {file} dosyasına kaydedildi
+@plural	{n} step with no Photoshop equivalent left out|{n} steps with no Photoshop equivalent left out	Photoshop karşılığı olmayan {n} adım atlandı
+
+# Actions panel: set folders, dialog toggle, Insert Stop
+	Insert Stop…	Durdurma Ekle…
+	Save Set…	Seti Kaydet…
+	Message:	İleti:
+	Allow Continue	Devam Etmeye İzin Ver
+	Show dialog during playback	Oynatma sırasında iletişim kutusunu göster
+	Select an action first	Önce bir eylem seçin
+	Action playback stopped	Eylem oynatma durduruldu
+	Step {step} is waiting for its dialog	{step}. adım iletişim kutusunu bekliyor
+@plural	{n} action|{n} actions	{n} eylem

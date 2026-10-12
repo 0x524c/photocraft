@@ -2994,3 +2994,25 @@ curves	Smooth	تنعيم
 	Remove after each stroke	إزالة بعد كل حد
 	Apply the removal ({key})	تطبيق الإزالة ({key})
 	Strokes to remove: {n} (Enter applies, Esc cancels)	حدود للإزالة: {n} (Enter يطبق، Esc يلغي)
+
+# Actions panel: Load/Save Actions (.atn) and kept Photoshop steps
+	Load Actions…	تحميل الإجراءات…
+	Save Actions…	حفظ الإجراءات…
+	{name} (Photoshop)	{name} (Photoshop)
+@plural	Loaded {n} action from {file}|Loaded {n} actions from {file}	تم تحميل {n} إجراء من {file}|تم تحميل {n} إجراء من {file}|تم تحميل {n} إجراءين من {file}|تم تحميل {n} إجراءات من {file}|تم تحميل {n} إجراءً من {file}|تم تحميل {n} إجراء من {file}
+@plural	{n} step has no PhotoCraft equivalent yet|{n} steps have no PhotoCraft equivalent yet	{n} خطوة ليس لها مقابل في PhotoCraft بعد|{n} خطوة ليس لها مقابل في PhotoCraft بعد|{n} خطوتان ليس لهما مقابل في PhotoCraft بعد|{n} خطوات ليس لها مقابل في PhotoCraft بعد|{n} خطوة ليس لها مقابل في PhotoCraft بعد|{n} خطوة ليس لها مقابل في PhotoCraft بعد
+@plural	Saved {n} action to {file}|Saved {n} actions to {file}	تم حفظ {n} إجراء في {file}|تم حفظ {n} إجراء في {file}|تم حفظ {n} إجراءين في {file}|تم حفظ {n} إجراءات في {file}|تم حفظ {n} إجراءً في {file}|تم حفظ {n} إجراء في {file}
+@plural	{n} step with no Photoshop equivalent left out|{n} steps with no Photoshop equivalent left out	تم استبعاد {n} خطوة بلا مقابل في Photoshop|تم استبعاد {n} خطوة بلا مقابل في Photoshop|تم استبعاد {n} خطوتين بلا مقابل في Photoshop|تم استبعاد {n} خطوات بلا مقابل في Photoshop|تم استبعاد {n} خطوة بلا مقابل في Photoshop|تم استبعاد {n} خطوة بلا مقابل في Photoshop
+
+# Actions panel: set folders, dialog toggle, Insert Stop
+	Insert Stop…	إدراج توقف…
+	Save Set…	حفظ المجموعة…
+	Message:	الرسالة:
+	Allow Continue	السماح بالمتابعة
+	Show dialog during playback	إظهار الحوار أثناء التشغيل
+	Select an action first	حدد إجراءً أولًا
+	Action playback stopped	تم إيقاف تشغيل الإجراء
+@plural	{n} action|{n} actions	{n} إجراء|{n} إجراء|{n} إجراءان|{n} إجراءات|{n} إجراءً|{n} إجراء
+
+# Print queue tooltip
+	Manage submitted jobs in the system print queue	إدارة المهام المُرسلة في قائمة انتظار الطباعة بالنظام
