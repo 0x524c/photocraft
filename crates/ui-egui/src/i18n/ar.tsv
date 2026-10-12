@@ -1,31 +1,10 @@
-# Use Notepad++ HERE FOR CORRECT ARABIC TEXT or VS Code.
+# Arabic (ar) localization catalog.
+# Format: context <TAB> source <TAB> translation (plain rows start with a TAB).
+# Plural rules (CLDR): zero|one|two|few|many|other.
 #
-#
-# Arabic (ar) catalog. Columns, separated by a TAB:  context <TAB> source <TAB> translation
-# Based on the French (fr) catalog; same context kinds (empty, @id, @plural, named contexts).
-# A native Arabic speaker should review it.
-#
-# Editing: save as UTF-8 (no BOM) with LF line endings.
-
-# Never reverse the text or add invisible RTL marks to fix how it looks.
-#
-# FILE RULES
-#   - Three TAB-separated columns. Rows with no context still start with a TAB.
-#   - {n}, {name}, {key} and other placeholders must match the English. Their order may change.
-#   - The trailing "…" must match the English. Use the single character "…", not "...".
-#   - @plural has 6 forms: zero|one|two|few|many|other
-#       3-10: plural noun | 11-99: singular + tanween | 100+: plain singular
-#   - Keep key names (Alt, Ctrl, Shift), product names (PhotoCraft, GitHub, OpenType),
-#     technical acronyms (RGB, CMYK) and file formats in Latin letters.
-#   - Use Arabic punctuation (، ؟ ؛) and Western digits (0-9), as in the English.
-#   - Every English key appears once per context. No duplicates.
-#
-# TRANSLATION RULES
-#   - Translate the meaning, not the words (Sharpen is not "select"; Greens is a colour range).
-#   - One English term = one Arabic term, and the reverse. Do not reuse one word for
-#     different English terms (Cut / Crop / Knockout, Revert / Restore, Filter / Type).
-#   - Commands use the verbal noun (فتح، حفظ، إغلاق). Menus use nouns.
-#   - Modern Standard Arabic only. No slang. Use established technical terms (بكسل).
+# This catalog was initially machine-assisted from the French (fr) catalog
+# and requires review by a native Arabic speaker for accuracy, particularly
+# regarding specialist terminology and plural forms.
 
 	File	ملف
 	Edit	تعديل
@@ -2904,3 +2883,85 @@ cameraData	ISO Speed	حساسية ISO
 cameraData	Focal Length	البعد البؤري
 cameraData	Focal Length (35 mm)	البعد البؤري (35 مم)
 cameraData	Lens	العدسة
+	(No neutral color exists for {mode} mode.)	(لا يوجد لون محايد لوضع {mode}.)
+	Add New Artboard	إضافة لوح رسم جديد
+	Amount:	الكمية:
+	Anti-aliased	تنعيم الحواف
+	Apply Vanishing Point ({key})	تطبيق نقطة التلاشي ({key})
+	Automatic	تلقائي
+	Bicubic Sharper (reduction)	ثنائي التكعيب أكثر حدة (تصغير)
+	Bicubic Smoother (enlargement)	ثنائي التكعيب أكثر نعومة (تكبير)
+	Bottom:	الأسفل:
+	Center Columns	أعمدة الوسط
+	Clear Brush Strokes	مسح ضربات الفرشاة
+	Clear Existing Guides	مسح الأدلة الموجودة
+	Click to place · Alt-click or drag off-canvas to remove	انقر للوضع · انقر بزر Alt أو اسحب خارج اللوحة للإزالة
+	Click: corner · Drag: smooth · {alt}-drag: break handle · Click or drag first point: close · {key} finish · Esc cancel	انقر: زاوية · اسحب: ناعم · سحب {alt}: كسر المقبض · انقر أو اسحب النقطة الأولى: إغلاق · {key} إنهاء · Esc إلغاء
+	Cone - Inverted	مخروط - مقلوب
+	Contour Editor	محرر المحيط
+	Corner	زاوية
+	Create a new elliptical frame	إنشاء إطار بيضاوي جديد
+	Create a new rectangular frame	إنشاء إطار مستطيل جديد
+	Drag a box or click four corners · drag the corners onto the edges of a skewed shape · {commit} commits · Esc cancels	اسحب مربعاً أو انقر على أربع زوايا · اسحب الزوايا على حواف شكل مائل · {commit} تطبيق · Esc إلغاء
+	Drag to draw the curve · {key}-click draws a straight line	اسحب لرسم المنحنى · انقر مع {key} لرسم خط مستقيم
+	Drag: draw freehand · {alt}-click: straight segment · Release on the start point: close	اسحب: رسم حر · انقر مع {alt}: مقطع مستقيم · افلت على نقطة البداية: إغلاق
+	Draw to modify the curve	ارسم لتعديل المنحنى
+	Edit points to modify the curve	حرر النقاط لتعديل المنحنى
+	Emulsion Down	المستحلب للأسفل
+	Expand Detection Area	توسيع منطقة الاكتشاف
+	F cycles the views; hold X to see the image	F يدور بين طرق العرض؛ امسك X لرؤية الصورة
+	Fill with {mode}-neutral color (50% gray)	تعبئة بلون محايد لـ {mode} (رمادي 50%)
+	Fill with {mode}-neutral color (black)	تعبئة بلون محايد لـ {mode} (أسود)
+	Fill with {mode}-neutral color (white)	تعبئة بلون محايد لـ {mode} (أبيض)
+	Fix the red plane first: its corners must form a convex quad	أصلح المستوى الأحمر أولاً: يجب أن تشكل زواياه شكلاً رباعياً محدباً
+	Functions	الدوال
+	Grid Size:	حجم الشبكة:
+	Include in playback	تضمين في التشغيل
+	Invalid guide layout	تخطيط دليل غير صالح
+	Leave empty for automatic size	اتركه فارغاً للحجم التلقائي
+	Left:	اليسار:
+	Light Blue	أزرق فاتح
+	Light Gray	رمادي فاتح
+	Light Red	أحمر فاتح
+	Loading fonts…	جارٍ تحميل الخطوط…
+	Make Landscape	تحويل إلى أفقي
+	Make Portrait	تحويل إلى عمودي
+	Marching Ants	النمل المتحرك
+	Margin	الهامش
+	Medium Blue	أزرق متوسط
+	New Layer	طبقة جديدة
+	No document open	لا يوجد مستند مفتوح
+	Number	الرقم
+	On Black	على الأسود
+	On Layers	على الطبقات
+	On White	على الأبيض
+	Onion Skin	طبقة البصل
+	Opened {name}	تم فتح {name}
+	Paint over hair or fur on the image; Alt paints the other mode	ارسم فوق الشعر أو الفرو على الصورة؛ Alt يرسم الوضع الآخر
+	Print Resolution:	دقة الطباعة:
+	Pro Light Gray Theme	سمة رمادي فاتح احترافية
+	Pro Light Theme	سمة فاتحة احترافية
+	Protect skin tones	حماية درجات لون البشرة
+	Protect:	حماية:
+	Refine Edge Brush (R)	فرشاة تنعيم الحافة (R)
+	Restore Original Edge	استعادة الحافة الأصلية
+	Right:	اليمين:
+	Rows	الصفوف
+	Saving {percent}	جارٍ الحفظ {percent}
+	Scale or rotate the moved area, then press {key}	قم بتحجيم أو تدوير المنطقة المنقولة، ثم اضغط على {key}
+	Scale:	المقياس:
+	Show Edge	إظهار الحافة
+	Show Grid	إظهار الشبكة
+	Show Original	إظهار الأصل
+	Slant	الميل
+	Smooth the curve values	تنعيم قيم المنحنى
+	Snap to Origin	محاذاة إلى نقطة الأصل
+	Target:	الهدف:
+	The layer or its mask changed. Drag the mask onto the Trash again.	تغيرت الطبقة أو قناعها. اسحب القناع إلى سلة المهملات مرة أخرى.
+	Top:	الأعلى:
+	Transform On Drop	تحويل عند الإفلات
+	Use Previous Layer to Create Clipping Mask	استخدام الطبقة السابقة لإنشاء قناع قص
+	Vanishing Point is not active	نقطة التلاشي غير نشطة
+	Vanishing Point: click four corners to create a plane	نقطة التلاشي: انقر على أربع زوايا لإنشاء مستوى
+	{n} of {max} sample points	{n} من {max} نقاط عينة
+	Cove - Deep	تجويف - عميق

@@ -48,7 +48,7 @@ pub struct LangInfo {
     catalog: OnceLock<Catalog>,
 }
 
-/// Arabic: 0 → zero, 1 → one, 2 → two, 3–10 → few, 11–99 → many, 100+ → other.
+/// Arabic plural rule : 0 → zero, 1 → one, 2 → two, 3–10 → few, 11–99 → many, 100+ → other.
 fn plural_arabic(n: u64) -> usize {
     if n == 0 {
         0
@@ -66,6 +66,8 @@ fn plural_arabic(n: u64) -> usize {
             5
         }
     }
+}
+
 /// A script's reading direction.
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Dir {
@@ -403,7 +405,6 @@ mod tests {
     #[test]
     fn arabic_plural_rule() {
         let forms: Vec<usize> = [0, 1, 2, 3, 5, 10, 11, 99, 100, 101, 111, 112].into_iter().map(plural_arabic).collect();
-        // Changed the last two values from 5, 5 to 4, 4
         assert_eq!(forms, [0, 1, 2, 3, 3, 3, 4, 4, 5, 5, 4, 4]);
     }
 
