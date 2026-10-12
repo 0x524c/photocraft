@@ -15,6 +15,11 @@ use crate::blocks;
 use crate::pixels::{deinterleave, encode_be, psd_depth};
 use crate::psd_import::REGENERATED;
 
+/// Blocks that define a layer's content as something other than pixels: fill (`SoCo`, `GdFl`,
+/// `PtFl`), placed / smart object (`SoLd`, `PlLd`, `SoLE`), type (`TySh`) and shape fill (`vscg`).
+/// A raster layer never writes them, nor adjustment blocks.
+const RASTER_STALE_KEYS: [&[u8; 4]; 8] = [b"SoCo", b"GdFl", b"PtFl", b"SoLd", b"PlLd", b"SoLE", b"TySh", b"vscg"];
+
 const PSD_MAX_FILE_SIZE: u64 = 2 * 1024 * 1024 * 1024;
 const PSD_ESTIMATE_FIXED_OVERHEAD: u64 = 1024 * 1024;
 const PSD_ESTIMATE_LAYER_OVERHEAD: u64 = 64 * 1024;
@@ -529,6 +534,12 @@ impl Ex {
                     let legacy_phfl = k == b"phfl" && d.starts_with(&[0, 2]) && d.len() % 4 != 0;
                     !legacy_phfl && adjust_map::ADJUSTMENT_KEYS.contains(&k) && adjust_map::parse(k, d, cged.as_deref(), channels) == *a
                 });
+                // A Gradient Map whose stops are unchanged keeps the file's own block (stops in
+                // the document's CMYK/Lab/Gray space, smoothness, method) with Reverse and Dither
+                // updated in place.
+                let keep = keep
+                    || (matches!(a, photocraft_doc::Adjustment::GradientMap { .. })
+                        && raw.iter_mut().any(|(k, d)| k == b"grdm" && adjust_map::retarget_gradient_map(d, a, channels)));
                 if !keep {
                     raw.retain(|(k, _)| !adjust_map::ADJUSTMENT_KEYS.contains(&k) && k != b"CgEd");
                     let w = adjust_map::write(a);
@@ -584,7 +595,16 @@ impl Ex {
                     self.smart_blocks(l, sm, parsed, &mut raw);
                 }
             }
-            LayerContent::Raster(_) | LayerContent::Group(_) => {}
+            // A pixel layer carries no content-defining blocks: a fill, placed (smart), type or
+            // shape-fill block left over from before Rasterize would make a reader (ours or
+            // Photoshop's) reopen the layer as that kind and discard the pixels. A shape stroke
+            // (`vstk`) beside a vector mask makes a shape too; without one, Photoshop keeps it on
+            // pixel layers, so it stays. A vector mask (`vmsk`/`vsms`, `vogk`) stays.
+            LayerContent::Raster(_) => {
+                let masked = l.vector_mask.is_some();
+                raw.retain(|(k, _)| !RASTER_STALE_KEYS.contains(&k) && !adjust_map::ADJUSTMENT_KEYS.contains(&k) && k != b"CgEd" && !(k == b"vstk" && masked));
+            }
+            LayerContent::Group(_) => {}
         }
         // Effects reference point: written from the field (in place, keeping block order).
         match l.effects.reference {
@@ -1435,10 +1455,12 @@ fn document_to_psd_nested(doc: &Document, opts: &PsdExportOptions, depth: u32, c
         resources.push(ImageResource::new(1032, guides_resource(doc)));
     }
     if !extra.is_empty() {
-        let names: Vec<&str> = extra.iter().map(|a| a.name.as_str()).collect();
+        // One entry per extra channel, the merged transparency included (as in every file
+        // Photoshop opens; one short, Photoshop refuses the file with "unexpected end-of-file").
+        let names: Vec<&str> = has_alpha.then_some("Transparency").into_iter().chain(extra.iter().map(|a| a.name.as_str())).collect();
         resources.push(ImageResource::new(1006, pascal_names_resource(&names)));
         resources.push(ImageResource::new(1045, unicode_names_resource(&names)));
-        resources.push(ImageResource::new(crate::channel_map::DISPLAY_INFO, crate::channel_map::display_info(&extra)));
+        resources.push(ImageResource::new(crate::channel_map::DISPLAY_INFO, crate::channel_map::display_info(&extra, has_alpha)));
     }
     if let Some(id) = quick_mask_id {
         let mut data = id.to_be_bytes().to_vec();
@@ -1716,5 +1738,36 @@ mod tests {
         let small_size_exceeds_limit = psd_size_exceeds_limit(&small);
         assert_eq!(psd_version(&small, false, small_size_exceeds_limit), Version::Psd);
         assert_eq!(psd_version(&small, true, small_size_exceeds_limit), Version::Psb);
+    }
+
+    /// A layered document with transparency in the merged image and an alpha channel: the name
+    /// and DisplayInfo resources hold one entry per extra channel, the merged transparency first,
+    /// as in every file Photoshop opens (one short, Photoshop 27.11 refused the file with "Could
+    /// not import the clipboard because an unexpected end-of-file was encountered"). The alpha
+    /// channel keeps its own name and options on the way back.
+    #[test]
+    fn alpha_names_count_the_merged_transparency() {
+        let mut doc = document(8, 6);
+        let mut layer = Layer::raster("Layer 1", doc.pixel_format());
+        layer.surface_mut().unwrap().write_pixel(1, 1, &[1.0, 0.0, 0.0, 1.0]);
+        doc.layers.push(layer);
+        let mut a = photocraft_doc::AlphaChannel::new("Alpha 1", photocraft_raster::Surface::new(PixelFormat::GRAY8));
+        a.opacity = 0.5;
+        doc.channels.push(a);
+        let file = document_to_psd(&doc);
+        let header_extra = usize::from(file.header.channels) - 3;
+        let names = |id| file.resources.iter().find(|r| r.id == id).map(|r| r.data.clone()).unwrap();
+        let pascal = names(1006);
+        let (mut count, mut i) = (0, 0);
+        while i < pascal.len() {
+            count += 1;
+            i += 1 + usize::from(pascal[i]);
+        }
+        assert_eq!((header_extra, count), (2, 2), "transparency + Alpha 1");
+        assert_eq!(names(crate::channel_map::DISPLAY_INFO).len(), 4 + 2 * 13);
+        let back = crate::import("a.psd", &file.to_bytes().unwrap()).unwrap().document;
+        assert_eq!(back.channels.len(), 1);
+        assert_eq!(back.channels[0].name, "Alpha 1");
+        assert!((back.channels[0].opacity - 0.5).abs() < 1e-6);
     }
 }

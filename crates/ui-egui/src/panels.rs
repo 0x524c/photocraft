@@ -128,9 +128,11 @@ pub fn toolbar(app: &mut PhotocraftApp, ui: &mut egui::Ui) {
                 + chips_height(t.pro, t.round_chips, t.round_chips && double)
                 + if t.pro { 8.0 + if double { bx } else { bx * 2.0 + 3.0 } } else { 0.0 }
                 + 6.0;
+            // As tall as the tools, so the colour chips sit right under them (Photoshop); a column
+            // taller than the window scrolls and keeps the chips at the bottom.
             egui::ScrollArea::vertical()
                 .id_salt("toolbar-columns")
-                .auto_shrink([false, false])
+                .auto_shrink([false, true])
                 .max_height((ui.available_height() - footer).max(0.0))
                 .min_scrolled_height(0.0)
                 .show(ui, |ui| {
@@ -1157,7 +1159,7 @@ pub fn options_bar(app: &mut PhotocraftApp, ui: &mut egui::Ui) {
                         widgets::checkbox(ui, &mut app.ui.tool_options.contiguous, tl!("Contiguous"));
                         widgets::checkbox(ui, &mut app.ui.tool_options.sample_all_layers, tl!("All Layers"));
                     }
-                    Tool::Gradient if t.pro => {
+                    Tool::Gradient => {
                         // Live "Gradient" (a Gradient Fill layer) or "Classic gradient" (pixels).
                         let mut classic = app.ui.tool_options.gradient_classic;
                         if widgets::dropdown(ui, "gradient-mode", &mut classic, &[(false, "Gradient"), (true, "Classic gradient")], 118.0) {
@@ -1412,7 +1414,6 @@ pub fn options_bar(app: &mut PhotocraftApp, ui: &mut egui::Ui) {
                             &[("commit", &crate::shortcuts::pretty("Enter"))],
                         ),
                     ),
-                    Tool::Gradient => hint(ui, tl!("Drag to draw a gradient")),
                     Tool::PaintBucket => hint(ui, tl!("Click to fill similar colours")),
                     // Retouching and smart-selection tools draw their bar in `retouch_ui::options_bar`.
                     _ => {}
@@ -1450,10 +1451,10 @@ fn label(ui: &mut egui::Ui, s: &str) {
 
 /// Photoshop's scrubby Opacity/Fill labels: drag horizontally to change the percentage without
 /// hitting the small number field. The unique drag ID coalesces every frame into one undo step.
-fn scrub_pct_label(ui: &mut egui::Ui, text: &str, percent: &mut f32) -> widgets::PopupFieldResponse {
-    let t = Tokens::get(ui.ctx());
-    let resp =
-        ui.add(egui::Label::new(RichText::new(text).color(t.text_dim)).sense(Sense::click_and_drag())).on_hover_cursor(egui::CursorIcon::ResizeHorizontal);
+fn scrub_pct_label(ui: &mut egui::Ui, text: &str, percent: &mut f32, max_w: f32) -> widgets::PopupFieldResponse {
+    // Elide to the room left in the row (full text on hover): a longer translation shrinks here
+    // instead of running over the fixed controls beside it (#3580).
+    let resp = widgets::elided_label_sensed(ui, text, max_w, Sense::click_and_drag()).on_hover_cursor(egui::CursorIcon::ResizeHorizontal);
     let key = resp.id.with("percent-label-drag");
     if resp.drag_started() {
         let stamp = ui.ctx().cumulative_pass_nr();
@@ -2115,7 +2116,11 @@ fn layers(app: &mut PhotocraftApp, ui: &mut egui::Ui) {
                     let mut o = l.opacity * 100.0;
                     let field = widgets::popup_value_field(ui, opacity_label, &mut o, 0.0..=100.0, "%", LAYER_PCT_W);
                     // On a narrow dock the (scrubby) label yields its room to the controls (#2309).
-                    let scrub = if show_opacity_label { scrub_pct_label(ui, opacity_label, &mut o) } else { widgets::PopupFieldResponse::default() };
+                    let scrub = if show_opacity_label {
+                        scrub_pct_label(ui, opacity_label, &mut o, ui.available_width())
+                    } else {
+                        widgets::PopupFieldResponse::default()
+                    };
                     if field.changed || scrub.changed {
                         actions.push(pct_action(l, "opacity", o, scrub.drag.or(field.drag)));
                     }
@@ -2166,7 +2171,7 @@ fn layers(app: &mut PhotocraftApp, ui: &mut egui::Ui) {
                 ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
                     let mut f = l.fill_opacity * 100.0;
                     let field = widgets::popup_value_field(ui, fill_label, &mut f, 0.0..=100.0, "%", LAYER_PCT_W);
-                    let scrub = scrub_pct_label(ui, fill_label, &mut f);
+                    let scrub = scrub_pct_label(ui, fill_label, &mut f, ui.available_width());
                     if field.changed || scrub.changed {
                         actions.push(pct_action(l, "fill", f, scrub.drag.or(field.drag)));
                     }
@@ -5231,8 +5236,12 @@ mod compact_visual_regressions {
     }
 
     fn toolbar_harness(kind: theme::ThemeKind, scale: f32) -> egui_kittest::Harness<'static, PhotocraftApp> {
+        toolbar_harness_sized(kind, scale, 360.0)
+    }
+
+    fn toolbar_harness_sized(kind: theme::ThemeKind, scale: f32, height: f32) -> egui_kittest::Harness<'static, PhotocraftApp> {
         let mut ready = false;
-        let mut harness = egui_kittest::Harness::builder().with_size(vec2(400.0, 360.0)).with_pixels_per_point(scale).build_ui_state(
+        let mut harness = egui_kittest::Harness::builder().with_size(vec2(400.0, height)).with_pixels_per_point(scale).build_ui_state(
             move |ui, app: &mut PhotocraftApp| {
                 if !ready {
                     egui_extras::install_image_loaders(ui.ctx());
@@ -5298,6 +5307,18 @@ mod compact_visual_regressions {
                 harness.run_steps(3);
                 assert_eq!(harness.state().ui.tool, Tool::Zoom, "Space must select the revealed tool");
             }
+        }
+    }
+
+    /// A window taller than the tools keeps the colour chips right under the last tool, as
+    /// Photoshop does, instead of at the bottom of the toolbar.
+    #[test]
+    fn tall_toolbar_keeps_the_colour_chips_under_the_tools() {
+        for kind in theme::ThemeKind::ALL {
+            let harness = toolbar_harness_sized(kind, 1.0, 1600.0);
+            let last = harness.get_by_label("Zoom Tool  (Z)").rect();
+            let swap = harness.get_by_label("Swap colours (X)").rect();
+            assert!(swap.top() - last.bottom() < 80.0, "{kind:?}: the chips {swap:?} sit far below the last tool {last:?}");
         }
     }
 
