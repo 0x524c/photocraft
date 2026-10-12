@@ -221,7 +221,7 @@ fn first_launch_renders_the_system_language_without_overwriting_auto() {
 
 #[test]
 fn missing_or_unsupported_system_languages_render_english() {
-    for tags in [vec![], vec!["sv-SE", "hi-IN"]] { // Changed to an unsupported language
+    for tags in [vec![], vec!["sv-SE", "hi-IN"]] {
         system::with_system_tags(&tags, || {
             with_language(Lang::EN, || {
                 let h = harness();

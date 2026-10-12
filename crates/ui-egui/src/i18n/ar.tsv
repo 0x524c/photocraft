@@ -1,10 +1,3 @@
-# Used French (fr) TRANSLATION to add arabic here
-# Note that arabic is correct as long as you use UTF-8
-# There is some Text editors even in the late 2026 and still fail to render arabic correctly (Sublime Text)
-# if arabic appear wrong here its your app fault, The file is still correct.
-# Used with the help of AI, because im not translating all of this!
-#
-#
 # Use Notepad++ HERE FOR CORRECT ARABIC TEXT or VS Code.
 #
 #
@@ -1857,7 +1850,7 @@
 	Rotate view with trackpad	تدوير العرض باستخدام لوحة اللمس
 	Same folder	نفس المجلد
 	Save in background	حفظ في الخلفية
-	Scratch Disks	أقراص الخدش
+	Scratch Disks	أقراص التخزين المؤقت
 	Screen	شاشة
 	Screen resolution	دقة الشاشة
 	Scrubby slider acceleration	تسريع أشرطة التمرير السريعة
