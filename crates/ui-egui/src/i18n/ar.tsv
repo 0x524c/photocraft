@@ -2974,3 +2974,18 @@ cameraData	Lens	العدسة
 	Rolling Slope - Descending	منحدر متدحرج - تنازلي
 	Rounded Steps	درجات مستديرة
 	Sawtooth 1	منشاري 1
+	Saved {name}	تم حفظ {name}
+@plural	Exported {n} swatch to {file}|Exported {n} swatches to {file}	تم تصدير {n} عينة لون إلى {file}|تم تصدير {n} عينة لون إلى {file}|تم تصدير {n} عينتي لون إلى {file}|تم تصدير {n} عينات لون إلى {file}|تم تصدير {n} عينة لون إلى {file}|تم تصدير {n} عينة لون إلى {file}
+@plural	Imported {n} brush from {group}|Imported {n} brushes from {group}	تم استيراد {n} فرشاة من {group}|تم استيراد {n} فرشاة من {group}|تم استيراد {n} فرشاتين من {group}|تم استيراد {n} فرش من {group}|تم استيراد {n} فرشاة من {group}|تم استيراد {n} فرشاة من {group}
+@plural	Imported {n} swatch from {file}|Imported {n} swatches from {file}	تم استيراد {n} عينة لون من {file}|تم استيراد {n} عينة لون من {file}|تم استيراد {n} عينتي لون من {file}|تم استيراد {n} عينات لون من {file}|تم استيراد {n} عينة لون من {file}|تم استيراد {n} عينة لون من {file}
+@plural	Played {n} step|Played {n} steps	تم تشغيل {n} خطوة|تم تشغيل {n} خطوة|تم تشغيل {n} خطوتين|تم تشغيل {n} خطوات|تم تشغيل {n} خطوة|تم تشغيل {n} خطوة
+@plural	Saved for Web: {n} file|Saved for Web: {n} files	تم الحفظ للويب: {n} ملف|تم الحفظ للويب: {n} ملف|تم الحفظ للويب: {n} ملفين|تم الحفظ للويب: {n} ملفات|تم الحفظ للويب: {n} ملفاً|تم الحفظ للويب: {n} ملفاً
+@plural	Updated {n} linked smart object changed on disk|Updated {n} linked smart objects changed on disk	تم تحديث {n} كائن ذكي مرتبط تم تغييره على القرص|تم تحديث {n} كائن ذكي مرتبط تم تغييره على القرص|تم تحديث {n} كائنين ذكيين مرتبطين تم تغييرهما على القرص|تم تحديث {n} كائنات ذكية مرتبطة تم تغييرها على القرص|تم تحديث {n} كائناً ذكياً مرتبطاً تم تغييره على القرص|تم تحديث {n} كائناً ذكياً مرتبطاً تم تغييره على القرص
+@plural	{n} layer recorded by this comp was deleted. Update the comp, or clear the warning.|{n} layers recorded by this comp were deleted. Update the comp, or clear the warning.	تم حذف {n} طبقة مسجلة في هذا التركيب. حدّث التركيب أو امسح التحذير.|تم حذف {n} طبقة مسجلة في هذا التركيب. حدّث التركيب أو امسح التحذير.|تم حذف {n} طبقتين مسجلتين في هذا التركيب. حدّث التركيب أو امسح التحذير.|تم حذف {n} طبقات مسجلة في هذا التركيب. حدّث التركيب أو امسح التحذير.|تم حذف {n} طبقة مسجلة في هذا التركيب. حدّث التركيب أو امسح التحذير.|تم حذف {n} طبقة مسجلة في هذا التركيب. حدّث التركيب أو امسح التحذير.
+@plural	{n} plane|{n} planes	{n} مستوى|{n} مستوى|{n} مستويان|{n} مستويات|{n} مستوى|{n} مستوى
+@plural	{n} preset|{n} presets	{n} إعداد مسبق|{n} إعداد مسبق|{n} إعدادان مسبقان|{n} إعدادات مسبقة|{n} إعداداً مسبقاً|{n} إعداداً مسبقاً
+@plural	{n} sample point removed|{n} sample points removed	تمت إزالة {n} نقطة عينة|تمت إزالة {n} نقطة عينة|تمت إزالة {n} نقطتي عينة|تمت إزالة {n} نقاط عينة|تمت إزالة {n} نقطة عينة|تمت إزالة {n} نقطة عينة
+@plural	{n} slice|{n} slices	{n} شريحة|{n} شريحة|{n} شريحتان|{n} شرائح|{n} شريحة|{n} شريحة
+@plural	{n} step|{n} steps	{n} خطوة|{n} خطوة|{n} خطوتان|{n} خطوات|{n} خطوة|{n} خطوة
+@plural	{warning} (+{n} more brush preset warning)|{warning} (+{n} more brush preset warnings)	{warning} (+{n} تحذير إضافي بشأن إعدادات الفرشاة المسبقة)|{warning} (+{n} تحذير إضافي بشأن إعدادات الفرشاة المسبقة)|{warning} (+{n} تحذيران إضافيان بشأن إعدادات الفرشاة المسبقة)|{warning} (+{n} تحذيرات إضافية بشأن إعدادات الفرشاة المسبقة)|{warning} (+{n} تحذيراً إضافياً بشأن إعدادات الفرشاة المسبقة)|{warning} (+{n} تحذيراً إضافياً بشأن إعدادات الفرشاة المسبقة)
+@plural	{what} with {n} warning|{what} with {n} warnings	{what} مع {n} تحذير|{what} مع {n} تحذير|{what} مع {n} تحذيرين|{what} مع {n} تحذيرات|{what} مع {n} تحذيراً|{what} مع {n} تحذيراً
