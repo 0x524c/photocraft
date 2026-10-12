@@ -152,7 +152,7 @@
 	File Handling…	معالجة الملفات…
 	Export…	تصدير…
 	Performance…	الأداء…
-	Scratch Disks…	أقراص الخدش…
+	Scratch Disks…	أقراص التخزين المؤقت…
 	Cursors…	المؤشرات…
 	Transparency & Gamut…	الشفافية ونطاق الألوان…
 	Units & Rulers…	الوحدات والمسطرات…
@@ -1325,7 +1325,7 @@
 	Save…	حفظ…
 	Scale to Fit Media	تحجيم لملاءمة الوسائط
 	Scatter	تشتت
-	Scratch disks	أقراص الخدش
+	Scratch disks	أقراص التخزين المؤقت
 	Search	بحث
 	Search commands	بحث في الأوامر
 	Search commands, tools and panels…	بحث في الأوامر والأدوات واللوحات…
@@ -2651,12 +2651,9 @@ cameraRaw	Blending	دمج
 	Color…	لون…
 	50% Gray	رمادي 50%
 	{size} (was {old})	{size} (كان {old})
-	Cone	مخروط
 	Cone (Inverted)	مخروط (مقلوب)
 	Domed	مقبب
 	Domed (Inverted)	مقبب (مقلوب)
-	Diagonal (Descending)	قطري (تنازلي)
-
 	Red Eye Tool	أداة العين الحمراء
 	Pupil Size	حجم الحدقة
 	Darken Amount	مقدار التغميق
@@ -2897,7 +2894,6 @@ cameraData	Lens	العدسة
 	Clear Existing Guides	مسح الأدلة الموجودة
 	Click to place · Alt-click or drag off-canvas to remove	انقر للوضع · انقر بزر Alt أو اسحب خارج اللوحة للإزالة
 	Click: corner · Drag: smooth · {alt}-drag: break handle · Click or drag first point: close · {key} finish · Esc cancel	انقر: زاوية · اسحب: ناعم · سحب {alt}: كسر المقبض · انقر أو اسحب النقطة الأولى: إغلاق · {key} إنهاء · Esc إلغاء
-	Cone - Inverted	مخروط - مقلوب
 	Contour Editor	محرر المحيط
 	Corner	زاوية
 	Create a new elliptical frame	إنشاء إطار بيضاوي جديد
@@ -2965,3 +2961,18 @@ cameraData	Lens	العدسة
 	Vanishing Point: click four corners to create a plane	نقطة التلاشي: انقر على أربع زوايا لإنشاء مستوى
 	{n} of {max} sample points	{n} من {max} نقاط عينة
 	Cove - Deep	تجويف - عميق
+	Cove - Shallow	تجويف - ضحل
+	Linear	خطي
+	Gaussian	غاوسي
+	Cone	مخروط
+	Cone - Inverted	مخروط - مقلوب
+	Cone - Deep	مخروط - عميق
+	Cove	تجويف
+	Ring	حلقة
+	Ring - Double	حلقة مزدوجة
+	Custom	مخصص
+	Half Round	نصف دائري
+	Diagonal (Descending)	قطري (تنازلي)
+	Rolling Slope - Descending	منحدر متدحرج - تنازلي
+	Rounded Steps	درجات مستديرة
+	Sawtooth 1	منشاري 1
