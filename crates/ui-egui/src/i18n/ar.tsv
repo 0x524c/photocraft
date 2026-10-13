@@ -2989,3 +2989,48 @@ cameraData	Lens	العدسة
 @plural	{n} step|{n} steps	{n} خطوة|{n} خطوة|{n} خطوتان|{n} خطوات|{n} خطوة|{n} خطوة
 @plural	{warning} (+{n} more brush preset warning)|{warning} (+{n} more brush preset warnings)	{warning} (+{n} تحذير إضافي بشأن إعدادات الفرشاة المسبقة)|{warning} (+{n} تحذير إضافي بشأن إعدادات الفرشاة المسبقة)|{warning} (+{n} تحذيران إضافيان بشأن إعدادات الفرشاة المسبقة)|{warning} (+{n} تحذيرات إضافية بشأن إعدادات الفرشاة المسبقة)|{warning} (+{n} تحذيراً إضافياً بشأن إعدادات الفرشاة المسبقة)|{warning} (+{n} تحذيراً إضافياً بشأن إعدادات الفرشاة المسبقة)
 @plural	{what} with {n} warning|{what} with {n} warnings	{what} مع {n} تحذير|{what} مع {n} تحذير|{what} مع {n} تحذيرين|{what} مع {n} تحذيرات|{what} مع {n} تحذيراً|{what} مع {n} تحذيراً
+	Action playback stopped	توقف تشغيل الإجراء
+	Add Open Files	إضافة الملفات المفتوحة
+	Allow Continue	السماح بالمتابعة
+	Apply the removal ({key})	تطبيق الإزالة ({key})
+	Attempt to Automatically Align Source Images	محاولة محاذاة الصور المصدر تلقائياً
+	Auto Add/Delete	إضافة/حذف تلقائي
+	Choose a gradient file (.grd).	اختر ملف تدرج (.grd).
+	Clear Brush Controls	مسح عناصر تحكم الفرشاة
+	Copy Texture to Other Tools	نسخ النسيج إلى الأدوات الأخرى
+	Create Smart Object after Loading Layers	إنشاء كائن ذكي بعد تحميل الطبقات
+	Drag to pan · Scroll to zoom · Double-click to fit	اسحب للتحريك · مرّر للتكبير · انقر مرتين للملاءمة
+	Files	الملفات
+	Folder	مجلد
+	Gradient Preset Options	خيارات إعدادات التدرج المسبقة
+	Import .GRD	استيراد .GRD
+	Insert Stop…	إدراج نقطة توقف…
+	Load Actions…	تحميل الإجراءات…
+	Load Settings…	تحميل الإعدادات…
+	Load settings from a Camera Raw .xmp file	تحميل الإعدادات من ملف Camera Raw ‏.xmp
+	Loaded Camera Raw settings from {file}	تم تحميل إعدادات Camera Raw من {file}
+	Manage submitted jobs in the system print queue	إدارة المهام المرسلة في قائمة انتظار الطباعة بالنظام
+	Merge Group	دمج المجموعة
+	Message:	الرسالة:
+	No object found there — drag a rectangle around it	لم يتم العثور على كائن هناك — اسحب مستطيلاً حوله
+	Object Finder	مكتشف المجسمات
+	Remove after each stroke	إزالة بعد كل ضربة
+	Reset All Locked Settings	إعادة تعيين كل الإعدادات المقفلة
+	Save Actions…	حفظ الإجراءات…
+	Save Settings…	حفظ الإعدادات…
+	Save Set…	حفظ المجموعة…
+	Save these settings as a Camera Raw .xmp file	حفظ هذه الإعدادات كملف Camera Raw ‏.xmp
+	Select an action first	حدد إجراءً أولاً
+	Show dialog during playback	إظهار مربع الحوار أثناء التشغيل
+	Soft Dark Theme	سمة داكنة ناعمة
+	Soft Light Theme	سمة فاتحة ناعمة
+	Sort By Name	ترتيب حسب الاسم
+	Source Files	الملفات المصدر
+	Strokes to remove: {n} (Enter applies, Esc cancels)	الضربات المراد إزالتها: {n} (Enter للتطبيق، Esc للإلغاء)
+	Use:	استعمل:
+	{name} (Photoshop)	{name} (Photoshop)
+@plural	Loaded {n} action from {file}|Loaded {n} actions from {file}	تم تحميل {n} إجراء من {file}|تم تحميل {n} إجراء من {file}|تم تحميل {n} إجرائين من {file}|تم تحميل {n} إجراءات من {file}|تم تحميل {n} إجراء من {file}|تم تحميل {n} إجراء من {file}
+@plural	Saved {n} action to {file}|Saved {n} actions to {file}	تم حفظ {n} إجراء في {file}|تم حفظ {n} إجراء في {file}|تم حفظ {n} إجرائين في {file}|تم حفظ {n} إجراءات في {file}|تم حفظ {n} إجراء في {file}|تم حفظ {n} إجراء في {file}
+@plural	{n} action|{n} actions	{n} إجراء|{n} إجراء|{n} إجراءان|{n} إجراءات|{n} إجراء|{n} إجراء
+@plural	{n} step has no PhotoCraft equivalent yet|{n} steps have no PhotoCraft equivalent yet	{n} خطوة ليس لها مكافئ في PhotoCraft بعد|{n} خطوة ليس لها مكافئ في PhotoCraft بعد|{n} خطوتان ليس لهما مكافئ في PhotoCraft بعد|{n} خطوات ليس لها مكافئ في PhotoCraft بعد|{n} خطوة ليس لها مكافئ في PhotoCraft بعد|{n} خطوة ليس لها مكافئ في PhotoCraft بعد
+@plural	{n} step with no Photoshop equivalent left out|{n} steps with no Photoshop equivalent left out	تم استبعاد {n} خطوة ليس لها مكافئ في Photoshop|تم استبعاد {n} خطوة ليس لها مكافئ في Photoshop|تم استبعاد {n} خطوتين ليس لهما مكافئ في Photoshop|تم استبعاد {n} خطوات ليس لها مكافئ في Photoshop|تم استبعاد {n} خطوة ليس لها مكافئ في Photoshop|تم استبعاد {n} خطوة ليس لها مكافئ في Photoshop
