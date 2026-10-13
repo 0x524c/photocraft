@@ -122,9 +122,9 @@ impl ThemeKind {
             "pro" | "prodark" | "photoshop" | "dark" => Some(ThemeKind::Pro),
             "promedium" | "promediumgray" | "medium" | "mediumgray" => Some(ThemeKind::ProMedium),
             "prolightgray" | "lightgray" | "mediumlight" => Some(ThemeKind::ProLightGray),
-            "prolight" | "prolightest" | "lightest" => Some(ThemeKind::ProLight),
+            "prolight" | "prolightest" | "lightest" | "light" => Some(ThemeKind::ProLight),
             "studio" | "studiodark" => Some(ThemeKind::Studio),
-            "studiolight" | "light" => Some(ThemeKind::StudioLight),
+            "studiolight" => Some(ThemeKind::StudioLight),
             "classic" | "win2000" | "retro" => Some(ThemeKind::Classic),
             "adwaita" | "adwaitalight" | "gnome" | "gnomelight" => Some(ThemeKind::Adwaita),
             "adwaitadark" | "gnomedark" => Some(ThemeKind::AdwaitaDark),
@@ -1038,7 +1038,15 @@ pub fn apply(ctx: &egui::Context, kind: ThemeKind) {
         s.visuals.indent_has_left_vline = false;
         s.interaction.tooltip_delay = TOOLTIP_DELAY;
         // Thin overlay scrollbars that appear on hover (Photoshop/macOS style).
-        s.spacing.scroll = if t.bevel { egui::style::ScrollStyle::solid() } else { egui::style::ScrollStyle::thin() };
+        // Thin bars stay visible, including while the pointer is on them. The stock thin
+        // style fades the handle to the same opacity as the track, so the thumb disappears (#4611).
+        let mut scroll = if t.bevel { egui::style::ScrollStyle::solid() } else { egui::style::ScrollStyle::thin() };
+        if scroll.floating {
+            scroll.interact_handle_opacity = 1.0;
+            scroll.interact_background_opacity = 0.4;
+            scroll.floating_width = 4.0;
+        }
+        s.spacing.scroll = scroll;
         s.spacing.tooltip_width = 280.0;
     });
     // egui selects its style branch using OS appearance, independently of PhotoCraft's fixed
@@ -1194,6 +1202,7 @@ mod tests {
         assert_eq!(ThemeKind::from_name("Classic"), Some(ThemeKind::Classic));
         assert_eq!(ThemeKind::from_name("studio (light)"), Some(ThemeKind::StudioLight));
         assert_eq!(ThemeKind::from_name("dark"), Some(ThemeKind::Pro));
+        assert_eq!(ThemeKind::from_name("light"), Some(ThemeKind::ProLight));
         assert_eq!(ThemeKind::from_name("studio"), Some(ThemeKind::Studio));
         assert_eq!(ThemeKind::from_name("Pro (Medium Gray)"), Some(ThemeKind::ProMedium));
         assert_eq!(ThemeKind::from_name("Solarized Dark"), Some(ThemeKind::SolarizedDark));

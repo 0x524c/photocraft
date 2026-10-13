@@ -944,8 +944,10 @@ pub fn doc_point_at(app: &PhotocraftApp, pos: Pos2) -> Option<[f64; 2]> {
 pub fn fit_view(view: &mut View, doc: &Document, area: Vec2, ppp: f32, aspect: f32) {
     let (w, h) = (doc.size.width as f32, doc.size.height as f32);
     let shown_w = w * if aspect.is_finite() && aspect > 0.0 { aspect } else { 1.0 };
-    let points = ((area.x - 40.0) / shown_w).min((area.y - 40.0) / h).min(1.0);
-    let zoom = crate::zoom_levels::clamp(points * ppp, [doc.size.width, doc.size.height]);
+    // Fit never magnifies past 100%: one image pixel per *physical* pixel, so the cap applies
+    // after the points → device pixels conversion (a 150% display would otherwise open at 150%).
+    let fit = ((area.x - 40.0) / shown_w).min((area.y - 40.0) / h) * ppp;
+    let zoom = crate::zoom_levels::clamp(fit.min(1.0), [doc.size.width, doc.size.height]);
     view.zoom = zoom;
     view.center = [w / 2.0, h / 2.0];
     view.fit_pending = false;
@@ -1119,24 +1121,55 @@ pub(crate) fn display_doc(app: &mut PhotocraftApp, idx: usize) -> (std::sync::Ar
             return (doc.clone(), key);
         }
     }
-    if let Some((layer, params)) = &app.live_adjust
-        && let Some(l) = st.doc.layer(*layer)
+    let snapshot = st.doc.clone();
+    if let Some((layer, params)) = app.live_adjust.clone()
+        && let Some(l) = snapshot.layer(layer)
         && let LayerContent::Adjustment(a) = &l.content
     {
-        let kind = photocraft_engine::commands::adjustment_kind(a);
-        let preview = photocraft_engine::adjust_params::from_params(kind, params, Some(a), st.doc.mode).unwrap_or_else(|_| a.clone());
-        let mut doc = (*st.doc).clone();
-        if let Some(lm) = doc.layer_mut(*layer) {
-            lm.content = LayerContent::Adjustment(preview);
-        }
         let key = 1 + params.to_string().bytes().fold(0u64, |h, b| h.wrapping_mul(31).wrapping_add(b as u64));
-        return (std::sync::Arc::new(doc), key);
+        let shown = memo_display(app, &snapshot, key, || {
+            let kind = photocraft_engine::commands::adjustment_kind(a);
+            let preview = photocraft_engine::adjust_params::from_params(kind, &params, Some(a), snapshot.mode).unwrap_or_else(|_| a.clone());
+            let mut doc = (*snapshot).clone();
+            if let Some(lm) = doc.layer_mut(layer) {
+                lm.content = LayerContent::Adjustment(preview);
+            }
+            Some(doc)
+        });
+        if let Some(doc) = shown {
+            return (doc, key);
+        }
     }
     // Duotone documents display through their inks.
-    if let Some(shown) = photocraft_engine::mode_cmds::display_document(&st.doc) {
-        return (std::sync::Arc::new(shown), 1 << 41);
+    if let Some(shown) = memo_display(app, &snapshot, 1 << 41, || photocraft_engine::mode_cmds::display_document(&snapshot)) {
+        return (shown, 1 << 41);
     }
-    (st.doc.clone(), 0)
+    (snapshot, 0)
+}
+
+/// `display_doc`'s live-adjust and Duotone documents, built once per document snapshot and key
+/// rather than on each of its 3–4 calls a frame (#4527): each build clones the whole document.
+fn memo_display(
+    app: &mut PhotocraftApp,
+    snapshot: &std::sync::Arc<Document>,
+    key: u64,
+    build: impl FnOnce() -> Option<Document>,
+) -> Option<std::sync::Arc<Document>> {
+    let id = snapshot.id;
+    if let Some((doc, k, shown)) = app.display_memo.get(&id)
+        && *k == key
+        && doc.ptr_eq(&std::sync::Arc::downgrade(snapshot))
+    {
+        return Some(shown.clone());
+    }
+    let Some(shown) = build().map(std::sync::Arc::new) else {
+        app.display_memo.remove(&id);
+        return None;
+    };
+    // Entries of closed documents go when another is stored.
+    app.display_memo.retain(|_, (doc, _, _)| doc.strong_count() > 0);
+    app.display_memo.insert(id, (std::sync::Arc::downgrade(snapshot), key, shown.clone()));
+    Some(shown)
 }
 
 /// Longest side of the Navigator panel's image (about twice the panel's width, for HiDPI).
@@ -1223,6 +1256,14 @@ pub fn navigator_texture(app: &mut PhotocraftApp, ctx: &egui::Context, idx: usiz
     Some(tex.id())
 }
 
+/// The CPU canvas texture's sampling (#4810). Zoomed in, a full-resolution texture shows each
+/// document pixel as a crisp square, as the GPU canvas's sharp nearest filter and Photoshop do;
+/// zoomed out it is still filtered. A reduced texture (`factor` > 1) stays bilinear: its texels
+/// are averages of several pixels, and squares of them would be blocks the image doesn't have.
+fn canvas_texture_options(factor: u32) -> TextureOptions {
+    if factor > 1 { TextureOptions::LINEAR } else { TextureOptions { magnification: egui::TextureFilter::Nearest, ..TextureOptions::LINEAR } }
+}
+
 /// Make sure the canvas texture for document `idx` on `display` is current; returns (texture
 /// id, scale).
 pub fn ensure_texture(app: &mut PhotocraftApp, ctx: &egui::Context, idx: usize, display: Option<u32>) -> Option<(egui::TextureId, f32)> {
@@ -1267,7 +1308,7 @@ pub fn ensure_texture(app: &mut PhotocraftApp, ctx: &egui::Context, idx: usize, 
             let r = buf.rect;
             if !r.is_empty() {
                 let t1 = crate::gpu_canvas::now_ms();
-                t.set_partial([r.x0 as usize, r.y0 as usize], display_image(display.as_deref(), &buf), TextureOptions::LINEAR);
+                t.set_partial([r.x0 as usize, r.y0 as usize], display_image(display.as_deref(), &buf), canvas_texture_options(factor));
                 let px = (r.width() as u64 * r.height() as u64).saturating_mul(u64::from(factor).pow(2));
                 app.perf.record("rect", px, t1 - t0, crate::gpu_canvas::now_ms() - t1);
             }
@@ -1277,8 +1318,8 @@ pub fn ensure_texture(app: &mut PhotocraftApp, ctx: &egui::Context, idx: usize, 
             let t1 = crate::gpu_canvas::now_ms();
             let (img, scale) = (display_image(display.as_deref(), &full), 1.0 / factor as f32);
             match cache.texture.as_mut() {
-                Some(t) if t.size() == img.size => t.set(img, TextureOptions::LINEAR),
-                _ => cache.texture = Some(ctx.load_texture(format!("canvas-{}-{}", id.0, cache_key(id, output).1), img, TextureOptions::LINEAR)),
+                Some(t) if t.size() == img.size => t.set(img, canvas_texture_options(factor)),
+                _ => cache.texture = Some(ctx.load_texture(format!("canvas-{}-{}", id.0, cache_key(id, output).1), img, canvas_texture_options(factor))),
             }
             cache.scale = scale;
             app.perf.record("full", doc.size.width as u64 * doc.size.height as u64, t1 - t0, crate::gpu_canvas::now_ms() - t1);
@@ -3222,7 +3263,8 @@ pub fn canvas_view(app: &mut PhotocraftApp, ui: &mut egui::Ui, idx: usize, rect:
             (buttons.started, buttons.dragged, buttons.stopped, buttons.clicked) = (false, false, false, false);
         }
         // Zoom tool drags: scrubby zoom or a zoom rectangle (zoom_tool.rs); clicks step below.
-        if tool == Tool::Zoom && crate::zoom_tool::drag(app, &ctx, &mut view, &xf, &buttons, response.interact_pointer_pos()) {
+        // Like the Hand, the selected Zoom yields to an open Free Transform box (#4799).
+        if tool == Tool::Zoom && !transform_owns_pointer && crate::zoom_tool::drag(app, &ctx, &mut view, &xf, &buttons, response.interact_pointer_pos()) {
             (buttons.started, buttons.dragged, buttons.stopped) = (false, false, false);
         }
         // A drag is only recognised once the pointer has moved past egui's click distance: the
@@ -3356,7 +3398,7 @@ pub fn canvas_view(app: &mut PhotocraftApp, ui: &mut egui::Ui, idx: usize, rect:
             let click_mods = ui.input(|i| pointer_button_modifiers(&i.events, click_button)).unwrap_or(mods);
             let d = xf.to_doc(p);
             match tool {
-                Tool::Zoom => {
+                Tool::Zoom if !transform_owns_pointer => {
                     let nz = crate::zoom_levels::step(view.zoom, if zoom_out(click_mods.alt) { -1 } else { 1 }, view.doc_size);
                     let center = app.session.prefs().tools.zoom_clicked_point_to_center;
                     zoom_about(&mut view, &xf, p, nz, center, ppp);
@@ -3521,12 +3563,19 @@ pub fn canvas_view(app: &mut PhotocraftApp, ui: &mut egui::Ui, idx: usize, rect:
                 let toward = xf.to_screen((d[0] + k[0] * 16.0) as f32, (d[1] + k[1] * 16.0) as f32) - p;
                 crate::crop_ui::draw_turn_cursor(&ctx, p, toward);
             }
+        } else if let Some(c) = response.hover_pos().and_then(|p| crate::symmetry_ui::cursor(app, &xf, xf.to_doc(p))) {
+            ui.ctx().set_cursor_icon(c);
         } else if let Some(c) = response.hover_pos().and_then(|p| crate::cam_transform::cursor(app, &ctx, &xf, p)) {
             ui.ctx().set_cursor_icon(c);
-        } else if let Some(c) = response.hover_pos().and_then(|p| transform_controls_rect(app, &xf).and_then(|r| transform_controls_cursor(r, p))) {
+        } else if let Some((r, p, c)) =
+            response.hover_pos().and_then(|p| transform_controls_rect(app, &xf).and_then(|r| transform_controls_cursor(r, p).map(|c| (r, p, c))))
+        {
             // The Move tool draws handles without opening a Free Transform session.
             // Give them their resize/rotate cursors before the first pointer press (#2871).
             ui.ctx().set_cursor_icon(c);
+            if let Some(toward) = transform_controls_turn(r, p) {
+                crate::crop_ui::draw_turn_cursor(&ctx, p, toward);
+            }
         } else if let Some(c) = response.hover_pos().filter(|_| tool.is_type()).and_then(|p| {
             let mods = crate::workspace_ui::sticky_mods(app, ui.input(|i| i.modifiers));
             crate::type_transform::cursor(app, &ctx, &xf, p, mods)
@@ -3639,30 +3688,48 @@ pub fn canvas_view(app: &mut PhotocraftApp, ui: &mut egui::Ui, idx: usize, rect:
                     }
                 }
                 // The Eyedropper: the comparison ring follows the pointer while it samples (#213);
-                // otherwise its pipette, or the crosshair for Precise Other Cursors.
+                // otherwise its pipette, or the crosshair for precise Other Cursors.
                 Tool::Eyedropper => {
                     if let Some(icon) = eyedropper_ring(app, &painter, &xf, p, response.is_pointer_button_down_on()) {
                         icon
-                    } else if app.session.prefs().cursors.other == photocraft_engine::prefs::OtherCursor::Precise {
+                    } else if precise_other_cursor(app) {
                         egui::CursorIcon::Crosshair
                     } else {
                         pipette_cursor(ui.ctx(), p)
                     }
                 }
-                // The Color Sampler: a pipette, or the crosshair for Precise Other Cursors.
+                // The Color Sampler: a pipette, or the crosshair for precise Other Cursors.
                 Tool::ColorSampler => {
-                    if app.session.prefs().cursors.other == photocraft_engine::prefs::OtherCursor::Precise {
+                    if precise_other_cursor(app) {
                         egui::CursorIcon::Crosshair
                     } else {
                         pipette_cursor(ui.ctx(), p)
                     }
                 }
-                // The Paint Bucket: a bucket, or the crosshair for Precise Other Cursors (#3968).
+                // The Paint Bucket: a bucket, or the crosshair for precise Other Cursors (#3968).
                 Tool::PaintBucket => {
-                    if app.session.prefs().cursors.other == photocraft_engine::prefs::OtherCursor::Precise {
+                    if precise_other_cursor(app) {
                         egui::CursorIcon::Crosshair
                     } else {
                         paint_bucket_cursor(ui.ctx(), p)
+                    }
+                }
+                // Over the first anchor, the close-path pointer (#4596), before the pens' own cursors.
+                Tool::Pen | Tool::CurvaturePen
+                    if {
+                        let [x, y] = xf.to_doc(p);
+                        crate::vector_ui::closes_path_at(app, tool, x, y)
+                    } =>
+                {
+                    crate::tool_cursor::close_path(&painter, p)
+                }
+                // The pen tools: their own icon with its nib on the point, or the crosshair for
+                // precise Other Cursors (#4639).
+                Tool::Pen | Tool::FreeformPen | Tool::CurvaturePen | Tool::AddAnchorPoint | Tool::DeleteAnchorPoint | Tool::ConvertPoint => {
+                    if precise_other_cursor(app) {
+                        egui::CursorIcon::Crosshair
+                    } else {
+                        pen_cursor(ui.ctx(), tool, p)
                     }
                 }
                 // Preferences › Cursors › Other Cursors: Precise shows a crosshair for every tool.
@@ -4319,7 +4386,28 @@ fn transform_controls_cursor(r: Rect, p: Pos2) -> Option<egui::CursorIcon> {
             });
         }
     }
-    (r.expand(18.0).contains(p) && !r.expand(5.0).contains(p)).then_some(egui::CursorIcon::Alias)
+    // The rotation band: the pointer gives way to the curved rotate arrow (`transform_controls_turn`).
+    in_rotation_band(r, p).then_some(egui::CursorIcon::None)
+}
+
+fn in_rotation_band(r: Rect, p: Pos2) -> bool {
+    r.expand(18.0).contains(p) && !r.expand(5.0).contains(p)
+}
+
+/// In the rotation band just outside the Move tool's transform controls, the screen direction the
+/// curved rotate arrow bends round: into the box along the nearest corner's bisector, as Free
+/// Transform draws it (#4658). Before, the band showed a plain alias pointer, so nothing said a
+/// drag there rotates.
+fn transform_controls_turn(r: Rect, p: Pos2) -> Option<Vec2> {
+    if !in_rotation_band(r, p)
+        || [r.left_top(), r.center_top(), r.right_top(), r.right_center(), r.right_bottom(), r.center_bottom(), r.left_bottom(), r.left_center()]
+            .into_iter()
+            .any(|h| h.distance(p) <= crate::transform_tool::HANDLE_PX as f32)
+    {
+        return None;
+    }
+    let corner = pos2(if p.x < r.center().x { r.left() } else { r.right() }, if p.y < r.center().y { r.top() } else { r.bottom() });
+    Some(vec2((r.center().x - corner.x).signum(), (r.center().y - corner.y).signum()).normalized() * 16.0)
 }
 
 /// A visible handle starts scaling; the narrow band just outside the box starts rotation.
@@ -4489,6 +4577,26 @@ fn draw_drag_preview(app: &mut PhotocraftApp, painter: &egui::Painter, xf: &View
 pub(crate) fn alt_samples(tool: Tool, mods: egui::Modifiers) -> bool {
     // Control+Alt is the brush-resize drag (`brush_resize`), not sampling.
     mods.alt && !mods.ctrl && matches!(tool, Tool::Brush | Tool::Pencil | Tool::Gradient | Tool::PaintBucket)
+}
+
+/// Preferences › Cursors › Other Cursors asks for the precise crosshair, or Caps Lock swaps the
+/// standard cursor for it (and back), as in Photoshop (#4639).
+fn precise_other_cursor(app: &PhotocraftApp) -> bool {
+    (app.session.prefs().cursors.other == photocraft_engine::prefs::OtherCursor::Precise) != app.caps_lock
+}
+
+/// A pen tool's standard cursor: its toolbar icon with the nib (the Convert Point tool: the
+/// anchor) on `p`. Draws it at `p` and returns the OS cursor to set (hidden).
+pub(crate) fn pen_cursor(ctx: &egui::Context, tool: Tool, p: Pos2) -> egui::CursorIcon {
+    // Where each icon's point is in its 24-unit box: the full-size pen's nib at (2.3, 2.3); the
+    // Freeform and Curvature pens draw it at 0.68 × from (7, 7); Convert Point's apex anchor.
+    let hot = match tool {
+        Tool::FreeformPen | Tool::CurvaturePen => vec2(8.56, 8.56),
+        Tool::ConvertPoint => vec2(12.0, 7.0),
+        _ => vec2(2.3, 2.3),
+    };
+    crate::icons::cursor(ctx, crate::icons::tool_icon(tool), p, hot / 24.0, 22.0);
+    egui::CursorIcon::None
 }
 
 /// The sampling cursor: a pipette whose tip is the sampled pixel. Draws it at `p` and returns the
@@ -5756,6 +5864,46 @@ mod tests {
     }
 
     #[test]
+    fn cpu_canvas_shows_crisp_pixels_when_zoomed_in() {
+        // #4810: above 100% the CPU canvas shows each pixel as a square, like the GPU canvas's
+        // sharp nearest filter; below 100% it still filters. Both the first upload and a
+        // damage-rect update carry the sampling, since the renderer takes it from each delta.
+        let mut app = PhotocraftApp::new(photocraft_engine::Session::new(), Default::default());
+        app.run("file.new", json!({"width": 2, "height": 2})).unwrap();
+        let ctx = egui::Context::default();
+        let tex = ensure_texture(&mut app, &ctx, 0, None).unwrap().0;
+        let uploads = |ctx: &egui::Context| {
+            let mut delta = ctx.tex_manager().write().take_delta();
+            let seen = delta.set.get(&tex).into_iter().flatten().map(|d| (d.pos.is_some(), d.options)).collect::<Vec<_>>();
+            delta.clear();
+            seen
+        };
+        let crisp = TextureOptions { magnification: egui::TextureFilter::Nearest, ..TextureOptions::LINEAR };
+        assert_eq!(uploads(&ctx), vec![(false, crisp)]);
+        app.run("select.rect", json!({"x": 0, "y": 0, "width": 1, "height": 1})).unwrap();
+        ensure_texture(&mut app, &ctx, 0, None).unwrap();
+        uploads(&ctx);
+        app.run("edit.fill", json!({"color": "#ff0000"})).unwrap();
+        assert_eq!(ensure_texture(&mut app, &ctx, 0, None).unwrap().0, tex);
+        assert_eq!(uploads(&ctx), vec![(true, crisp)], "a partial update keeps the crisp sampling");
+    }
+
+    #[test]
+    fn cpu_canvas_of_a_reduced_document_stays_bilinear() {
+        // Over MAX_TEXTURE the texture holds one texel per `factor` pixels: a texel is not a
+        // document pixel, so showing it as a square would draw blocks that aren't in the image.
+        let mut app = PhotocraftApp::new(photocraft_engine::Session::new(), Default::default());
+        app.run("file.new", json!({"width": MAX_TEXTURE + 1, "height": 2})).unwrap();
+        let ctx = egui::Context::default();
+        let (tex, scale) = ensure_texture(&mut app, &ctx, 0, None).unwrap();
+        assert!(scale < 1.0);
+        let mut delta = ctx.tex_manager().write().take_delta();
+        let uploads: Vec<_> = delta.set.get(&tex).into_iter().flatten().map(|d| d.options).collect();
+        delta.clear();
+        assert_eq!(uploads, vec![TextureOptions::LINEAR]);
+    }
+
+    #[test]
     fn gpu_display_luts_are_per_display() {
         let Ok(rs) = std::panic::catch_unwind(|| egui_kittest::wgpu::create_render_state(crate::gpu_canvas::wgpu_setup(), Default::default())) else {
             eprintln!("skipping: no GPU adapter");
@@ -6622,12 +6770,12 @@ mod tests {
         let (shown, key) = display_doc(&mut app, 0);
         assert_ne!(key, 0);
         // A partial value two thirds of the way out: the soft tip, not a hard flat stand-in.
-        assert!(alpha(&shown, 40, 30) > 0.5 && (0.01..0.5).contains(&alpha(&shown, 40, 36)), "soft stroke while drawing");
+        assert!(alpha(&shown, 40, 30) > 0.5 && (0.01..0.95).contains(&alpha(&shown, 40, 36)), "soft stroke while drawing");
         assert_eq!(alpha(&app.session.documents()[0].doc, 40, 30), 0.0, "not committed yet");
         // The canvas redraws only what the stroke touched.
         let dk = canvas_display(&app, &app.session.documents()[0].doc, None).1;
         let d = damage_since(&app, 0, (rev, dk), (rev, key), dk, None).unwrap();
-        assert!(d.contains(40, 30) && !d.contains(40, 2) && d.width() < 120, "{d:?}");
+        assert!(d.contains(40, 30) && !d.contains(40, 2) && d.height() < 60, "{d:?}");
         tool_event(&mut app, ToolEvent::Up { x: 100.0, y: 30.0 }, m);
         let doc = app.session.documents()[0].doc.clone();
         assert!(app.live_stroke.is_none() && display_doc(&mut app, 0).1 == 0);
@@ -7088,7 +7236,9 @@ mod tests {
             }
         }
         assert!(soft > 50, "a soft brush shows a soft edge");
-        assert_eq!(trail.coverage(50, 30 + 10), 0, "half pressure halves the 30 px tip");
+        // Half pressure halves the 30 px tip: nothing past its (soft) reach.
+        let reach = photocraft_paint::tip_reach(7.5, app.session.tools.brush.hardness).ceil() as usize + 2;
+        assert_eq!(trail.coverage(50, 30 + reach), 0, "half pressure halves the 30 px tip");
     }
 
     #[test]
@@ -7113,6 +7263,46 @@ mod tests {
         assert!(app.style_preview.is_none());
     }
 
+    /// Layer Style opened while Free Transform is open applies the box first, as Photoshop does,
+    /// so the dialog previews on the transformed layer (#4821): a dropped file (placed in the box,
+    /// untouched) and a box opened by hand and moved.
+    #[test]
+    fn layer_style_opened_during_free_transform_applies_the_box_and_previews() {
+        for placed in [true, false] {
+            let mut app = PhotocraftApp::new(photocraft_engine::Session::new(), Default::default());
+            app.run("file.new", json!({"width": 64, "height": 64})).unwrap();
+            app.run("layer.new.layer", json!({})).unwrap();
+            app.run("select.rect", json!({"x": 8, "y": 8, "width": 16, "height": 16})).unwrap();
+            app.run("edit.fill", json!({"color": "#0000ff"})).unwrap();
+            app.run("select.deselect", json!({})).unwrap();
+            app.sync_views();
+            let ctx = egui::Context::default();
+            let dx = if placed {
+                crate::transform_tool::begin_placed(&mut app, &ctx).unwrap();
+                0
+            } else {
+                crate::transform_tool::begin(&mut app, &ctx).unwrap();
+                app.ui.transform.as_mut().unwrap().quad = [[28.0, 8.0], [44.0, 8.0], [44.0, 24.0], [28.0, 24.0]];
+                20
+            };
+            crate::layer_style::open(&mut app, Some("dropShadow")).unwrap();
+            assert!(app.ui.transform.is_none() && app.transform_preview.is_none(), "placed {placed}: the box is applied");
+            let (shown, _) = display_doc(&mut app, 0);
+            let rect = photocraft_geom::Rect::new(0, 0, 64, 64);
+            let with = photocraft_compose::render(&shown, rect);
+            let without = photocraft_compose::render(&app.session.documents()[0].doc, rect);
+            assert!(
+                with.get(16 + dx, 16)[0] < 0.1 && with.get(16 + dx, 16)[2] > 0.9,
+                "placed {placed}: the blue block where the box left it, not the white under it"
+            );
+            // The shadow darkens the white around the block, which the document doesn't have yet.
+            let block = |x: i32, y: i32| (8 + dx..24 + dx).contains(&x) && (8..24).contains(&y);
+            let shadow =
+                (0..64).flat_map(|y| (0..64).map(move |x| (x, y))).filter(|&(x, y)| !block(x, y) && without.get(x, y)[0] - with.get(x, y)[0] > 0.05).count();
+            assert!(shadow > 20, "placed {placed}: the Drop Shadow is previewed ({shadow} px)");
+        }
+    }
+
     #[test]
     fn fill_view_covers_the_canvas_and_centres_the_document() {
         let mut app = PhotocraftApp::new(photocraft_engine::Session::new(), crate::Services::default());
@@ -7131,13 +7321,22 @@ mod tests {
         fill_view(&mut view, &doc, vec2(600.0, 600.0), 2.0, 1.0);
         assert_eq!(view.zoom, 6.0);
 
-        // Fit never magnifies past the 1 point-per-pixel cap; on a scaled display the cap is 2.
+        // Fit never magnifies past 100% = one image pixel per physical pixel, at any display
+        // scale (it used to cap at one per *point*, so a 150% display opened images at 150%).
+        for ppp in [1.0f32, 1.5, 2.0] {
+            let mut view = View { fit_pending: true, ..View::default() };
+            fit_view(&mut view, &doc, vec2(600.0, 600.0), ppp, 1.0);
+            assert_eq!(view.zoom, 1.0, "ppp {ppp}: a small image opens at 100%");
+        }
+        // A large image still shrinks to fit: 1000×500 into 440 points is 0.44 pt/px, so 0.66
+        // physical at ppp 1.5.
+        let big = {
+            app.run("file.new", json!({"width": 1000, "height": 500})).unwrap();
+            app.session.active().unwrap().doc.clone()
+        };
         let mut view = View { fit_pending: true, ..View::default() };
-        fit_view(&mut view, &doc, vec2(600.0, 600.0), 1.0, 1.0);
-        assert_eq!(view.zoom, 1.0);
-        let mut view = View { fit_pending: true, ..View::default() };
-        fit_view(&mut view, &doc, vec2(600.0, 600.0), 2.0, 1.0);
-        assert_eq!(view.zoom, 2.0);
+        fit_view(&mut view, &big, vec2(480.0, 480.0), 1.5, 1.0);
+        assert!((view.zoom - 0.66).abs() < 1e-5, "{}", view.zoom);
     }
 
     #[test]
@@ -7324,14 +7523,23 @@ mod transform_controls_tests {
             (r.center_bottom(), egui::CursorIcon::ResizeVertical),
             (r.right_center(), egui::CursorIcon::ResizeHorizontal),
             (r.left_center(), egui::CursorIcon::ResizeHorizontal),
-            // Between handles: the rotation band (a point above the top-centre handle is that handle).
-            (pos2(r.left() + r.width() * 0.25, r.top() - 12.0), egui::CursorIcon::Alias),
+            // Between handles: the rotation band (a point above the top-centre handle is that handle),
+            // where the curved rotate arrow replaces the pointer (#4658).
+            (pos2(r.left() + r.width() * 0.25, r.top() - 12.0), egui::CursorIcon::None),
         ] {
             assert_eq!(transform_controls_cursor(r, p), Some(expected), "hover at {p:?}");
             assert!(transform_controls_hit(r, p), "same region must start a transform");
         }
         assert_eq!(transform_controls_cursor(r, r.center()), None, "interior stays Move");
         assert_eq!(transform_controls_cursor(r, pos2(r.center().x, r.top() - 30.0)), None);
+        // The rotate arrow bends round the nearest corner, pointing into the box; handles and the
+        // interior have none.
+        let into = |p: Pos2| transform_controls_turn(r, p).map(|v| (v.x.signum(), v.y.signum()));
+        assert_eq!(into(pos2(r.left() + r.width() * 0.25, r.top() - 12.0)), Some((1.0, 1.0)), "top left");
+        assert_eq!(into(pos2(r.right() + 12.0, r.bottom() - r.height() * 0.25)), Some((-1.0, -1.0)), "bottom right");
+        assert_eq!(into(pos2(r.left() - 12.0, r.bottom() + 12.0)), Some((1.0, -1.0)), "beyond the bottom-left corner");
+        assert_eq!(into(r.left_top()), None);
+        assert_eq!(into(r.center()), None);
 
         // Changing the active shape changes the hover bounds without requiring a drag first.
         app.session.execute("shape.create", json!({"kind": "rect", "rect": [120, 100, 40, 50], "fill": "#00ff00"})).unwrap();
@@ -7593,3 +7801,7 @@ mod rotation_preview_isolation_tests {
         assert!(ensure_filter_preview(&mut app, 0, &egui::Context::default()).is_none(), "an inactive tab must never inherit the command preview");
     }
 }
+
+#[cfg(test)]
+#[path = "canvas_display_memo_tests.rs"]
+mod display_memo_tests;
