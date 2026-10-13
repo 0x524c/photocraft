@@ -400,6 +400,7 @@
 	Smooth…	Simítás…
 	Solid Color…	Egyszínű kitöltés…
 	Stack Mode	Halommód
+	Choose Stack Mode:	Halommód kiválasztása:
 	Standard Deviation	Szórás
 	Subject	Fő téma
 	Subtract Front Shape	Elülső alakzat kivonása
@@ -1714,6 +1715,7 @@ layerLabel	Magenta	Bíbor
 	Always use pressure for opacity	Mindig nyomásfüggő átlátszatlanság
 	Always use pressure for size	Mindig nyomásfüggő méret
 	Appearance Mode	Megjelenési mód
+	Presentation	Megjelenítés
 	Auto Erase	Automatikus radírozás
 	Auto Hide	Automatikus elrejtés
 	Auto-Select:	Automatikus kijelölés:
@@ -2644,6 +2646,7 @@ cameraRaw	Yellow	Sárga
 	Autosave minutes	Automatikus mentés gyakorisága (perc)
 	Background Color	Háttérszín
 	Background Contents	Háttér tartalma
+	Custom background color	Egyéni háttérszín
 	Batch	Kötegelt feldolgozás
 	Binary assets added	Hozzáadott bináris elemek
 	Binary assets removed	Eltávolított bináris elemek
@@ -4047,3 +4050,4 @@ cameraRaw	Yellow	Sárga
 	Color Indicates:	A szín jelzése:
 	Ink Characteristics	Festék jellemzői
 	Solidity:	Fedőképesség:
+	Redrawing	Újrarajzolás
