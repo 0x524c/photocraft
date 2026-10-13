@@ -3034,3 +3034,22 @@ cameraData	Lens	العدسة
 @plural	{n} action|{n} actions	{n} إجراء|{n} إجراء|{n} إجراءان|{n} إجراءات|{n} إجراء|{n} إجراء
 @plural	{n} step has no PhotoCraft equivalent yet|{n} steps have no PhotoCraft equivalent yet	{n} خطوة ليس لها مكافئ في PhotoCraft بعد|{n} خطوة ليس لها مكافئ في PhotoCraft بعد|{n} خطوتان ليس لهما مكافئ في PhotoCraft بعد|{n} خطوات ليس لها مكافئ في PhotoCraft بعد|{n} خطوة ليس لها مكافئ في PhotoCraft بعد|{n} خطوة ليس لها مكافئ في PhotoCraft بعد
 @plural	{n} step with no Photoshop equivalent left out|{n} steps with no Photoshop equivalent left out	تم استبعاد {n} خطوة ليس لها مكافئ في Photoshop|تم استبعاد {n} خطوة ليس لها مكافئ في Photoshop|تم استبعاد {n} خطوتين ليس لهما مكافئ في Photoshop|تم استبعاد {n} خطوات ليس لها مكافئ في Photoshop|تم استبعاد {n} خطوة ليس لها مكافئ في Photoshop|تم استبعاد {n} خطوة ليس لها مكافئ في Photoshop
+	Channel Color	لون القناة
+	Color Indicates:	اللون يشير إلى:
+	Solidity:	الصلابة:
+	Ink Characteristics	خصائص الحبر
+	Paper Width	عرض الورق
+	Paper Height	ارتفاع الورق
+	{name} can't keep everything in this document	{name} لا يستطيع الاحتفاظ بكل شيء في هذا المستند
+	Choose a format that keeps it, such as Photoshop (PSD), or save a copy.	اختر تنسيقاً يحتفظ بذلك، مثل Photoshop (PSD)، أو احفظ نسخة.
+	Set horizontal skew	ضبط الإمالة الأفقية
+	Set vertical skew	ضبط الإمالة العمودية
+	Add Mask to Selection	إضافة القناع إلى التحديد
+	Subtract Mask from Selection	طرح القناع من التحديد
+	Intersect Mask with Selection	تقاطع القناع مع التحديد
+	Capture Brush Size in Preset	التقاط حجم الفرشاة في الإعداد المسبق
+	Include Tool Settings	تضمين إعدادات الأداة
+	Include Color	تضمين اللون
+	Enter a name for the brush preset	أدخل اسماً للإعداد المسبق للفرشاة
+	A brush preset with this name already exists	يوجد إعداد مسبق للفرشاة بهذا الاسم بالفعل
+	ICO is limited to 256 × 256 pixels	يقتصر ICO على 256 × 256 بكسل
