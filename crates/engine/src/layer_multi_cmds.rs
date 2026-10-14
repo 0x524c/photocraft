@@ -639,6 +639,7 @@ fn doc_pixels_equal(a: &Document, b: &Document) -> bool {
         layers: _,
         channels,
         guides: _,
+        ruler_origin: _,
         selection: _,
         metadata: _,
         global_light,
@@ -1624,8 +1625,8 @@ mod tests {
         let all = doc(&s).bounds();
         assert!(damage(&s).is_none_or(|r| r.contains_rect(&all)), "{:?}", damage(&s));
         // Bad params still fail cleanly.
-        assert!(s.execute("layer.setProps", json!({"layer": 999_999, "visible": true})).is_err());
-        assert!(s.execute("layer.translate", json!({"layer": 999_999, "dx": 1})).is_err());
+        assert!(s.execute("layer.setProps", json!({"layer": u64::MAX, "visible": true})).is_err());
+        assert!(s.execute("layer.translate", json!({"layer": u64::MAX, "dx": 1})).is_err());
     }
 
     /// #1771: a new empty layer or group changes no pixels, so it (and undoing or redoing it)
@@ -1804,7 +1805,7 @@ mod tests {
         let mut locked = (*before).clone();
         locked.layer_mut(a).unwrap().locks.position = true;
         assert!(moved(&locked, &ids, 1, 1).is_err());
-        assert!(moved(&before, &[LayerId(999_999)], 1, 1).is_err());
+        assert!(moved(&before, &[LayerId(u64::MAX)], 1, 1).is_err());
     }
 
     #[test]
@@ -1893,7 +1894,7 @@ mod tests {
         assert_eq!(s.active().unwrap().doc.layer(a).unwrap().name, "x");
         s.execute("layer.showLayers", json!({"layer": a.0})).unwrap();
         assert!(s.active().unwrap().doc.layer(a).unwrap().visible);
-        assert!(s.execute("layer.hideLayers", json!({"layer": 999_999})).is_err());
+        assert!(s.execute("layer.hideLayers", json!({"layer": u64::MAX})).is_err());
         assert!(s.execute("layer.hideLayers", json!({})).is_err());
         assert!(!s.is_enabled("layer.align.topEdges"));
     }

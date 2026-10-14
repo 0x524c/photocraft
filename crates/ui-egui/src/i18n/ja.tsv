@@ -553,6 +553,9 @@
 	Blur	ぼかし
 	Blur Gallery	ぼかしギャラリー
 	Field Blur…	フィールドぼかし…
+# Field Blur pins (#3373)
+	No pin selected	ピンが選択されていません
+	Click the image to add a pin; drag a pin to move it, or its ring to change its blur. Delete removes the selected pin.	画像をクリックしてピンを追加します。ピンをドラッグして移動し、リングをドラッグしてぼかしを変更します。Delete キーで選択したピンを削除します。
 	Iris Blur…	虹彩絞りぼかし…
 	Tilt-Shift…	チルトシフト…
 	Path Blur…	パスぼかし…
@@ -2189,6 +2192,10 @@
 	No path to make a selection from: draw one with the Pen tool or select one in the Paths panel.	選択範囲を作成するパスがありません。ペンツールで描くか、パスパネルでパスを選択してください。
 	Cancel opening	開くのをキャンセル
 	Cancelled opening {name}	{name} を開くのをキャンセルしました
+	The document “{name}” does not have an embedded {mode} profile.	ドキュメント「{name}」には埋め込み {mode} プロファイルがありません。
+	The document “{name}” has an embedded color profile that does not match the current {mode} working space.	ドキュメント「{name}」の埋め込みカラープロファイルは、現在の {mode} 作業用スペースと一致しません。
+	Embedded: {embedded}	埋め込み: {embedded}
+	Working: {working}	作業用スペース: {working}
 	Developing {name}	{name} を現像中
 	Cancelled {label}	{label} をキャンセルしました
 	Esc to cancel	Esc キーでキャンセル
@@ -3306,7 +3313,6 @@ fontWeight	Italic	斜体
 	Exposure Program	露出プログラム
 	Extra Bold	エクストラボールド
 	Extra Light	エクストラライト
-	File Naming	ファイル名の付け方
 	Fill Light	フィルライト
 	First Color Readout	最初のカラー読み取り
 	Flash	フラッシュ
@@ -3724,6 +3730,8 @@ curves	Smooth	スムーズ
 @plural	Saved {n} action to {file}|Saved {n} actions to {file}	{file} にアクション {n} 個を保存しました
 @plural	{n} step with no Photoshop equivalent left out|{n} steps with no Photoshop equivalent left out	Photoshop に対応するもののない {n} 個のステップを省きました
 
+	File Naming	ファイル名の付け方
+	Starting serial	開始番号
 # Actions panel: set folders, dialog toggle, Insert Stop
 	Insert Stop…	ストップを挿入…
 	Save Set…	セットを保存…
@@ -3801,6 +3809,12 @@ curves	Smooth	スムーズ
 	Vector Mask Hides Effects	ベクトルマスクで効果を隠す
 	Auto Add/Delete	自動追加・削除
 
+# Native Windows printing qualification
+	Don't also tick Mirror Image in Print Settings…: the two flips cancel out.	印刷設定の「鏡像」も有効にしないでください。2回反転すると元に戻ります。
+	Print Settings…	印刷設定…
+	Remember to turn off the printer's own colour management in Print Settings…	印刷設定でプリンター独自のカラーマネジメントを無効にしてください…
+	Sent to {printer}	{printer} に送信しました
+	set in Print Settings…	印刷設定で指定…
 # Restored rows (custom print paper #3820, brush presets, Vanishing Point help, brush panel menu)
 	Drag to pan · Scroll to zoom · Double-click to fit	ドラッグで移動 · スクロールでズーム · ダブルクリックで全体表示
 	Clear Brush Controls	ブラシのコントロールを消去
