@@ -3057,3 +3057,14 @@ cameraData	Lens	العدسة
 	Redrawing	إعادة الرسم
 	Custom background color	لون خلفية مخصص
 	Choose Stack Mode:	اختر وضع التكديس:
+	Don't also tick Mirror Image in Print Settings…: the two flips cancel out.	لا تحدد أيضاً عكس الصورة في إعدادات الطباعة…: الانعكاسان يلغي أحدهما الآخر.
+	Print Settings…	إعدادات الطباعة…
+	Remember to turn off the printer's own colour management in Print Settings…	تذكر إيقاف إدارة الألوان الخاصة بالطابعة في إعدادات الطباعة…
+	Sent to {printer}	تم الإرسال إلى {printer}
+	set in Print Settings…	يتم ضبطه في إعدادات الطباعة…
+	The document “{name}” does not have an embedded {mode} profile.	المستند “{name}” لا يحتوي على ملف تعريف {mode} مضمن.
+	The document “{name}” has an embedded color profile that does not match the current {mode} working space.	يحتوي المستند “{name}” على ملف تعريف ألوان مضمن لا يطابق مساحة عمل {mode} الحالية.
+	Embedded: {embedded}	المضمن: {embedded}
+	Working: {working}	مساحة العمل: {working}
+	No pin selected	لم يتم تحديد أي دبوس
+	Click the image to add a pin; drag a pin to move it, or its ring to change its blur. Delete removes the selected pin.	انقر على الصورة لإضافة دبوس؛ اسحب الدبوس لتحريكه، أو حلقته لتغيير التمويه. يؤدي Delete إلى إزالة الدبوس المحدد.
