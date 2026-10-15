@@ -1,5 +1,11 @@
 # Arabic localization: first review batch
 
+Arabic user help is available in the documentation book:
+[دليل البداية](../book/src/arabic/quick-start.md),
+[الأدوات بأمثلة](../book/src/arabic/tools.md) and
+[قاموس المصطلحات](../book/src/arabic/glossary.md).
+Those guides use the current English UI labels; they do not activate the Arabic catalog.
+
 Status: **staged, not selectable**. This is an original Modern Standard Arabic
 catalog for review, not a claim that the application has a working Arabic UI.
 The draft is `crates/ui-egui/src/i18n/ar.tsv`; it is deliberately absent from
