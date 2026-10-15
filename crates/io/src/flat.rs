@@ -16,28 +16,35 @@ const BAND_BYTES: usize = 32 << 20;
 /// Decodes a flat image into a single-layer document; a TIFF with Photoshop layer data opens
 /// layered (see [`crate::tiff_layers`]).
 pub fn import_flat(name: &str, bytes: &[u8]) -> Result<ImportResult, IoError> {
-    if codecs::detect(bytes) == Some(Format::Tiff) {
+    // Detected once; every step below branches on it.
+    let format = codecs::detect(bytes);
+    if format == Some(Format::Tiff) {
         return import_tiff_page(name, bytes, None);
     }
-    let img = codecs::decode(bytes)?;
-    // A palette BMP opens in Indexed Color mode with its colour table, as in Photoshop (#3802).
-    let bmp_palette = if codecs::detect(bytes) == Some(Format::Bmp) { codecs::bmp_palette(bytes).ok().flatten() } else { None };
+    let img = codecs::decode_as(format.ok_or(codecs::CodecError::UnknownFormat)?, bytes)?;
+    // A palette BMP or PNG opens in Indexed Color mode with its colour table, as in Photoshop
+    // (#3802, #4804).
+    let palette = match format {
+        Some(Format::Bmp) => codecs::bmp_palette(bytes).ok().flatten().map(|c| (c, None)),
+        Some(Format::Png) => codecs::png_palette(bytes).ok().flatten().map(|p| (p.colors, p.transparent)),
+        _ => None,
+    };
     let mut r = image_to_document(name, &img)?;
-    if let Some(colors) = bmp_palette.filter(|c| !c.is_empty())
+    if let Some((colors, transparent)) = palette.filter(|(c, _)| !c.is_empty())
         && r.document.mode == ColorMode::Rgb
     {
         r.document.mode = ColorMode::Indexed;
-        r.document.color_table = Some(photocraft_doc::ColorTable { colors, transparent: None });
+        r.document.color_table = Some(photocraft_doc::ColorTable { colors, transparent });
     }
-    r.document.file_encoding = file_encoding(bytes);
-    if codecs::detect(bytes) == Some(Format::Tga) && img.layout() == ChannelLayout::Rgba {
+    r.document.file_encoding = file_encoding_as(format, bytes);
+    if format == Some(Format::Tga) && img.layout() == ChannelLayout::Rgba {
         tga_alpha_to_channel(&mut r.document)?;
     }
     // OpenEXR and Radiance HDR hold linear, scene-referred values (Rec. 709 primaries unless
     // stated otherwise, and an OpenEXR `Y` is linear luminance): tag them linear sRGB or linear
     // gray so they display and convert correctly.
     let d = &mut r.document;
-    if d.icc_profile.is_none() && matches!(codecs::detect(bytes), Some(Format::OpenExr | Format::Hdr)) {
+    if d.icc_profile.is_none() && matches!(format, Some(Format::OpenExr | Format::Hdr)) {
         d.icc_profile = match d.mode {
             ColorMode::Rgb => Some(photocraft_cms::Builtin::LinearSrgb.profile().to_bytes()),
             ColorMode::Grayscale => Some(photocraft_cms::builtin::linear_gray().to_bytes()),
@@ -63,8 +70,13 @@ pub fn import_gif_frames(name: &str, bytes: &[u8], each: &mut dyn FnMut(Document
 /// (estimated from its quantisation tables) and a WebP's lossless or lossy encoding with its
 /// quality. A lossy WebP whose quality can't be read gets [`DEFAULT_LOSSY_WEBP_QUALITY`].
 pub fn file_encoding(bytes: &[u8]) -> photocraft_doc::FileEncoding {
+    file_encoding_as(codecs::detect(bytes), bytes)
+}
+
+/// [`file_encoding`] for `bytes` already detected as `format`.
+fn file_encoding_as(format: Option<Format>, bytes: &[u8]) -> photocraft_doc::FileEncoding {
     let mut e = photocraft_doc::FileEncoding::default();
-    match codecs::detect(bytes) {
+    match format {
         Some(Format::Jpeg) => e.jpeg_quality = codecs::jpeg_quality(bytes),
         Some(Format::WebP) => match codecs::webp_encoding(bytes) {
             Some(codecs::WebpEncoding::Lossless) => e.webp_lossless = Some(true),
@@ -312,8 +324,10 @@ fn document_to_image_for(doc: &Document, warnings: &mut Vec<String>, cmyk_target
     let canvas = doc.bounds();
     let fmt = doc.pixel_format();
     let n = (w as usize) * (h as usize);
-    // Lab has no flat-format layout here: Lab documents always go through the composite.
-    let native = single_layer(doc).filter(|_| fmt.mode != ColorMode::Lab);
+    // Lab has no flat-format layout here: Lab documents always go through the composite, which
+    // flattens nothing when there is a single plain layer.
+    let single = single_layer(doc);
+    let native = single.filter(|_| fmt.mode != ColorMode::Lab);
     let mut icc = doc.icc_profile.as_ref().map(|i| i.to_vec());
     let img = if let Some(s) = native {
         // Native path: keep model and depth. The surface's encoded samples are the codec's raw
@@ -340,8 +354,10 @@ fn document_to_image_for(doc: &Document, warnings: &mut Vec<String>, cmyk_target
         }
         Image::from_raw(w, h, layout, csample(fmt.sample), data)?
     } else {
-        let count = doc.layer_count();
-        warnings.push(format!("{count} layer(s) flattened; layers, masks and blend modes are not kept"));
+        if single.is_none() {
+            let count = doc.layer_count();
+            warnings.push(format!("{count} layer(s) flattened; layers, masks and blend modes are not kept"));
+        }
         let cmyk = fmt.mode == ColorMode::Cmyk && cmyk_target;
         // Only a CMYK target needs the document's profile; RGB-only targets keep the compositor's
         // own handling (built-in coated CMYK when the embedded profile is unusable).

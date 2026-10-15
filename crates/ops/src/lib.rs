@@ -248,7 +248,7 @@ impl History {
     }
 }
 
-/// Bytes of the pixel tiles of `doc` (layers, masks, alpha channels, selection) not already in `seen`.
+/// Bytes of the pixel tiles of `doc` (layers, masks, fill caches, smart filter masks, alpha channels, selection) not already in `seen`.
 fn tile_bytes(doc: &Document, seen: &mut HashSet<usize>) -> usize {
     let mut n = 0usize;
     tiles::surfaces(doc, |surface| {
@@ -406,6 +406,42 @@ mod tests {
             d.layer_mut(id).unwrap().surface_mut().unwrap().write_pixel(1, 1, &[0.0, 0.0, 0.0, 1.0]);
         });
         assert_eq!(h.unique_bytes(&cur), 256 * 256 * 4);
+    }
+
+    #[test]
+    fn fill_caches_and_smart_filter_masks_count_toward_history_bytes() {
+        use photocraft_doc::{Affine, Fill, FillCache, LayerContent, LayerMask, PixelFormat, SmartObject, SmartSource, Surface};
+        let mut doc = Document::new("fills", Size::new(64, 64), ColorMode::Rgb, SampleType::U8);
+        let mut fill = Layer::new("Fill", LayerContent::Fill(Fill::Solid(Color::WHITE)));
+        let mut cache = Surface::new(PixelFormat::GRAY8);
+        cache.write_pixel(1, 1, &[1.0]);
+        fill.fill_cache = Some(FillCache { fill: Fill::Solid(Color::WHITE), surface: cache });
+        doc.insert_above(None, fill);
+        let mut smart_obj = SmartObject::new(SmartSource::Linked { path: "a.png".into() }, Affine::IDENTITY, None);
+        let mut mask = LayerMask::reveal_all();
+        mask.surface.write_pixel(1, 1, &[0.5]);
+        smart_obj.filter_mask = Some(mask);
+        doc.insert_above(None, Layer::new("Smart", LayerContent::Smart(smart_obj)));
+        let tile = 256 * 256;
+        let mut cur = Arc::new(doc);
+        let mut h = History { max_bytes: usize::MAX, ..History::default() };
+        assert_eq!(h.pixel_bytes(&cur), 2 * tile, "fill cache and smart filter mask are counted");
+        edit(&mut h, &mut cur, "Rename", |doc| doc.name = "renamed".into());
+        assert_eq!(h.pixel_bytes(&cur), 2 * tile, "shared tiles count once");
+        edit(&mut h, &mut cur, "Fill cache", |doc| {
+            let id = doc.layers[0].id;
+            if let Some(cache) = doc.layer_mut(id).and_then(|l| l.fill_cache.as_mut()) {
+                cache.surface.write_pixel(1, 1, &[0.0]);
+            }
+        });
+        assert_eq!(h.pixel_bytes(&cur), 3 * tile, "the copied fill cache tile is history-only");
+        assert_eq!(h.unique_bytes(&cur), tile);
+        h.trim(&cur);
+        assert_counter(&h, &cur);
+        h.max_bytes = 2 * tile;
+        assert_eq!(h.trim(&cur), 1, "the copied fill cache tile pushes history over budget");
+        assert_eq!(h.pixel_bytes(&cur), 3 * tile, "the most recent undo state is always kept");
+        assert_counter(&h, &cur);
     }
 
     #[test]
@@ -578,6 +614,44 @@ mod tests {
             h.max_bytes = 1;
             assert_eq!(h.trim(&cur), 0);
             assert!(h.can_undo());
+        }
+    }
+
+    /// A pattern fill or layer style copies its pattern into the document, so the pattern's tiles
+    /// count like layer pixels, shared ones once; undoing that step leaves them to the redo states.
+    #[test]
+    fn document_patterns_count_as_document_pixels() {
+        use photocraft_doc::{Pattern, Surface};
+        for depth in SampleType::ALL {
+            let tile = 4 * 256 * 256 * depth.bytes();
+            let mut cur = Arc::new(Document::new("patterns", Size::new(64, 64), ColorMode::Rgb, depth));
+            let mut h = History { max_bytes: usize::MAX, ..History::default() };
+            for name in ["A", "B"] {
+                edit(&mut h, &mut cur, "Rename", |doc| doc.name = name.into());
+                h.trim(&cur);
+            }
+            let mut surface = Surface::new(cur.pixel_format());
+            surface.write_pixel(1, 1, &[0.0, 0.0, 1.0, 1.0]);
+            let pattern = Pattern::new("Pattern", surface, 4, 4);
+            edit(&mut h, &mut cur, "Pattern Fill", |doc| doc.patterns.push(pattern));
+            assert_eq!(h.pixel_bytes(&cur), tile, "the document's pattern");
+            assert_eq!(h.unique_bytes(&cur), 0);
+            assert_counter(&h, &cur);
+            edit(&mut h, &mut cur, "Rename", |doc| doc.name = "C".into());
+            assert_eq!(h.pixel_bytes(&cur), tile, "shared with history, it counts once");
+            assert_counter(&h, &cur);
+            for _ in 0..2 {
+                cur = h.undo(cur).unwrap().0;
+                assert_counter(&h, &cur);
+            }
+            assert!(cur.patterns.is_empty());
+            assert_eq!(h.unique_bytes(&cur), tile, "only the redo states hold the pattern");
+            assert_eq!(h.pixel_bytes(&cur), tile);
+            cur = h.redo(cur).unwrap().0;
+            assert_eq!(h.unique_bytes(&cur), 0);
+            assert_counter(&h, &cur);
+            h.clear();
+            assert_eq!(h.pixel_bytes(&cur), tile);
         }
     }
 

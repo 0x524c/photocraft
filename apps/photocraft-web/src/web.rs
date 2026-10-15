@@ -305,7 +305,12 @@ impl eframe::App for WebShell {
     }
 
     fn ui(&mut self, ui: &mut egui::Ui, frame: &mut eframe::Frame) {
-        if let Some(error) = self.presets.error() {
+        // Only while a preset change is unsaved. Storage the browser denies from the start (a
+        // sandboxed iframe, blocked site data) loses nothing until the first change, and that
+        // change brings the banner with the reason.
+        if self.presets.unsaved()
+            && let Some(error) = self.presets.error()
+        {
             egui::Panel::top("browser_preset_storage").show(ui, |ui| {
                 let tokens = photocraft_ui_egui::theme::Tokens::for_kind(self.app.ui.theme);
                 // Put retry first so floating brush windows cannot cover the control.
@@ -335,20 +340,7 @@ fn services(inbox: Inbox) -> Services {
             photocraft_io::import_with_svg_group_depth(name, bytes, max_svg_group_depth).map(|r| (r.document, r.warnings)).map_err(|e| e.to_string())
         })),
         export: Some(Box::new(|doc: &Document, path: &str, settings: &photocraft_ui_egui::ExportSettings| {
-            let mut opts = photocraft_io::ExportOptions::default();
-            if let Some(q) = settings.jpeg_quality {
-                opts.encode.jpeg_quality = q;
-            }
-            opts.encode.webp_lossless = settings.webp_lossless;
-            if let Some(q) = settings.webp_quality {
-                opts.encode.webp_quality = q;
-            }
-            opts.tiff_layers = settings.tiff_layers;
-            opts.xmp = if settings.xmp_all { photocraft_io::XmpEmbed::All } else { photocraft_io::XmpEmbed::None };
-            opts.tga_bits = settings.tga_bits;
-            opts.image_previews = settings.image_previews;
-            opts.psd_maximize_compatibility = settings.psd_maximize_compatibility;
-            photocraft_io::export(doc, path, &opts).map(|r| (r.bytes, r.warnings)).map_err(|e| e.to_string())
+            photocraft_io::export(doc, path, &settings.io_options()).map(|r| (r.bytes, r.warnings)).map_err(|e| e.to_string())
         })),
         file_dialog: Some(Box::new(|request, _parent, reply| match request {
             // The browser's file picker hands over the files' contents, not paths. File › Open
