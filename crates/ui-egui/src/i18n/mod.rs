@@ -48,7 +48,11 @@ pub struct LangInfo {
     catalog: OnceLock<Catalog>,
 }
 
-/// Arabic plural rule : 0 → zero, 1 → one, 2 → two, 3–10 → few, 11–99 → many, 100+ → other.
+/// Arabic plural rule (CLDR):
+/// 0 → zero, 1 → one, 2 → two,
+/// n % 100 = 3–10 → few,
+/// n % 100 = 11–99 → many,
+/// otherwise → other (e.g., 100–102, 200–202, 1000+)
 fn plural_arabic(n: u64) -> usize {
     if n == 0 {
         0
@@ -59,11 +63,11 @@ fn plural_arabic(n: u64) -> usize {
     } else {
         let mod100 = n % 100;
         if (3..=10).contains(&mod100) {
-            3
+            3  // few
         } else if (11..=99).contains(&mod100) {
-            4
+            4  // many
         } else {
-            5
+            5  // other
         }
     }
 }
