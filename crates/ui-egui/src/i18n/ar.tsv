@@ -3068,3 +3068,168 @@ cameraData	Lens	العدسة
 	Working: {working}	مساحة العمل: {working}
 	No pin selected	لم يتم تحديد أي دبوس
 	Click the image to add a pin; drag a pin to move it, or its ring to change its blur. Delete removes the selected pin.	انقر على الصورة لإضافة دبوس؛ اسحب الدبوس لتحريكه، أو حلقته لتغيير التمويه. يؤدي Delete إلى إزالة الدبوس المحدد.
+	Accept and Go to Conflict	قبول والانتقال إلى التعارض
+	Add Shortcut	إضافة اختصار
+	Add “copy” to Copied Layers and Groups	إضافة “copy” إلى الطبقات والمجموعات المنسوخة
+	Animation Options	خيارات الرسوم المتحركة
+	Applies immediately when saved. Memory is not reserved in advance.	يسري فوراً عند الحفظ. لا يتم حجز الذاكرة مسبقاً.
+	Automatic paragraph direction	اتجاه الفقرة تلقائي
+	Baseline ("Standard")	أساسي ("قياسي")
+	Baseline Optimized	أساسي محسن
+	Behind	خلف
+	Bicubic Automatic	ثنائي التكعيب تلقائي
+	Bicubic Sharper	ثنائي التكعيب أكثر حدة
+	Bicubic Smoother	ثنائي التكعيب أكثر نعومة
+	Blending Options ({filter})	خيارات المزج ({filter})
+	Blur Angle	زاوية التمويه
+	Button Mode	وضع الأزرار
+	Button Mode On	وضع الأزرار قيد التشغيل
+	Changes undone.	تم التراجع عن التغييرات.
+	Check Again	التحقق مرة أخرى
+	Check for Updates…	التحقق من وجود تحديثات…
+	Checking for updates…	جارٍ التحقق من وجود تحديثات…
+	Choose a new shortcut for this command, or leave it without one.	اختر اختصاراً جديداً لهذا الأمر، أو اتركه بدون اختصار.
+	Clean the brush after each stroke	تنظيف الفرشاة بعد كل ضربة
+	Clip Thumbnails to Layer Bounds	قص الصور المصغرة على حدود الطبقة
+	Compression	الضغط
+	Confirm or cancel the open action step dialog first	أكد أو ألغ مربع حوار خطوة الإجراء المفتوح أولاً
+	Continue	متابعة
+	Contract	تقليص
+	Convert to the working space ({profile})	التحويل إلى مساحة العمل ({profile})
+	Copy Color as HTML	نسخ اللون بتنسيق HTML
+	Copy Color's Hex Code	نسخ الرمز السداسي عشري للون
+	Could not check for updates.	تعذر التحقق من وجود تحديثات.
+	Create warped text	إنشاء نص ملتوٍ
+	DDS Options	خيارات DDS
+	Delete Contour	حذف الكفاف
+	Delete this set	حذف هذه المجموعة
+	Dissolve is approximated: it blends without Photoshop's dither.	التحلل تقريبي: يمزج بدون تنقيط Photoshop.
+	Drag the handles on the outline to resize and turn it, the square to round its corners, and the dots inside to set where the blur starts.	اسحب المقابض على المخطط لتغيير حجمه وتدويره، والمربع لتدوير زواياه، والنقاط في الداخل لتحديد مكان بدء التمويه.
+	Drag the handles on the outline to resize and turn it; the ring sets the blur angle.	اسحب المقابض على المخطط لتغيير حجمه وتدويره؛ وتحدد الحلقة زاوية التمويه.
+	Duplicate Layer	تكرار الطبقة
+	Entire Document	المستند بالكامل
+	Excluded Area	المنطقة المستثناة
+	Expand New Effects	توسيع التأثيرات الجديدة
+	Export Selected Styles…	تصدير الأنماط المحددة…
+	Export Styles…	تصدير الأنماط…
+	Fill Settings	إعدادات التعبئة
+	Filter Options	خيارات الفلتر
+	Format Options	خيارات التنسيق
+	Free Transform is still being applied; try again when it has finished.	لا يزال التحويل الحر قيد التطبيق؛ حاول مرة أخرى عند انتهائه.
+	Frequency:	التردد:
+	Full	كامل
+	GPU Memory Full	ذاكرة GPU ممتلئة
+	GPU acceleration resumed.	تم استئناف تسريع GPU.
+	GPU adapter	محول GPU
+	GPU memory budget: {budget}	ميزانية ذاكرة GPU: {budget}
+	Generate Mipmaps	إنشاء Mipmaps
+	Halftone Screen	شاشة التدرج النصفي
+	Hide the layer's effects and Smart Filters  ({key}-click: all layers)	إخفاء تأثيرات الطبقة والفلاتر الذكية (انقر مع {key}: كل الطبقات)
+	If you continue, saving over the original may permanently discard unreadable data. Save a copy to keep the original.	إذا تابعت، فقد يؤدي الحفظ فوق الأصل إلى تجاهل البيانات غير القابلة للقراءة نهائياً. احفظ نسخة للاحتفاظ بالأصل.
+	Image Options	خيارات الصورة
+	Import Styles…	استيراد الأنماط…
+	In Front	أمام
+	Include All Subfolders	تضمين كل المجلدات الفرعية
+	Indicates	يشير إلى
+	Installed RAM: {ram} MB; this limit: {percent}%	ذاكرة RAM المثبتة: {ram} ميغابايت؛ هذا الحد: {percent}%
+	Its layers need {needed} of GPU memory; the budget leaves them {budget}.	تحتاج طبقاته إلى {needed} من ذاكرة GPU؛ وتتيح الميزانية لها {budget}.
+	JPEG Options	خيارات JPEG
+	Layer Bounds	حدود الطبقة
+	Layers Panel Options	خيارات لوحة الطبقات
+	Left-to-right paragraph direction	اتجاه الفقرة من اليسار إلى اليمين
+	Limits each open document's pixels plus History. Oldest undo states are discarded when the limit is exceeded.	يحدد بكسلات كل مستند مفتوح بالإضافة إلى السجل. تُهمل أقدم حالات التراجع عند تجاوز الحد.
+	Lines/Centimeter	خطوط/سنتيمتر
+	Lines/Inch	خطوط/بوصة
+	Load Contours…	تحميل خطوط الكفاف…
+	Load the brush after each stroke	تحميل الفرشاة بعد كل ضربة
+	Lock Layers	قفل الطبقات
+	Mask Options…	خيارات القناع…
+	Memory Usage	استخدام الذاكرة
+	Mirror	مرآة
+	Move Down	نقل لأسفل
+	Move Up	نقل لأعلى
+	New Action…	إجراء جديد…
+	New Artboard…	لوحة عمل جديدة…
+	New Group…	مجموعة جديدة…
+	New Set…	مجموعة جديدة…
+	Not rendered: this adjustment ({key}) is kept as imported.	غير معروض: يتم الاحتفاظ بهذا التعديل ({key}) كما تم استيراده.
+	Nothing to paste: PhotoCraft can't read the system clipboard here	لا يوجد شيء للصق: لا يستطيع PhotoCraft قراءة حافظة النظام هنا
+	Opacity must be between 0% and 100%.	يجب أن تكون العتامة بين 0% و100%.
+	Open Download Page	فتح صفحة التنزيل
+	Open the release page to choose an installer for your system.	افتح صفحة الإصدار لاختيار برنامج التثبيت المناسب لنظامك.
+	Output Settings	إعدادات الإخراج
+	Output To	الإخراج إلى
+	Override Tilt X	تجاوز الإمالة X
+	Override Tilt Y	تجاوز الإمالة Y
+	Paints from the History panel's source state	يرسم من حالة المصدر في لوحة السجل
+	Per-document RAM limit (MB)	حد RAM لكل مستند (ميغابايت)
+	PhotoCraft Defaults	الإعدادات الافتراضية لـ PhotoCraft
+	PhotoCraft Updates	تحديثات PhotoCraft
+	PhotoCraft is up to date.	PhotoCraft محدّث.
+	Prevent Auto-Nesting	منع التداخل التلقائي
+	Preview on canvas when reordering layers	معاينة على اللوحة عند إعادة ترتيب الطبقات
+	Preview size	حجم المعاينة
+	Print preview image	معاينة صورة الطباعة
+	Put this command's shortcuts back as they were	إعادة اختصارات هذا الأمر كما كانت
+	Random	عشوائي
+	Rectangular	مستطيل
+	Remember this choice for future images	تذكر هذا الاختيار للصور المستقبلية
+	Replace	استبدال
+	Replace Contours…	استبدال خطوط الكفاف…
+	Replace it with this document, or cancel and use File › Save As to keep both.	استبدله بهذا المستند، أو ألغ واستخدم ملف › حفظ باسم للاحتفاظ بكليهما.
+	Response curve	منحنى الاستجابة
+	Retry GPU tries the graphics processor again now.	تؤدي إعادة محاولة GPU إلى تجربة معالج الرسومات مرة أخرى الآن.
+	Right-to-left paragraph direction	اتجاه الفقرة من اليمين إلى اليسار
+	Rotation Adaptation	تكيف الدوران
+	Sampling Area	منطقة العينة
+	Sampling Area Options	خيارات منطقة العينة
+	Sampling Area Overlay	تراكب منطقة العينة
+	Sampling Brush Tool	أداة فرشاة العينة
+	Save Contours…	حفظ خطوط الكفاف…
+	Save a list of these shortcuts as a web page	حفظ قائمة بهذه الاختصارات كصفحة ويب
+	Save the changes to this set	حفظ التغييرات في هذه المجموعة
+	Save these shortcuts as a .kys file	حفظ هذه الاختصارات كملف .kys
+	Save these shortcuts as a new set	حفظ هذه الاختصارات كمجموعة جديدة
+	Set GPU Memory in Preferences › Performance to what your graphics card can hold, at most 3/8 of its memory. Automatic follows Memory Usage, within a quarter of this computer's memory and 3/8 of the card's, and doesn't count the document against a card whose memory is known. The status bar shows GPU Memory Full while they don't fit.	اضبط ذاكرة GPU في التفضيلات › الأداء على ما تستطيع بطاقة الرسومات استيعابه، بحد أقصى 3/8 من ذاكرتها. يتبع الوضع التلقائي استخدام الذاكرة، ضمن ربع ذاكرة هذا الكمبيوتر و3/8 من ذاكرة البطاقة، ولا يحتسب المستند على بطاقة معروفة الذاكرة. يعرض شريط الحالة «ذاكرة GPU ممتلئة» طالما لا تتسع لها.
+	Set deleted.	تم حذف المجموعة.
+	Set saved.	تم حفظ المجموعة.
+	Set:	المجموعة:
+	Show Layers	إظهار الطبقات
+	Show Sampling Area	إظهار منطقة العينة
+	Show layer mask badges	إظهار شارات قناع الطبقة
+	Show the layer's effects and Smart Filters  ({key}-click: all layers)	إظهار تأثيرات الطبقة والفلاتر الذكية (انقر مع {key}: كل الطبقات)
+	Some layers, pixels or masks could not be read. Do you want to continue opening it?	تعذرت قراءة بعض الطبقات أو البكسلات أو الأقنعة. هل تريد متابعة فتحه؟
+	Start Recording	بدء التسجيل
+	Stop Recording	إيقاف التسجيل
+	Summarize…	تلخيص…
+	Take the shortcut from the other command and select it	خذ الاختصار من الأمر الآخر وحدده
+	The active layer has no pixels here — turn on Sample All Layers or select a layer with pixels	لا تحتوي الطبقة النشطة على بكسلات هنا — فعّل أخذ العينات من كل الطبقات أو حدد طبقة تحتوي على بكسلات
+	The document or Smart Filter changed. Reopen its dialog.	تغير المستند أو الفلتر الذكي. أعد فتح مربع الحوار الخاص به.
+	The document “{name}” may be damaged.	قد يكون المستند “{name}” تالفاً.
+	The layers need {needed} of GPU memory and may hold {budget}, so edits that redraw the whole document do it on the CPU. Click to set GPU Memory.	تحتاج الطبقات إلى {needed} من ذاكرة GPU ويمكنها استيعاب {budget}، لذلك تتم التعديلات التي تعيد رسم المستند بالكامل على وحدة المعالجة المركزية. انقر لضبط ذاكرة GPU.
+	The name in the save dialog was “{name}”.	كان الاسم في مربع حوار الحفظ “{name}”.
+	The transform couldn't be applied.	تعذر تطبيق التحويل.
+	There are too many sets: delete one first.	توجد مجموعات كثيرة جداً: احذف واحدة أولاً.
+	There is no color table to save.	لا يوجد جدول ألوان للحفظ.
+	This document's layers need {needed} but may hold {budget}: whole-document redraws use the CPU	تحتاج طبقات هذا المستند إلى {needed} لكنها تستوعب {budget}: تستخدم إعادة رسم المستند بالكامل وحدة المعالجة المركزية
+	This document's layers: {needed} of {budget} for layers	طبقات هذا المستند: {needed} من {budget} للطبقات
+	Thumbnail Contents	محتويات الصورة المصغرة
+	Thumbnail Size	حجم الصورة المصغرة
+	Turn the prompt back on with Ask On Mismatch in Edit › Color Settings.	أعد تشغيل المطالبة باستخدام «السؤال عند عدم التطابق» في تحرير › إعدادات الألوان.
+	Undo Changes	التراجع عن التغييرات
+	Updates have not been checked yet.	لم يتم التحقق من التحديثات بعد.
+	Use	استخدام
+	Use Default Masks on Fill Layers	استخدام الأقنعة الافتراضية على طبقات التعبئة
+	Use the embedded profile ({profile})	استخدام ملف التعريف المضمن ({profile})
+	Very High	عالٍ جداً
+	Wait for the current job to finish.	انتظر حتى تنتهي المهمة الحالية.
+	With GPU Memory set to Automatic, this also limits the GPU layer budget. That budget is capped at one quarter of installed RAM and, when known, three eighths of the graphics card's memory, with a 512 MB minimum. Raising this limit beyond those caps does not increase the GPU budget.	عند ضبط ذاكرة GPU على تلقائي، فإن هذا يحد أيضاً من ميزانية طبقات GPU. تقتصر هذه الميزانية على ربع ذاكرة RAM المثبتة، وعند معرفتها، ثلاثة أثمان ذاكرة بطاقة الرسومات، بحد أدنى 512 ميغابايت. لا يؤدي رفع هذا الحد فوق هذه الحدود القصوى إلى زيادة ميزانية GPU.
+	set name	اسم المجموعة
+	{file} is not a style library (.asl)	{file} ليس مكتبة أنماط (.asl)
+	{name} was changed by another app after it was opened or saved here.	تم تغيير {name} بواسطة تطبيق آخر بعد فتحه أو حفظه هنا.
+	{path}: the path is not valid Unicode; save under another name.	{path}: المسار ليس Unicode صالحاً؛ احفظ باسم آخر.
+	{set} (modified)	{set} (معدّلة)
+	{shortcut} is reserved by the system and can't be assigned.	{shortcut} محجوز من قبل النظام ولا يمكن تعيينه.
+	“{name}” already exists. Replace it?	“{name}” موجود بالفعل. هل تريد استبداله؟
+@plural	Exported {n} style to {file}|Exported {n} styles to {file}	تم تصدير {n} نمط إلى {file}|تم تصدير {n} نمط إلى {file}|تم تصدير {n} نمطين إلى {file}|تم تصدير {n} أنماط إلى {file}|تم تصدير {n} نمط إلى {file}|تم تصدير {n} نمط إلى {file}
+@plural	Saved {n} color to {file}|Saved {n} colors to {file}	تم حفظ {n} لون في {file}|تم حفظ {n} لون في {file}|تم حفظ {n} لونين في {file}|تم حفظ {n} ألوان في {file}|تم حفظ {n} لون في {file}|تم حفظ {n} لون في {file}
