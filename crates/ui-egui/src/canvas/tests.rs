@@ -1679,12 +1679,18 @@ fn mask_view_uploads_each_live_stroke_before_release() {
                 assert_eq!(app.session.documents()[0].doc.layer(layer).unwrap(), &original);
                 crate::channel_view::ensure(&mut app, &ctx, 0);
                 let mut delta = ctx.tex_manager().write().take_delta();
-                let egui::ImageData::Color(image) = &delta.set.get(&tex).unwrap()[0].image;
+                let upload = &delta.set.get(&tex).unwrap()[0];
+                let egui::ImageData::Color(image) = &upload.image;
                 let st = &app.session.documents()[0];
+                // Undo redraws only the tiles the stroke changed (#9329): a partial upload of them.
+                let f = factor as i32;
+                let r = upload.pos.map_or(st.doc.bounds(), |pos| {
+                    DRect::new(pos[0] as i32 * f, pos[1] as i32 * f, (pos[0] + image.size[0]) as i32 * f, (pos[1] + image.size[1]) as i32 * f)
+                        .intersect(&st.doc.bounds())
+                });
                 assert_eq!(
                     image.pixels,
-                    crate::channel_view::render(&st.doc, &st.channel_view, st.doc.bounds(), factor, crate::channel_view::Look::default(), st.active_layer)
-                        .unwrap(),
+                    crate::channel_view::render(&st.doc, &st.channel_view, r, factor, crate::channel_view::Look::default(), st.active_layer).unwrap(),
                     "undo restores the shown mask"
                 );
                 delta.clear();
