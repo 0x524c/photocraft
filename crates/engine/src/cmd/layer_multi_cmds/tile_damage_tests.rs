@@ -173,6 +173,45 @@ fn tile_damage_grows_by_the_layer_effect_margin() {
     assert!(unchanged_outside(&before, &after, d));
 }
 
+#[test]
+fn a_dab_inside_a_group_with_a_drop_shadow_damages_the_shadow() {
+    let mut s = session(1024, 768);
+    let child = layer_with(&mut s, &[(Rect::new(600, 400, 700, 500), [1.0, 0.0, 0.0, 1.0])]);
+    s.execute("layer.select", json!({"layer": child.0})).unwrap();
+    let g = LayerId(s.execute("layer.groupLayers", json!({})).unwrap()["layer"].as_u64().unwrap());
+    s.edit("fx", |doc, _| {
+        doc.layer_mut(g).unwrap().effects.items.push(photocraft_doc::Effect::default_drop_shadow());
+        Ok(())
+    })
+    .unwrap();
+    assert!(photocraft_compose::effects::margin(doc(&s).layer(g).unwrap()) > 0);
+    let dab = Rect::new(640, 440, 660, 460);
+    let (before, after) = paint(&mut s, child, dab, [0.0, 0.0, 1.0, 1.0]);
+    let d = damage(&s).expect("a bounded dab");
+    assert!(d.contains_rect(&dab), "{d:?}");
+    assert!(unchanged_outside(&before, &after, d), "the group's shadow changed outside {d:?}");
+}
+
+#[test]
+fn painting_a_clip_base_under_a_styled_clipped_layer_is_covered() {
+    let mut s = session(1024, 768);
+    let base = layer_with(&mut s, &[(Rect::new(500, 300, 800, 600), [0.0, 1.0, 0.0, 1.0])]);
+    let top = full_layer(&mut s);
+    s.edit("clip", |doc, _| {
+        let l = doc.layer_mut(top).unwrap();
+        l.clipped = true;
+        l.effects.items.push(photocraft_doc::Effect::default_drop_shadow());
+        Ok(())
+    })
+    .unwrap();
+    let (before, after) = paint(&mut s, base, Rect::new(300, 200, 340, 240), [0.0, 0.0, 1.0, 1.0]);
+    let d = damage(&s).expect("a bounded base edit");
+    assert!(unchanged_outside(&before, &after, d), "the clipped layer changed outside {d:?}");
+    let (before, after) = paint(&mut s, base, Rect::new(640, 440, 660, 460), [0.0, 0.0, 0.0, 0.0]);
+    let d = damage(&s).expect("a bounded base edit");
+    assert!(unchanged_outside(&before, &after, d), "the clipped layer changed outside {d:?}");
+}
+
 /// #4053: effects laid out over the layer's frame repaint it everywhere when it grows.
 #[test]
 fn a_frame_spanning_effect_still_redraws_its_whole_frame() {
