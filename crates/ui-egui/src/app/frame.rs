@@ -170,10 +170,9 @@ impl PhotocraftApp {
             return;
         }
         let t0 = gpu_canvas::now_ms();
-        self.perf.frame_refresh_ms = 0.0;
+        self.perf.stage.ui_start(t0, frame.info().cpu_usage);
         // A software adapter or CPU mode chosen at startup is every document's reason.
         crate::render_path::frame(self);
-        self.stroke_trace.cpu_prev(frame.info().cpu_usage);
         // A text field's right-click menu, before any field is drawn (text_field_menu.rs).
         text_field_menu::show(&ctx);
         // The wheel goes to a focused value field before the canvas or a panel sees it (#5473).
@@ -313,14 +312,7 @@ impl PhotocraftApp {
             self.perf.record_gpu(t);
         }
         self.perf.frame(ui_ms);
-        if self.stroke_trace.enabled() {
-            self.stroke_trace.canvas(self.perf.frame_refresh_ms);
-            let info = &self.perf.gpu_info;
-            self.stroke_trace.end_frame(ui_ms, self.live_stroke.is_some(), || {
-                let gpu = format!("{} {}", info.backend, info.adapter).trim().to_string();
-                if info.present.is_empty() { gpu } else { format!("{gpu}, {}", info.present) }
-            });
-        }
+        self.finish_frame(ui_ms);
         // This pass handled its input: the in-flight synthetic batch is delivered once and the
         // next step may be injected on the next frame.
         self.finish_synthetic_pass();

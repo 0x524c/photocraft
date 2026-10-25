@@ -121,6 +121,7 @@ impl PhotocraftApp {
         self.sync_command_side_effects(id, &r, creates_active_mask, creates_active_vector_mask, creates_adjustment_or_fill, path_mask);
         self.perf.last_command = id.to_string();
         self.perf.command_ms = gpu_canvas::now_ms() - t0;
+        self.perf.stage.command(id, self.perf.command_ms);
         match &r {
             Ok(_) => {
                 if self.ui.status_error {

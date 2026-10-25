@@ -19,6 +19,7 @@ pub mod dialogs;
 pub mod dock;
 pub mod file_dialog;
 pub mod file_open;
+pub mod frame_stages;
 pub mod gpu_status;
 pub mod i18n;
 mod icon_data;
@@ -618,6 +619,8 @@ pub struct PhotocraftApp {
     pub stroke_trace: stroke_trace::StrokeTrace,
     /// Why each document's view is drawn on the CPU, and the history of changes (`render_path`).
     pub render_path: render_path::RenderPath,
+    /// The last slow frames and their stages (`perf.slowFrames`, see `frame_stages`).
+    pub slow_frames: frame_stages::SlowFrames,
     /// Preferences, autosave and snapping runtime state (see `prefs_ui`, `snap_ui`).
     pub(crate) prefs_rt: prefs_ui::Runtime,
     pub(crate) updates_rt: updates_ui::Runtime,
