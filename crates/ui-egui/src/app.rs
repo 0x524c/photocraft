@@ -122,6 +122,7 @@ impl PhotocraftApp {
             synthetic_reinject: false,
             synthetic_snapshot: None,
             automation_input: false,
+            run_depth: 0,
             paused_playbacks: Default::default(),
             channel_thumbs: None,
             channel_views: HashMap::new(),

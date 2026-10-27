@@ -505,6 +505,10 @@ pub struct PhotocraftApp {
     /// makes shortcut- and dialog-triggered commands pass the same policy as
     /// direct control calls.
     pub(crate) automation_input: bool,
+    /// How many `run_command` calls are on the stack. Only the outermost one writes the frame's
+    /// command stage: a nested run (`file.save` → `layer.smartObjects.saveContents`,
+    /// `actions.play` → its steps) is already inside the outer call's time.
+    run_depth: u32,
     /// Action playbacks paused at a step dialog, by the token in that dialog's fields
     /// ([`actions::RESUME`]): what to play next and the automation gate it paused under.
     pub(crate) paused_playbacks: actions::PausedPlaybacks,
