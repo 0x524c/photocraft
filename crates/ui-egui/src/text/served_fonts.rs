@@ -26,8 +26,13 @@ pub fn ui_faces() -> Vec<(String, Arc<FontData>)> {
     UI_FACES.lock().unwrap_or_else(PoisonError::into_inner).clone()
 }
 
-/// Puts a delivered script fallback at the end of every UI font family, once.
+/// Puts a delivered script fallback at the end of every UI font family, once. A file egui cannot
+/// read is left out: egui panics on a configured font it cannot parse.
 fn add_ui_face(ctx: &egui::Context, family: &str, bytes: &[u8]) {
+    if !photocraft_text::cjk::font_face_is_readable(bytes, 0) {
+        log::warn!("the served font {family:?} is not a readable font file; the interface does not use it");
+        return;
+    }
     let name = format!("served-{family}");
     let mut data = {
         let mut faces = UI_FACES.lock().unwrap_or_else(PoisonError::into_inner);
@@ -168,5 +173,26 @@ mod tests {
         crate::theme::install_fonts_with(&ctx, web());
         draw(&ctx, "File");
         draw(&ctx, "ملف");
+    }
+
+    /// #10006: a host serving a broken file as a script fallback must not stop the interface;
+    /// egui panics on a configured font it cannot parse.
+    #[test]
+    fn an_unreadable_served_font_stays_out_of_the_ui() {
+        let ctx = egui::Context::default();
+        crate::theme::install_fonts(&ctx);
+        let draw = |ctx: &egui::Context| {
+            ctx.run_ui(egui::RawInput::default(), |ui| {
+                ui.label("File ملف");
+            })
+            .textures_delta
+            .clear();
+        };
+        draw(&ctx);
+        add_ui_face(&ctx, "Served Test Broken", b"<html>not found</html>");
+        draw(&ctx);
+        crate::theme::install_fonts(&ctx);
+        draw(&ctx);
+        assert!(!ui_faces().iter().any(|(n, _)| n == "served-Served Test Broken"));
     }
 }
