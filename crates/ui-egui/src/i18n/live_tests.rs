@@ -470,3 +470,23 @@ fn arabic_labels_are_laid_out_right_to_left() {
         assert!(x_of(join, 'D') < x_of(join, 'ن'), "{join}: Discord at the left");
     });
 }
+
+/// #5159 on egui 0.37: user names are handed to egui as typed, and egui orders the words. An
+/// Arabic layer name reads from the right; the title line keeps "— PhotoCraft" at the right of a
+/// right-to-left document name.
+#[test]
+fn arabic_names_are_laid_out_right_to_left() {
+    with_language(Lang::EN, || {
+        let h = harness();
+        let font = egui::FontId::proportional(13.0);
+        let x_in = |galley: &egui::Galley, c: char| galley.rows.iter().flat_map(|r| r.glyphs.iter()).find(|g| g.chr == c).map(|g| g.pos.x).expect("glyph");
+        let name = "لاشي مكتوب هنا";
+        let galley = h.ctx.fonts_mut(|f| f.layout_no_wrap(name.to_string(), font.clone(), egui::Color32::WHITE));
+        assert!(x_in(&galley, 'ل') > x_in(&galley, 'ه'), "{name}: first word at the right");
+        let title = "لاشي مكتوب.png — PhotoCraft";
+        let job = crate::panels::title_bar::title_job(title, font, egui::Color32::WHITE);
+        let galley = h.ctx.fonts_mut(|f| f.layout_job(job));
+        assert!(x_in(&galley, 'ل') > x_in(&galley, 'م'), "{title}: the name's first word right of its second");
+        assert!(x_in(&galley, 'P') > x_in(&galley, 'ل'), "{title}: PhotoCraft stays at the right");
+    });
+}
