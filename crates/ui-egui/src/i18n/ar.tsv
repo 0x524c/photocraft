@@ -46,8 +46,8 @@
 	Target:	الهدف:
 	Selected Artboards	ألواح التصميم المحددة
 	Center Columns	توسيط الأعمدة
-	Clear Existing Guides	مسح الأدلة الموجودة
-	Invalid guide layout	تخطيط أدلة غير صالح
+	Clear Existing Guides	مسح خطوط التوجيه الموجودة
+	Invalid guide layout	تخطيط خطوط توجيه غير صالح
 	Leave empty for automatic size	اتركه فارغًا للحجم التلقائي
 	5 Columns, 3 Rows	5 أعمدة، 3 صفوف
 	8 Columns	8 أعمدة
@@ -65,7 +65,7 @@
 	Top Right	أعلى اليمين
 	Bottom Left	أسفل اليسار
 	Bottom Right	أسفل اليمين
-	Filter	مرشح
+	Filter	فلتر
 	View	عرض
 	Window	نافذة
 	Help	تعليمات
@@ -166,10 +166,10 @@
 	Add to Dictionary	إضافة إلى القاموس
 	No Spelling Suggestions	لا توجد اقتراحات إملائية
 	Fill…	تعبئة…
-	Stroke…	حدّ…
-	Content-Aware Fill…	تعبئة مدركة للمحتوى…
+	Stroke…	حدود…
+	Content-Aware Fill…	تعبئة مراعية للمحتوى…
 	Delete and Fill Selection	حذف التحديد وتعبئته
-	Content-Aware Scale	تحجيم مدرك للمحتوى
+	Content-Aware Scale	تحجيم مراعٍ للمحتوى
 	Puppet Warp	التواء الدمية
 	Perspective Warp	التواء المنظور
 	Free Transform	تحويل حر
@@ -197,7 +197,7 @@
 	Auto-Align Layers…	محاذاة الطبقات تلقائيًا…
 	Auto-Blend Layers…	مزج الطبقات تلقائيًا…
 	Define Brush Preset…	تعريف إعداد فرشاة مسبق…
-	Define Pattern…	تعريف نقش…
+	Define Pattern…	تعريف نقشة…
 	Define Custom Shape…	تعريف شكل مخصص…
 	Purge	تفريغ
 	Clipboard	الحافظة
@@ -225,9 +225,9 @@
 	Performance…	الأداء…
 	Scratch Disks…	أقراص التخزين المؤقت…
 	Cursors…	المؤشرات…
-	Transparency & Gamut…	الشفافية ونطاق الألوان…
+	Transparency & Gamut…	الشفافية والنطاق اللوني…
 	Units & Rulers…	الوحدات والمساطر…
-	Guides, Grid & Slices…	الأدلة والشبكة والشرائح…
+	Guides, Grid & Slices…	خطوط التوجيه والشبكة والشرائح…
 	Plug-ins…	المكونات الإضافية…
 	Type…	النص…
 	Enhanced Controls…	عناصر التحكم المحسنة…
@@ -268,11 +268,11 @@
 	Hue/Saturation…	تدرج اللون/التشبع…
 	Color Balance…	توازن الألوان…
 	Black & White…	أبيض وأسود…
-	Photo Filter…	مرشح الصور…
+	Photo Filter…	فلتر الصور…
 	Channel Mixer…	مازج القنوات…
 	Color Lookup…	بحث الألوان…
 	Invert	عكس
-	Posterize…	تقليل الألوان…
+	Posterize…	تقليل درجات اللون…
 	Threshold…	العتبة…
 	Gradient Map…	خريطة التدرج…
 	Selective Color…	لون انتقائي…
@@ -286,10 +286,10 @@
 	Auto Contrast	تباين تلقائي
 	Auto Color	لون تلقائي
 	Image Size…	حجم الصورة…
-	Canvas Size…	حجم لوحة الرسم…
+	Canvas Size…	حجم مساحة الرسم…
 	Image Rotation	تدوير الصورة
-	Flip Canvas Horizontal	قلب لوحة الرسم أفقيًا
-	Flip Canvas Vertical	قلب لوحة الرسم عموديًا
+	Flip Canvas Horizontal	قلب مساحة الرسم أفقيًا
+	Flip Canvas Vertical	قلب مساحة الرسم عموديًا
 	Crop	اقتصاص
 	Trim…	تشذيب…
 	Reveal All	إظهار الكل
@@ -339,7 +339,7 @@
 	Create Layer	إنشاء طبقة
 	Layer Style	نمط الطبقة
 	Blending Options…	خيارات المزج…
-	Bevel & Emboss…	شطف ونقش بارز…
+	Bevel & Emboss…	شطب ونقش…
 	Use Global Light	استخدام الإضاءة العامة
 	Overprint	طباعة فوقية
 	Inner Shadow…	ظل داخلي…
@@ -347,7 +347,7 @@
 	Satin…	ساتان…
 	Color Overlay…	تراكب لوني…
 	Gradient Overlay…	تراكب التدرج…
-	Pattern Overlay…	تراكب النقش…
+	Pattern Overlay…	تراكب النقشة…
 	Outer Glow…	توهج خارجي…
 	Drop Shadow…	ظل مسقط…
 	Copy Layer Style	نسخ نمط الطبقة
@@ -356,15 +356,15 @@
 	Global Light…	إضاءة عامة…
 	Hide All Effects	إخفاء كل التأثيرات
 	Scale Effects…	تحجيم التأثيرات…
-	Smart Filter	مرشح ذكي
-	Convert for Smart Filters	تحويل للمرشحات الذكية
-	Clear Smart Filters	مسح المرشحات الذكية
-	Disable Smart Filters	تعطيل المرشحات الذكية
-	Delete Filter Mask	حذف قناع المرشح
-	Disable Filter Mask	تعطيل قناع المرشح
+	Smart Filter	فلتر ذكي
+	Convert for Smart Filters	تحويل للفلاتر الذكية
+	Clear Smart Filters	مسح الفلاتر الذكية
+	Disable Smart Filters	تعطيل الفلاتر الذكية
+	Delete Filter Mask	حذف قناع الفلتر
+	Disable Filter Mask	تعطيل قناع الفلتر
 	Solid Color…	لون مصمت…
 	Gradient…	تدرج…
-	Pattern…	نقش…
+	Pattern…	نقشة…
 	Layer Mask	قناع الطبقة
 	Vector Mask	قناع متجه
 	Reveal Selection	إظهار التحديد
@@ -419,12 +419,12 @@
 	Duplicate Frame	تكرار الإطار
 	Frame from Layers	إطار من الطبقات
 	Video Frames to Layers…	إطارات الفيديو إلى طبقات…
-	Rasterize	تحويل إلى نقطية
-	Rasterize Type	تحويل النص إلى نقطية
-	Rasterize Type Layer	تحويل طبقة النص إلى نقطية
-	Rasterize Shape	تحويل الشكل إلى نقطية
-	New Guide Layout…	تخطيط أدلة جديد…
-	New Guides From Shape	أدلة جديدة من الشكل
+	Rasterize	تنقيط
+	Rasterize Type	تنقيط النص
+	Rasterize Type Layer	تنقيط طبقة النص
+	Rasterize Shape	تنقيط الشكل
+	New Guide Layout…	تخطيط خطوط توجيه جديد…
+	New Guides From Shape	خطوط توجيه جديدة من الشكل
 	Lock Layers…	قفل الطبقات…
 	Link Layers	ربط الطبقات
 	Select Linked Layers	تحديد الطبقات المرتبطة
@@ -489,7 +489,7 @@
 	Paragraph Panel	لوحة الفقرة
 	Character Styles Panel	لوحة أنماط الأحرف
 	Paragraph Styles Panel	لوحة أنماط الفقرات
-	Glyphs Panel	لوحة الحروف الرسومية
+	Glyphs Panel	لوحة الرموز
 	Anti-Alias	إزالة التسنن
 	Sharp	حاد
 	Crisp	واضح
@@ -547,45 +547,45 @@
 	Output	الإخراج
 	Refine Edge	تحسين الحافة
 	Modify	تعديل
-	Border…	حدود…
+	Border…	حدود التحديد…
 	Smooth…	تنعيم…
 	Expand…	توسيع…
 	Contract…	تقليص…
-	Feather…	تنعيم الحواف…
+	Feather…	تلاشي الحواف…
 	Grow	توسيع النطاق
 	Transform Selection	تحويل التحديد
 	Edit in Quick Mask Mode	تحرير في وضع القناع السريع
 	Load Selection…	تحميل التحديد…
 	Save Selection…	حفظ التحديد…
 	Match All	مطابقة الكل
-	Last Filter	آخر مرشح
-	Filter Gallery…	معرض المرشحات…
+	Last Filter	آخر فلتر
+	Filter Gallery…	معرض الفلاتر…
 	Adaptive Wide Angle…	زاوية واسعة تكيفية…
-	Camera Raw Filter…	مرشح Camera Raw…
-	Liquify…	تسييل…
+	Camera Raw Filter…	فلتر Camera Raw…
+	Liquify…	تمويع…
 	Vanishing Point…	نقطة التلاشي…
-	Blur	تمويه
-	Blur Gallery	معرض التمويه
-	Field Blur…	تمويه الحقل…
+	Blur	ضبابية
+	Blur Gallery	معرض الضبابية
+	Field Blur…	ضبابية الحقل…
 # Field Blur pins (#3373)
 	No pin selected	لم يتم تحديد أي دبوس
-	Click the image to add a pin; drag a pin to move it, or its ring to change its blur. Delete removes the selected pin.	انقر على الصورة لإضافة دبوس؛ اسحب الدبوس لتحريكه، أو حلقته لتغيير التمويه. يؤدي Delete إلى إزالة الدبوس المحدد.
-	Drag the handles on the outline to resize and turn it, the square to round its corners, and the dots inside to set where the blur starts.	اسحب المقابض على المخطط لتغيير حجمه وتدويره، والمربع لتدوير زواياه، والنقاط في الداخل لتحديد مكان بدء التمويه.
-	Drag the pin to move the band, or its ring to change its blur. Drag the solid lines to widen the sharp band, the dashed lines to set the transition, and the dots to turn it.	اسحب الدبوس لتحريك الشريط، أو حلقته لتغيير التمويه. اسحب الخطوط المتصلة لتوسيع الشريط الحاد، والخطوط المتقطعة لضبط الانتقال، والنقاط لتدويره.
-	Drag the handles on the outline to resize and turn it; the ring sets the blur angle.	اسحب المقابض على المخطط لتغيير حجمه وتدويره؛ وتحدد الحلقة زاوية التمويه.
-	Iris Blur…	تمويه القزحية…
+	Click the image to add a pin; drag a pin to move it, or its ring to change its blur. Delete removes the selected pin.	انقر على الصورة لإضافة دبوس؛ اسحب الدبوس لتحريكه، أو حلقته لتغيير الضبابية. يؤدي Delete إلى إزالة الدبوس المحدد.
+	Drag the handles on the outline to resize and turn it, the square to round its corners, and the dots inside to set where the blur starts.	اسحب المقابض على المخطط لتغيير حجمه وتدويره، والمربع لتدوير زواياه، والنقاط في الداخل لتحديد مكان بدء الضبابية.
+	Drag the pin to move the band, or its ring to change its blur. Drag the solid lines to widen the sharp band, the dashed lines to set the transition, and the dots to turn it.	اسحب الدبوس لتحريك الشريط، أو حلقته لتغيير الضبابية. اسحب الخطوط المتصلة لتوسيع الشريط الحاد، والخطوط المتقطعة لضبط الانتقال، والنقاط لتدويره.
+	Drag the handles on the outline to resize and turn it; the ring sets the blur angle.	اسحب المقابض على المخطط لتغيير حجمه وتدويره؛ وتحدد الحلقة زاوية الضبابية.
+	Iris Blur…	ضبابية القزحية…
 	Tilt-Shift…	إمالة وإزاحة…
-	Path Blur…	تمويه المسار…
-	Spin Blur…	تمويه الدوران…
-	Blur More	تمويه أكثر
-	Box Blur…	تمويه صندوقي…
-	Gaussian Blur…	تمويه غاوسي…
-	Lens Blur…	تمويه العدسة…
-	Motion Blur…	تمويه الحركة…
-	Radial Blur…	تمويه شعاعي…
-	Shape Blur…	تمويه الشكل…
-	Smart Blur…	تمويه ذكي…
-	Surface Blur…	تمويه السطح…
+	Path Blur…	ضبابية المسار…
+	Spin Blur…	ضبابية الدوران…
+	Blur More	ضبابية أكثر
+	Box Blur…	ضبابية صندوقية…
+	Gaussian Blur…	ضبابية غاوسية…
+	Lens Blur…	ضبابية العدسة…
+	Motion Blur…	ضبابية الحركة…
+	Radial Blur…	ضبابية شعاعية…
+	Shape Blur…	ضبابية الشكل…
+	Smart Blur…	ضبابية ذكية…
+	Surface Blur…	ضبابية السطح…
 	Average	متوسط
 	Displace…	إزاحة…
 	Pinch…	قرص…
@@ -603,7 +603,7 @@
 	Median…	وسيط…
 	Reduce Noise…	تقليل التشويش…
 	Pixelate	بكسلة
-	Color Halftone…	نصف نغمة ملونة…
+	Color Halftone…	أنصاف ألوان…
 	Crystallize…	تبلور…
 	Facet	أوجه
 	Fragment	تجزئة
@@ -615,7 +615,7 @@
 	Difference Clouds	غيوم الفرق
 	Fibers…	ألياف…
 	Flame…	لهب…
-	Lens Flare…	توهج العدسة…
+	Lens Flare…	وميض العدسة…
 	Lighting Effects…	تأثيرات الإضاءة…
 	Relight…	إعادة الإضاءة…
 	Picture Frame…	إطار صورة…
@@ -624,7 +624,7 @@
 	Sharpen Edges	زيادة حدة الحواف
 	Sharpen More	زيادة الحدة أكثر
 	Smart Sharpen…	زيادة حدة ذكية…
-	Unsharp Mask…	قناع زيادة الحدة…
+	Unsharp Mask…	قناع الحدة…
 	High Pass…	تمرير عالٍ…
 	Stylize	تنميط
 	Diffuse…	انتشار…
@@ -646,7 +646,7 @@
 	Plug-ins	المكونات الإضافية
 	Proof Setup	إعداد المعاينة الطباعية
 	Proof Colors	ألوان المعاينة الطباعية
-	Gamut Warning	تحذير نطاق الألوان
+	Gamut Warning	تحذير النطاق اللوني
 	Working CMYK	مساحة عمل CMYK
 	Working Cyan Plate	لوح السماوي العامل
 	Working Magenta Plate	لوح الأرجواني العامل
@@ -693,17 +693,17 @@
 	Target Path	المسار المستهدف
 	Current Path	المسار الحالي
 	Grid	الشبكة
-	Guides	الأدلة
-	Canvas Guides	أدلة لوحة الرسم
-	Artboard Guides	أدلة لوح التصميم
+	Guides	خطوط التوجيه
+	Canvas Guides	خطوط توجيه مساحة الرسم
+	Artboard Guides	خطوط توجيه لوح التصميم
 	Count	العدد
-	Smart Guides	الأدلة الذكية
+	Smart Guides	خطوط التوجيه الذكية
 	Slices	الشرائح
 	Notes	الملاحظات
 	Pixel Grid	شبكة البكسل
 	Pixel Art	فن البكسل
 	Pixel Art Preview	معاينة فن البكسل
-	Pattern Preview	معاينة النقش
+	Pattern Preview	معاينة النقشة
 	Brush Preview	معاينة الفرشاة
 	Mesh	شبكة
 	Edit Pins	تحرير الدبابيس
@@ -712,11 +712,11 @@
 	Rulers	المساطر
 	Snap	المحاذاة التلقائية
 	Snap To	المحاذاة التلقائية إلى
-	Lock Guides	قفل الأدلة
-	Clear Guides	مسح الأدلة
-	Clear Selected Artboard Guides	مسح أدلة لوح التصميم المحددة
-	Clear Canvas Guides	مسح أدلة لوحة الرسم
-	New Guide…	دليل جديد…
+	Lock Guides	قفل خطوط التوجيه
+	Clear Guides	مسح خطوط التوجيه
+	Clear Selected Artboard Guides	مسح خطوط توجيه لوح التصميم المحدد
+	Clear Canvas Guides	مسح خطوط توجيه مساحة الرسم
+	New Guide…	خط توجيه جديد…
 	Lock Slices	قفل الشرائح
 	Clear Slices	مسح الشرائح
 	Match Zoom	مطابقة التكبير
@@ -776,9 +776,9 @@
 	Channels	القنوات
 	Character	الحرف
 	Character Styles	أنماط الحروف
-	Clone Source	مصدر الاستنساخ
+	Clone Source	مصدر النسخ
 	Color	اللون
-	Glyphs	الحروف الرسومية
+	Glyphs	الرموز
 	Gradients	التدرجات
 	Histogram	المدرج التكراري
 	History	السجل
@@ -790,7 +790,7 @@
 	Paragraph	الفقرة
 	Paragraph Styles	أنماط الفقرات
 	Paths	المسارات
-	Patterns	النقوش
+	Patterns	النقشات
 	Properties	الخصائص
 	Shapes	الأشكال
 	Styles	الأنماط
@@ -934,8 +934,8 @@
 	Cancel current crop operation  (Esc)	إلغاء عملية الاقتصاص الحالية  (Esc)
 	Cancel transform (Esc)	إلغاء التحويل (Esc)
 	Cancel warp (Esc)	إلغاء الالتواء (Esc)
-	Canvas	لوحة الرسم
-	Canvas extension color:	لون تمديد لوحة الرسم:
+	Canvas	مساحة الرسم
+	Canvas extension color:	لون تمديد مساحة الرسم:
 	Capture	التقاط
 	Capture the visibility, position and style of every layer with + below, then switch between versions.	التقط رؤية كل طبقة وموضعها ونمطها بزر + أدناه، ثم بدّل بين الإصدارات.
 	Catch-up on Stroke End	اللحاق عند نهاية الضربة
@@ -991,7 +991,7 @@
 	Constant	ثابت
 	Constrain proportions	تقييد النسب
 	Contact Sheet II	ورقة اتصال II
-	Content-Aware	مدرك للمحتوى
+	Content-Aware	مراعٍ للمحتوى
 	Contiguous	متجاور
 	Contrast	التباين
 	Control:	التحكم:
@@ -1006,7 +1006,7 @@
 	Count Jitter	تذبذب العدد
 	Create	إنشاء
 	Create Droplet	إنشاء قُطيرة
-	Create Texture	إنشاء نسيج
+	Create Texture	إنشاء ملمس
 	Create Video Timeline	إنشاء مخطط زمني للفيديو
 	Create a new count group	إنشاء مجموعة عد جديدة
 	Create a new document or open an existing file.	أنشئ مستندًا جديدًا أو افتح ملفًا موجودًا.
@@ -1019,7 +1019,7 @@
 	Create new gradient	إنشاء تدرج جديد
 	Create new group	إنشاء مجموعة جديدة
 	Create new layer comp	إنشاء تركيبة طبقات جديدة
-	Create new pattern from the selection	إنشاء نقش جديد من التحديد
+	Create new pattern from the selection	إنشاء نقشة جديدة من التحديد
 	Create new shape from the current path	إنشاء شكل جديد من المسار الحالي
 	Create new snapshot	إنشاء لقطة جديدة
 	From:	من:
@@ -1138,7 +1138,7 @@
 	Factor:	المعامل:
 	Faux Bold	غامق زائف
 	Faux Italic	مائل زائف
-	Feather	تنعيم الحواف
+	Feather	تلاشي الحواف
 	Fewer Points	نقاط أقل
 	File Settings	إعدادات الملف
 	Fill	تعبئة
@@ -1256,7 +1256,7 @@
 	Linear Gradient	تدرج خطي
 	Link layers	ربط الطبقات
 	Link width and height	ربط العرض والارتفاع
-	Liquify is not open	أداة التسييل غير مفتوحة
+	Liquify is not open	أداة التمويع غير مفتوحة
 	Load	تحميل
 	Load 3D LUT…	تحميل 3D LUT…
 	Load channel as selection	تحميل القناة كتحديد
@@ -1335,7 +1335,7 @@
 	Open a document to use the timeline.	افتح مستندًا لاستخدام المخطط الزمني.
 	Optical	بصري
 	Optimized	محسّن
-	Option-click to define a source point to clone from	انقر مع Option لتحديد نقطة مصدر للاستنساخ منها
+	Option-click to define a source point to clone from	انقر مع Option لتحديد نقطة مصدر للنسخ منها
 	Original	الأصلي
 	Output Channel:	قناة الإخراج:
 	Output Levels:	مستويات الإخراج:
@@ -1355,14 +1355,14 @@
 	Panel locations are saved in the workspace. Keyboard shortcuts, menus and toolbar are optional.	تُحفظ مواقع اللوحات في مساحة العمل. اختصارات لوحة المفاتيح والقوائم وشريط الأدوات اختيارية.
 	Paper	الورق
 	Path	مسار
-	Pattern	النقش
-	Pattern Size	حجم النقش
+	Pattern	النقشة
+	Pattern Size	حجم النقشة
 	Pause	إيقاف مؤقت
 	Percent	النسبة المئوية
 	Perceptual	إدراكي
 	Perspective Warp is not active	التواء المنظور غير نشط
 	Perspective Warp: draw planes along the image's perspective, then switch to Warp	التواء المنظور: ارسم مستويات وفق منظور الصورة، ثم انتقل إلى الالتواء
-	Photo Filter	مرشح الصور
+	Photo Filter	فلتر الصور
 	PhotoCraft	PhotoCraft
 	PhotoCraft Manages Colors	PhotoCraft يدير الألوان
 	PhotoCraft — an open-source, native image editor written in Rust.	PhotoCraft — محرر صور أصلي ومفتوح المصدر مكتوب بلغة Rust.
@@ -1376,7 +1376,7 @@
 	Portrait	عمودي
 	Position	الموضع
 	Position and Size	الموضع والحجم
-	Posterize	تقليل الألوان
+	Posterize	تقليل درجات اللون
 	Preserve Details	الحفاظ على التفاصيل
 	Preserve Luminosity	الحفاظ على اللمعان
 	Preset	إعداد مسبق
@@ -1486,7 +1486,7 @@
 	Search fonts	البحث في الخطوط
 	Select All	تحديد الكل
 	Select Subject	تحديد الموضوع
-	Select a type layer or click into text to insert glyphs	حدد طبقة نص أو انقر داخل النص لإدراج حروف رسومية
+	Select a type layer or click into text to insert glyphs	حدد طبقة نص أو انقر داخل النص لإدراج رموز
 	Select text to apply a character style	حدد نصًا لتطبيق نمط حرف
 	Select:	التحديد:
 	Selections	التحديدات
@@ -1499,7 +1499,7 @@
 	Set painting symmetry options	تعيين خيارات تناظر الرسم
 	Symmetry Off	إيقاف التناظر
 	Set shape fill type	تعيين نوع تعبئة الشكل
-	Set shape stroke type	تعيين نوع حدّ الشكل
+	Set shape stroke type	تعيين نوع حدود الشكل
 	Set the text color	تعيين لون النص
 	Create warped text	إنشاء نص ملتوٍ
 	Shadows	الظلال
@@ -1509,7 +1509,7 @@
 	Shortcut removed.	تمت إزالة الاختصار.
 	Show All Menu Items	إظهار كل عناصر القائمة
 	Show Backdrop	إظهار الخلفية
-	Show Guides	إظهار الأدلة
+	Show Guides	إظهار خطوط التوجيه
 	Show Mask	إظهار القناع
 	Show Mesh	إظهار الشبكة
 	Show Overlay	إظهار التراكب
@@ -1522,7 +1522,7 @@
 	Size Jitter	تذبذب الحجم
 	Size:	الحجم:
 	Slice Options…	خيارات الشريحة…
-	Slices From Guides	شرائح من الأدلة
+	Slices From Guides	شرائح من خطوط التوجيه
 	Slices are locked (View › Lock Slices)	الشرائح مقفلة (عرض › قفل الشرائح)
 	Small Caps	أحرف استهلالية صغيرة
 	Smoothing	التنعيم
@@ -1537,9 +1537,9 @@
 	Straighten Layer	تقويم الطبقة
 	Strength:	القوة:
 	Strikethrough	يتوسطه خط
-	Stroke	حدّ
+	Stroke	حدود
 	Stroke Catch-up	لحاق الضربة
-	Stroke:	حدّ:
+	Stroke:	حدود:
 	Location	الموقع
 	Location:	الموقع:
 	Style	النمط
@@ -1556,8 +1556,8 @@
 	Temperature	درجة الحرارة
 	Tetrahedral	رباعي السطوح
 	Text Position:	موضع النص:
-	Texture	النسيج
-	Texture Each Tip	نسيج لكل رأس
+	Texture	الملمس
+	Texture Each Tip	ملمس لكل رأس
 	Threshold	العتبة
 	Threshold Level	مستوى العتبة
 	Thumbnail size (smallest: list)	حجم الصورة المصغرة (الأصغر: قائمة)
@@ -1636,10 +1636,10 @@
 	Art & Illustration	الفن والرسم التوضيحي
 	ArtCraft	ArtCraft
 	Background Eraser Tool	أداة ممحاة الخلفية
-	Bevel & Emboss	شطف ونقش بارز
+	Bevel & Emboss	شطب ونقش
 	Blend Mode	وضع المزج
 	Blues	درجات الأزرق
-	Blur Tool	أداة التمويه
+	Blur Tool	أداة الضبابية
 	Bold	غامق
 	Brush	فرشاة
 	Block	كتلة
@@ -1653,14 +1653,14 @@
 	Classic	كلاسيكي
 	Click to add text	انقر لإضافة نص
 	Click to fill similar colours	انقر لتعبئة الألوان المتشابهة
-	Clone Stamp Tool	أداة ختم الاستنساخ
-	Color Burn	حرق اللون
+	Clone Stamp Tool	أداة ختم النسخ
+	Color Burn	تغميق اللون
 	Color Dodge	تفتيح اللون
 	Color Dynamics	ديناميكيات اللون
 	Color Overlay	تراكب اللون
 	Comic Book	قصص مصورة
 	Conform	مطابقة
-	Content-Aware Fill needs a selection on a pixel layer	تتطلب التعبئة المدركة للمحتوى تحديدًا على طبقة بكسل
+	Content-Aware Fill needs a selection on a pixel layer	تتطلب التعبئة المراعية للمحتوى تحديدًا على طبقة بكسل
 	Could not transform: the layer is empty	تعذر التحويل: الطبقة فارغة
 	Could not use Perspective Warp: the layer is empty	تعذر استخدام التواء المنظور: الطبقة فارغة
 	Could not use Puppet Warp: no opaque pixels	تعذر استخدام التواء الدمية: لا توجد بكسلات معتمة
@@ -1711,7 +1711,7 @@
 	Hand Tool	أداة اليد
 	Hard	صلب
 	Hard Mix	مزج صلب
-	Healing Brush Tool	أداة فرشاة الإصلاح
+	Healing Brush Tool	أداة فرشاة التصحيح
 	Highlights from:	الإضاءات من:
 	History Brush Tool	أداة فرشاة السجل
 	Horizontal Type Tool	أداة النص الأفقي
@@ -1721,15 +1721,15 @@
 	Inches	بوصة
 	Indexed	مفهرس
 	Initial Direction	الاتجاه الأولي
-	Inner Bevel	شطف داخلي
+	Inner Bevel	شطب داخلي
 	Inner Glow	توهج داخلي
 	Inner Shadow	ظل داخلي
 	Lab	Lab
 	Landscape, 10 x 8	أفقي، 10 × 8
 	Landscape, 6 x 4	أفقي، 6 × 4
 	Landscape, 7 x 5	أفقي، 7 × 5
-	Lasso	اللاسو
-	Lasso Tool	أداة اللاسو
+	Lasso	الحبل
+	Lasso Tool	أداة الحبل
 	Layer Count	عدد الطبقات
 	Layer Knocks Out Drop Shadow	الطبقة تقتطع الظل المسقط
 	Legal	Legal
@@ -1737,7 +1737,7 @@
 	Light	فاتح
 	Line Tool	أداة الخط
 	Linear	خطي
-	Linear Burn	حرق خطي
+	Linear Burn	تغميق خطي
 	Linear Height	ارتفاع خطي
 	Link with Layer	ربط مع الطبقة
 	Lorem Ipsum	Lorem Ipsum
@@ -1763,8 +1763,8 @@
 	Open	فتح
 	Orange	برتقالي
 	Original Ratio	النسبة الأصلية
-	Out Of Gamut	خارج نطاق الألوان
-	Outer Bevel	شطف خارجي
+	Out Of Gamut	خارج النطاق اللوني
+	Outer Bevel	شطب خارجي
 	Outer Glow	توهج خارجي
 	Overlay	تراكب
 	Paint Bucket Tool	أداة دلو الطلاء
@@ -1775,7 +1775,7 @@
 	Delete Anchor Point Tool	أداة حذف نقطة ارتكاز
 	Click a segment to add an anchor point · {alt}-click an anchor to delete it	انقر على مقطع لإضافة نقطة ارتكاز · {alt}+نقر على نقطة ارتكاز لحذفها
 	Click an anchor point to delete it · {alt}-click a segment to add one	انقر على نقطة ارتكاز لحذفها · {alt}+نقر على مقطع لإضافة نقطة
-	Pattern Overlay	تراكب النقش
+	Pattern Overlay	تراكب النقشة
 	Pen Pressure	ضغط القلم
 	Pen Tilt	إمالة القلم
 	Pen Tool	أداة القلم
@@ -1788,7 +1788,7 @@
 	Pixels	بكسل
 	Points	نقطة
 	Polygon Tool	أداة المضلع
-	Polygonal Lasso Tool	أداة اللاسو المضلع
+	Polygonal Lasso Tool	أداة الحبل المضلع
 	Portrait, 4 x 6	عمودي، 4 × 6
 	Portrait, 5 x 7	عمودي، 5 × 7
 	PostScript (72 points/inch)	PostScript (72 نقطة/بوصة)
@@ -1798,13 +1798,13 @@
 	Pro (Light)	Pro (فاتح)
 	Pro (Light Gray)	Pro (رمادي فاتح)
 	Pro (Medium Gray)	Pro (رمادي متوسط)
-	Protect Texture	حماية النسيج
+	Protect Texture	حماية الملمس
 	Purple	بنفسجي
 	Quick Mask	قناع سريع
 	Quick Selection Tool	أداة التحديد السريع
 	Radial	شعاعي
-	Rasterize Layer	تحويل الطبقة إلى نقطية
-	Rasterize Layers	تحويل الطبقات إلى نقطية
+	Rasterize Layer	تنقيط الطبقة
+	Rasterize Layers	تنقيط الطبقات
 	Ratio	النسبة
 	Recent	الأخيرة
 	Rectangle Tool	أداة المستطيل
@@ -1826,14 +1826,14 @@
 	Show Extras Options	خيارات إظهار الإضافات
 	Slice Select Tool	أداة تحديد الشريحة
 	Slice Tool	أداة الشريحة
-	Smart Filters	مرشحات ذكية
+	Smart Filters	فلاتر ذكية
 	Smudge Tool	أداة التلطيخ
 	Soft	ناعم
 	Soften	تنعيم
 	Source	المصدر
 	Source: set	المصدر: مضبوط
 	Sponge Tool	أداة الإسفنجة
-	Spot Healing Brush Tool	أداة فرشاة إصلاح البقع
+	Spot Healing Brush Tool	أداة فرشاة تصحيح البقع
 	Spread	انتشار
 	Square, 12 x 12	مربع، 12 × 12
 	Square, 5 x 5	مربع، 5 × 5
@@ -1904,12 +1904,12 @@
 	Cache levels	مستويات ذاكرة التخزين المؤقت
 	Cache tile size	حجم بلاطة ذاكرة التخزين المؤقت
 	Camera Raw Defaults	إعدادات Camera Raw الافتراضية
-	Canvas border	حد لوحة الرسم
-	Show canvas dots	إظهار نقاط لوحة الرسم
+	Canvas border	حدود مساحة الرسم
+	Show canvas dots	إظهار نقاط مساحة الرسم
 	Clip thumbnails to layer bounds	قصر الصور المصغرة على حدود الطبقة
 	Clip Thumbnails to Layer Bounds	قصر الصور المصغرة على حدود الطبقة
-	Canvas color	لون لوحة الرسم
-	Canvas custom color	لون مخصص للوحة الرسم
+	Canvas color	لون مساحة الرسم
+	Canvas custom color	لون مخصص لمساحة الرسم
 	Color picker	منتقي الألوان
 	Color space	مساحة الألوان
 	Column width	عرض العمود
@@ -1943,8 +1943,8 @@
 	Fill new type layers with placeholder	تعبئة طبقات النص الجديدة بنص نائب
 	Font preview	معاينة الخط
 	Full size tip	رأس بالحجم الكامل
-	Gamut warning color	لون تحذير نطاق الألوان
-	Gamut warning opacity	عتامة تحذير نطاق الألوان
+	Gamut warning color	لون تحذير النطاق اللوني
+	Gamut warning opacity	عتامة تحذير النطاق اللوني
 	Enable Generator	تمكين المولّد
 	Gif	GIF
 	Glossy	لامع
@@ -1954,9 +1954,9 @@
 	Grid style	نمط الشبكة
 	Grid unit	وحدة الشبكة
 	Gridline every	خط الشبكة كل
-	Guide color	لون الدليل
-	Guide style	نمط الدليل
-	Guides, Grid & Slices	الأدلة والشبكة والشرائح
+	Guide color	لون خطوط التوجيه
+	Guide style	نمط خطوط التوجيه
+	Guides, Grid & Slices	خطوط التوجيه والشبكة والشرائح
 	Gutter	الفاصل بين الأعمدة
 	History Log	سجل التاريخ
 	History states	حالات السجل
@@ -1979,7 +1979,7 @@
 	Medium gray	رمادي متوسط
 	Memory usage mb	استخدام الذاكرة (ميغابايت)
 	Low resolution previews	معاينات منخفضة الدقة
-	Missing glyph protection	حماية الحروف الرسومية المفقودة
+	Missing glyph protection	حماية الرموز المفقودة
 	Modern	حديث
 	Nearest neighbor	أقرب جار
 	Never	أبدًا
@@ -2031,7 +2031,7 @@
 	System title bar	شريط عنوان النظام
 	Show transformation values	إظهار قيم التحويل
 	Slice color	لون الشريحة
-	Smart guide color	لون الأدلة الذكية
+	Smart guide color	لون خطوط التوجيه الذكية
 	Smart quotes	علامات اقتباس ذكية
 	Snap vector tools and transforms to pixel grid	المحاذاة التلقائية للأدوات المتجهة والتحويلات إلى شبكة البكسل
 	Srgb	sRGB
@@ -2046,7 +2046,7 @@
 	Text file	ملف نصي
 	Tiny	ضئيل
 	Touch gestures	إيماءات اللمس
-	Transparency & Gamut	الشفافية ونطاق الألوان
+	Transparency & Gamut	الشفافية والنطاق اللوني
 	Type units	وحدات النص
 	UI font size	حجم خط الواجهة
 	UI scale	مقياس الواجهة
@@ -2120,8 +2120,8 @@
 	Click to sample the foreground colour  ·  {key}-click for background	انقر لأخذ عينة من لون المقدمة  ·  {key}+نقر للون الخلفية
 	{key}-click to set the source	{key}+نقر لضبط المصدر
 	{key} to subtract	{key} للطرح
-	Clone source {n} ({key}-click with Clone Stamp to set)	مصدر الاستنساخ {n} ({key}+نقر بأداة ختم الاستنساخ للضبط)
-	Source: not set ({key}-click with Clone Stamp)	المصدر: غير مضبوط ({key}+نقر بأداة ختم الاستنساخ)
+	Clone source {n} ({key}-click with Clone Stamp to set)	مصدر النسخ {n} ({key}+نقر بأداة ختم النسخ للضبط)
+	Source: not set ({key}-click with Clone Stamp)	المصدر: غير مضبوط ({key}+نقر بأداة ختم النسخ)
 	Pixel Layer	طبقة بكسل
 	Type Layer	طبقة نص
 	Shape Layer	طبقة شكل
@@ -2129,9 +2129,9 @@
 	Fill Layer	طبقة تعبئة
 	Smart Object Layer	طبقة كائن ذكي
 	Create Warped Text	إنشاء نص ملتوٍ
-	Rasterize Smart Object	تحويل الكائن الذكي إلى نقطية
-	Rasterize Fill Content	تحويل محتوى التعبئة إلى نقطية
-	Rasterize Layer Style	تحويل نمط الطبقة إلى نقطية
+	Rasterize Smart Object	تنقيط الكائن الذكي
+	Rasterize Fill Content	تنقيط محتوى التعبئة
+	Rasterize Layer Style	تنقيط نمط الطبقة
 	Unlock: picking a preset replaces these settings	إلغاء القفل: اختيار إعداد مسبق يستبدل هذه الإعدادات
 	Lock: keep these settings when picking another preset	قفل: الاحتفاظ بهذه الإعدادات عند اختيار إعداد مسبق آخر
 	Diameter:	القطر:
@@ -2194,7 +2194,7 @@
 	Horizontal type	نص أفقي
 	Vertical type	نص عمودي
 	Fill path with foreground color	تعبئة المسار بلون المقدمة
-	Stroke path with brush	رسم حد للمسار بالفرشاة
+	Stroke path with brush	رسم حدود للمسار بالفرشاة
 	Load path as a selection	تحميل المسار كتحديد
 	Make work path from selection	إنشاء مسار عمل من التحديد
 	Add vector mask	إضافة قناع متجه
@@ -2210,7 +2210,7 @@
 	OpenGL	OpenGL
 	Use tablet pressure	استخدام ضغط الجهاز اللوحي
 	Vulkan	Vulkan
-	Alt-click to define a source point to clone from	انقر مع Alt لتحديد نقطة مصدر للاستنساخ منها
+	Alt-click to define a source point to clone from	انقر مع Alt لتحديد نقطة مصدر للنسخ منها
 	No path to make a selection from: draw one with the Pen tool or select one in the Paths panel.	لا يوجد مسار لإنشاء تحديد منه: ارسم مسارًا بأداة القلم أو حدد مسارًا في لوحة المسارات.
 	Cancel opening	إلغاء الفتح
 	Cancelled opening {name}	تم إلغاء فتح {name}
@@ -2243,7 +2243,7 @@
 	Chrome	كروم
 	Conté Crayon	قلم Conté
 	Graphic Pen	قلم رسومي
-	Halftone Pattern	نقش نصف نغمة
+	Halftone Pattern	نقشة أنصاف الألوان
 	Note Paper	ورق ملاحظات
 	Photocopy	نسخ ضوئي
 	Plaster	جبس
@@ -2253,7 +2253,7 @@
 	Water Paper	ورق مائي
 	Move	تحريك
 	Pencil	قلم رصاص
-	Clone Stamp	ختم الاستنساخ
+	Clone Stamp	ختم النسخ
 	Dodge	تفتيح
 	Burn	تغميق
 	Quick Selection	تحديد سريع
@@ -2275,7 +2275,7 @@
 	Make Work Path	إنشاء مسار عمل
 	Make Selection	إنشاء تحديد
 	Fill Path	تعبئة المسار
-	Stroke Path	رسم حد للمسار
+	Stroke Path	رسم حدود للمسار
 	Delete Path	حذف المسار
 	Rename Path…	إعادة تسمية المسار…
 	W	ع
@@ -2292,7 +2292,7 @@
 	Pencil Tool	أداة القلم الرصاص
 	Pixel	بكسل
 	Adjustment	تعديل
-	Drag (lasso) or click points (polygonal) · {add} add · {sub} subtract	اسحب (لاسو) أو انقر على النقاط (مضلع) · {add} إضافة · {sub} طرح
+	Drag (lasso) or click points (polygonal) · {add} add · {sub} subtract	اسحب (حبل) أو انقر على النقاط (مضلع) · {add} إضافة · {sub} طرح
 	Drag a crop box · drag inside to move · edges resize ({ratio} ratio, {centre} centre) · Space moves while drawing · arrows nudge · X swaps orientation · {commit} commits · Esc cancels	اسحب مربع اقتصاص · اسحب من الداخل للتحريك · الحواف لتغيير الحجم ({ratio} للنسبة، {centre} للمركز) · Space للتحريك أثناء الرسم · الأسهم للدفع الدقيق · X لتبديل الاتجاه · {commit} للتأكيد · Esc للإلغاء
 	{mode} Color · {bits} bit	لون {mode} · {bits} بت
 	Scrubby Zoom	تكبير سحبي
@@ -2337,16 +2337,16 @@
 	GPU Backend	واجهة GPU الخلفية
 	Details	التفاصيل
 	Rendering mode	وضع التصيير
-	Freeze Lasso: drag to freeze an area, Alt-drag to thaw it (L)	لاسو التجميد: اسحب لتجميد منطقة، واسحب مع Alt لإذابتها (L)
+	Freeze Lasso: drag to freeze an area, Alt-drag to thaw it (L)	حبل التجميد: اسحب لتجميد منطقة، واسحب مع Alt لإذابتها (L)
 	3 x 3	3 × 3
 	4 x 4	4 × 4
 	5 x 5	5 × 5
-	Camera Raw Filter ({layer})	مرشح Camera Raw ({layer})
+	Camera Raw Filter ({layer})	فلتر Camera Raw ({layer})
 	Camera Raw ({name})	Camera Raw ({name})
 	Edit Type	تحرير النص
 	Grid:	الشبكة:
 	Highlight Clipping Warning (O)	تحذير اقتطاع الإضاءات (O)
-	Lasso around an area, then drag the selection	حدّد منطقة بأداة اللاسو ثم اسحب التحديد
+	Lasso around an area, then drag the selection	حدّد منطقة بأداة الحبل ثم اسحب التحديد
 	Transform On Drop	تحويل عند الإفلات
 	Scale or rotate the moved area, then press {key}	حجّم المنطقة المنقولة أو دوّرها، ثم اضغط {key}
 	Now drag the selection onto another area	الآن اسحب التحديد إلى منطقة أخرى
@@ -2368,13 +2368,13 @@
 	175%	175%
 	250%	250%
 	300%	300%
-	No patterns	لا توجد نقوش
+	No patterns	لا توجد نقشات
 	Enable {name}	تمكين {name}
 	Hold Alt while drawing for straight segments	اضغط مع الاستمرار على Alt أثناء الرسم للحصول على مقاطع مستقيمة
-	Drag or click polygon points · hold Alt during lasso for straight segments · {add} add · {sub} before drawing subtracts	اسحب أو انقر نقاط المضلع · اضغط مع الاستمرار على Alt أثناء التحديد باللاسو للمقاطع المستقيمة · {add} للإضافة · {sub} قبل الرسم للطرح
+	Drag or click polygon points · hold Alt during lasso for straight segments · {add} add · {sub} before drawing subtracts	اسحب أو انقر نقاط المضلع · اضغط مع الاستمرار على Alt أثناء التحديد بالحبل للمقاطع المستقيمة · {add} للإضافة · {sub} قبل الرسم للطرح
 	Extend	تمديد
 	Structure:	البنية:
-	Content-Aware Move Tool	أداة التحريك المدرك للمحتوى
+	Content-Aware Move Tool	أداة التحريك المراعي للمحتوى
 	TIFF Options	خيارات TIFF
 	Targa Options	خيارات Targa
 	JPEG Options	خيارات JPEG
@@ -2396,7 +2396,7 @@
 	Reset to Default	إعادة تعيين إلى الافتراضي
 	Couldn't place {name}: {error}	تعذر وضع {name}: {error}
 	Full-resolution preview unavailable	المعاينة بالدقة الكاملة غير متاحة
-	Magnetic Lasso Tool	أداة اللاسو المغناطيسي
+	Magnetic Lasso Tool	أداة الحبل المغناطيسي
 	Frequency	التردد
 	Use tablet pressure to change pen width	استخدام ضغط الجهاز اللوحي لتغيير عرض القلم
 
@@ -2446,15 +2446,15 @@
 	Blend If:	المزج إذا:
 	Channels:	القنوات:
 	Knockout	تفريغ
-	Apply At Canvas Bounds	تطبيق عند حدود لوحة الرسم
+	Apply At Canvas Bounds	تطبيق عند حدود مساحة الرسم
 
 # Shared screen eyedropper and text Color Picker (#1128).
 	Color Picker (Text Color)	منتقي الألوان (لون النص)
 	Color Picker ({name})	منتقي الألوان ({name})
 	Color Picker (Fill Color)	منتقي الألوان (لون التعبئة)
 	Fill color	لون التعبئة
-	Color Picker (Stroke Color)	منتقي الألوان (لون الحد)
-	Stroke color	لون الحد
+	Color Picker (Stroke Color)	منتقي الألوان (لون الحدود)
+	Stroke color	لون الحدود
 	Pick screen color	اختيار لون من الشاشة
 	Sample a pixel anywhere on the screen	أخذ عينة من بكسل في أي مكان على الشاشة
 	Click to pick · Esc to cancel	انقر للاختيار · Esc للإلغاء
@@ -2468,7 +2468,7 @@
 
 # Fill dialog, layer style contours and Image Size
 	Contents:	المحتويات:
-	Custom Pattern:	نقش مخصص:
+	Custom Pattern:	نقشة مخصصة:
 	Foreground Color	لون المقدمة
 	Color…	اللون…
 	50% Gray	رمادي 50%
@@ -2535,8 +2535,8 @@ fontWeight	Black	أسود
 fontWeight	Italic	مائل
 
 # Pattern Stamp tool
-	Pattern Stamp Tool	أداة ختم النقش
-	Pattern Stamp	ختم النقش
+	Pattern Stamp Tool	أداة ختم النقشة
+	Pattern Stamp	ختم النقشة
 	Impressionist	انطباعي
 	Rotate View	تدوير العرض
 	Rotate View Tool	أداة تدوير العرض
@@ -2569,8 +2569,8 @@ fontWeight	Italic	مائل
 	Opacity Threshold	عتبة العتامة
 	PhotoCraft — Screen Color Picker	PhotoCraft — منتقي ألوان الشاشة
 
-	Rasterize svg groups deeper than	تحويل مجموعات SVG إلى نقطية إذا كانت أعمق من
-	0 turns this threshold off; SVG groups nested deeper than 100 levels are always rasterized.	0 يعطّل هذه العتبة؛ تُحوَّل مجموعات SVG المتداخلة بعمق أكبر من 100 مستوى إلى نقطية دائمًا.
+	Rasterize svg groups deeper than	تنقيط مجموعات SVG إذا كانت أعمق من
+	0 turns this threshold off; SVG groups nested deeper than 100 levels are always rasterized.	0 يعطّل هذه العتبة؛ تُنقَّط مجموعات SVG المتداخلة بعمق أكبر من 100 مستوى دائمًا.
 	Rule of Thirds	قاعدة الأثلاث
 	Triangle	مثلث
 	Golden Ratio	النسبة الذهبية
@@ -2602,7 +2602,7 @@ fontWeight	Italic	مائل
 	Set additional Crop options	تعيين خيارات اقتصاص إضافية
 	Show Cropped Area	إظهار المنطقة المقتصة
 	Enable Crop Shield	تمكين درع الاقتصاص
-	Match Canvas	مطابقة لوحة الرسم
+	Match Canvas	مطابقة مساحة الرسم
 	Auto Adjust Opacity	ضبط العتامة تلقائيًا
 	Crop Shield color	لون درع الاقتصاص
 	Color Picker (Crop Shield Color)	منتقي الألوان (لون درع الاقتصاص)
@@ -2625,9 +2625,9 @@ fontWeight	Italic	مائل
 	Glow	توهج
 	Negation	نفي
 	XOR	XOR
-	Color Burn (Paint.NET)	حرق اللون (Paint.NET)
+	Color Burn (Paint.NET)	تغميق اللون (Paint.NET)
 	Color Dodge (Paint.NET)	تفتيح اللون (Paint.NET)
-	Stroke Options	خيارات الحد
+	Stroke Options	خيارات الحدود
 	Solid	مصمت
 	Dashed	متقطع
 	Dotted	منقط
@@ -2642,13 +2642,13 @@ fontWeight	Italic	مائل
 	Dashed line	خط متقطع
 	Dash	شرطة
 	Gap	فجوة
-	Dash / gap lengths × stroke width	أطوال الشرطة / الفجوة × عرض الحد
+	Dash / gap lengths × stroke width	أطوال الشرطة / الفجوة × عرض الحدود
 	Add pair	إضافة زوج
 	Remove pair	إزالة زوج
 	Dash offset	إزاحة الشرطة
 	Open paths use centered strokes	المسارات المفتوحة تستخدم حدودًا مركزية
 	Use finite lengths and a positive pattern total	استخدم أطوالًا منتهية ومجموعًا موجبًا للشرطات والفجوات
-	No subject found — try Object Selection or the Lasso	لم يُعثر على موضوع — جرّب تحديد الكائنات أو اللاسو
+	No subject found — try Object Selection or the Lasso	لم يُعثر على موضوع — جرّب تحديد الكائنات أو الحبل
 	Quick Selection found nothing there	لم يجد التحديد السريع شيئًا هناك
 	Object Selection found nothing there — try a tighter rectangle	لم يجد تحديد الكائنات شيئًا هناك — جرّب مستطيلًا أضيق
 	No subject found — try a rectangle around the object	لم يُعثر على موضوع — جرّب مستطيلًا حول الكائن
@@ -2736,7 +2736,7 @@ cameraData	Lens	العدسة
 
 	Animation Options	خيارات الرسوم المتحركة
 	Entire Document	المستند بالكامل
-	Filter Options	خيارات المرشح
+	Filter Options	خيارات الفلتر
 	Layer Bounds	حدود الطبقة
 	Layers Panel Options	خيارات لوحة الطبقات
 	Lock Layers	قفل الطبقات
@@ -2751,25 +2751,25 @@ cameraData	Lens	العدسة
 	Use Default Masks on Fill Layers	استخدام الأقنعة الافتراضية على طبقات التعبئة
 	Expand New Effects	توسيع التأثيرات الجديدة
 	Add “copy” to Copied Layers and Groups	إضافة “copy” إلى الطبقات والمجموعات المنسوخة
-	Preview on canvas when reordering layers	معاينة على لوحة الرسم عند إعادة ترتيب الطبقات
+	Preview on canvas when reordering layers	معاينة على مساحة الرسم عند إعادة ترتيب الطبقات
 	Show layer mask badges	إظهار شارات قناع الطبقة
 
 # Smart Filter editors
 	Blending Options ({filter})	خيارات المزج ({filter})
-	Hide the layer's effects and Smart Filters  ({key}-click: all layers)	إخفاء تأثيرات الطبقة والمرشحات الذكية  (انقر مع {key}: كل الطبقات)
-	Show the layer's effects and Smart Filters  ({key}-click: all layers)	إظهار تأثيرات الطبقة والمرشحات الذكية  (انقر مع {key}: كل الطبقات)
+	Hide the layer's effects and Smart Filters  ({key}-click: all layers)	إخفاء تأثيرات الطبقة والفلاتر الذكية  (انقر مع {key}: كل الطبقات)
+	Show the layer's effects and Smart Filters  ({key}-click: all layers)	إظهار تأثيرات الطبقة والفلاتر الذكية  (انقر مع {key}: كل الطبقات)
 	Wait for the current job to finish.	انتظر حتى تنتهي المهمة الحالية.
-	The document or Smart Filter changed. Reopen its dialog.	تغير المستند أو المرشح الذكي. أعد فتح مربع الحوار الخاص به.
+	The document or Smart Filter changed. Reopen its dialog.	تغير المستند أو الفلتر الذكي. أعد فتح مربع الحوار الخاص به.
 	Opacity must be between 0% and 100%.	يجب أن تكون العتامة بين 0% و100%.
 	Dissolve is approximated: it blends without Photoshop's dither.	التحلل تقريبي: يمزج دون ترقيش Photoshop.
 	Loading fonts…	جارٍ تحميل الخطوط…
 	Response curve	منحنى الاستجابة
 	Tool	أداة
 	Simulate Pressure	محاكاة الضغط
-	Stroke Path…	حدّ المسار…
+	Stroke Path…	رسم حدود للمسار…
 	Background Eraser	ممحاة الخلفية
-	Healing Brush	فرشاة الإصلاح
-	Spot Healing Brush	فرشاة إصلاح البقع
+	Healing Brush	فرشاة التصحيح
+	Spot Healing Brush	فرشاة تصحيح البقع
 	Smudge	تلطيخ
 	Sponge	إسفنجة
 	Amount:	المقدار:
@@ -2787,8 +2787,8 @@ curves	Smooth	تنعيم
 	Vanishing Point is not active	نقطة التلاشي غير نشطة
 	Apply Vanishing Point ({key})	تطبيق نقطة التلاشي ({key})
 	Fix the red plane first: its corners must form a convex quad	أصلح المستوى الأحمر أولًا: يجب أن تشكل زواياه رباعيًا محدبًا
-	Alt-click a plane to set the clone source	انقر مع Alt على مستوى لتعيين مصدر الاستنساخ
-	Too many clone strokes: apply Vanishing Point first	ضربات استنساخ كثيرة جدًا: طبّق نقطة التلاشي أولًا
+	Alt-click a plane to set the clone source	انقر مع Alt على مستوى لتعيين مصدر النسخ
+	Too many clone strokes: apply Vanishing Point first	ضربات نسخ كثيرة جدًا: طبّق نقطة التلاشي أولًا
 # Select and Mask view modes (#1754)
 	Onion Skin	قشرة البصل
 	Marching Ants	النمل الزاحف
@@ -2808,7 +2808,7 @@ curves	Smooth	تنعيم
 	Presentation	عرض تقديمي
 
 # Color Sampler (added with the i18n coverage repair)
-	Click to place · Alt-click or drag off-canvas to remove	انقر للوضع · انقر مع Alt أو اسحب خارج لوحة الرسم للإزالة
+	Click to place · Alt-click or drag off-canvas to remove	انقر للوضع · انقر مع Alt أو اسحب خارج مساحة الرسم للإزالة
 	No document open	لا يوجد مستند مفتوح
 	{n} of {max} sample points	{n} من {max} نقطة عينة
 
@@ -2938,7 +2938,7 @@ curves	Smooth	تنعيم
 	Bpc	تعويض النقطة السوداء
 	Simulate Paper	محاكاة الورق
 # Color Lookup, Shadows/Highlights, channels and Calculations
-	Warming Filter (85)	مرشح تدفئة (85)
+	Warming Filter (85)	فلتر تدفئة (85)
 	Lut	LUT
 	Cool	بارد
 	Teal Orange	أزرق مخضر وبرتقالي
@@ -2996,7 +2996,7 @@ curves	Smooth	تنعيم
 	W:	العرض:
 	A:	الزاوية:
 # Lens Correction, Blur Gallery and distortion filters
-	Pattern Fill…	تعبئة بنقش…
+	Pattern Fill…	تعبئة بنقشة…
 	Generic	عام
 	Correct Distortion	تصحيح التشويه
 	Correct Vignette	تصحيح تظليل الحواف
@@ -3038,7 +3038,7 @@ curves	Smooth	تنعيم
 	Taper	التناقص التدريجي
 	End X	النهاية X
 	End Y	النهاية Y
-	Blur Angle	زاوية التمويه
+	Blur Angle	زاوية الضبابية
 	Rectangular To Polar	من مستطيل إلى قطبي
 	Polar To Rectangular	من قطبي إلى مستطيل
 	Undefined Areas	المناطق غير المعرّفة
@@ -3231,7 +3231,7 @@ curves	Smooth	تنعيم
 	Show home recent files	إظهار الملفات الأخيرة في الشاشة الرئيسية
 	Clear Brush Controls	مسح عناصر تحكم الفرشاة
 	Reset All Locked Settings	إعادة تعيين كل الإعدادات المقفلة
-	Copy Texture to Other Tools	نسخ النسيج إلى الأدوات الأخرى
+	Copy Texture to Other Tools	نسخ الملمس إلى الأدوات الأخرى
 
 # Actions panel: Load/Save Actions (.atn) and kept Photoshop steps
 	Load Actions…	تحميل الإجراءات…
@@ -3259,7 +3259,7 @@ curves	Smooth	تنعيم
 	Step {step} is waiting for its dialog	الخطوة {step} بانتظار مربع الحوار الخاص بها
 @plural	{n} action|{n} actions	{n} إجراء|{n} إجراء|{n} إجراءان|{n} إجراءات|{n} إجراءً|{n} إجراء
 	Background (Default)	الخلفية (الافتراضية)
-	Content-Aware Fill	تعبئة مدركة للمحتوى
+	Content-Aware Fill	تعبئة مراعية للمحتوى
 # Batch / Image Processor
 	Include All Subfolders	تضمين كل المجلدات الفرعية
 	Auto Add/Delete	إضافة/حذف تلقائي
@@ -3285,7 +3285,7 @@ curves	Smooth	تنعيم
 	Hide Font Classes	إخفاء فئات الخطوط
 	Hide Styles	إخفاء الأنماط
 	Monospace	أحادي المسافة
-	No fonts match these filters.	لا توجد خطوط تطابق هذه المرشحات.
+	No fonts match these filters.	لا توجد خطوط تطابق عوامل التصفية هذه.
 	No similar fonts: the current font doesn't say what it looks like.	لا توجد خطوط مشابهة: الخط الحالي لا يحدد شكله.
 	OpenType font	خط OpenType
 	Sans Serif	بدون زوائد
@@ -3354,8 +3354,8 @@ curves	Smooth	تنعيم
 	EXIF	EXIF
 
 # View › Guides › right-click a guide
-	Edit Selected Guides	تحرير الأدلة المحددة
-	Clear Selected Guides	مسح الأدلة المحددة
+	Edit Selected Guides	تحرير خطوط التوجيه المحددة
+	Clear Selected Guides	مسح خطوط التوجيه المحددة
 	Bicubic Automatic	ثنائي التكعيب تلقائي
 	Bicubic Smoother	ثنائي التكعيب أكثر نعومة
 	Bicubic Sharper	ثنائي التكعيب أكثر حدة
@@ -3381,10 +3381,10 @@ curves	Smooth	تنعيم
 
 # Image › Mode › Bitmap (#5559)
 	50% Threshold	عتبة 50%
-	Pattern Dither	ترقيش بنقش
+	Pattern Dither	ترقيش بنقشة
 	Diffusion Dither	ترقيش بالانتشار
-	Halftone Screen	شاشة نصف النغمة
-	Custom Pattern	نقش مخصص
+	Halftone Screen	شاشة أنصاف الألوان
+	Custom Pattern	نقشة مخصصة
 	Frequency:	التردد:
 	Lines/Inch	خطوط/بوصة
 	Lines/Centimeter	خطوط/سنتيمتر
