@@ -3233,3 +3233,81 @@ cameraData	Lens	العدسة
 	“{name}” already exists. Replace it?	“{name}” موجود بالفعل. هل تريد استبداله؟
 @plural	Exported {n} style to {file}|Exported {n} styles to {file}	تم تصدير {n} نمط إلى {file}|تم تصدير {n} نمط إلى {file}|تم تصدير {n} نمطين إلى {file}|تم تصدير {n} أنماط إلى {file}|تم تصدير {n} نمط إلى {file}|تم تصدير {n} نمط إلى {file}
 @plural	Saved {n} color to {file}|Saved {n} colors to {file}	تم حفظ {n} لون في {file}|تم حفظ {n} لون في {file}|تم حفظ {n} لونين في {file}|تم حفظ {n} ألوان في {file}|تم حفظ {n} لون في {file}|تم حفظ {n} لون في {file}
+	Add to Favorites	إضافة إلى المفضلة
+	All Classes	كل الفئات
+	Allow Non-Linear History	السماح بالسجل غير الخطي
+	Alt-click a plane to set the clone source	انقر مع Alt على مستوى لتعيين مصدر الاستنساخ
+	Area	المنطقة
+	Artboards	لوحات العمل
+	Background (Default)	الخلفية (الافتراضية)
+	Blackletter	قوطي
+	CPU Rendering	العرض بوحدة المعالجة المركزية
+	Calculating…	جارٍ الحساب…
+	Clean Brush	تنظيف الفرشاة
+	Click to refresh histogram with uncached data	انقر لتحديث المدرج التكراري بالبيانات غير المخزنة مؤقتاً
+	Color Table	جدول الألوان
+	Content-Aware Fill	التعبئة المراعية للمحتوى
+	Copyright Notice	إشعار حقوق النشر
+	Could not write {name}: {error}	تعذرت كتابة {name}: {error}
+	Count:	العدد:
+	Current Brush Load	حمولة الفرشاة الحالية
+	Dab	لمسة
+	Decorative	زخرفي
+	Demosaic	Demosaic
+	Document Title	عنوان المستند
+	Drawn on the CPU: {reason}. Click for System Info.	تم الرسم على وحدة المعالجة المركزية: {reason}. انقر لعرض معلومات النظام.
+	Font preview:	معاينة الخط:
+	From:	من:
+	Full Document	المستند الكامل
+	Gamma	غاما
+	Handwritten	بخط اليد
+	Hide Font Classes	إخفاء فئات الخطوط
+	Hide Styles	إخفاء الأنماط
+	Kept {name}: written by another application	تم الاحتفاظ بـ {name}: تمت كتابته بواسطة تطبيق آخر
+	Level:	المستوى:
+	Load Brush	تحميل الفرشاة
+	Loose Curl	تجعيد فضفاض
+	Loose Long	طويل فضفاض
+	Loose Medium	متوسط فضفاض
+	Make Layer Visibility Changes Undoable	جعل تغييرات ظهور الطبقة قابلة للتراجع
+	Merged Layers	الطبقات المدمجة
+	Monospace	أحادي المسافة
+	New Group from Layers…	مجموعة جديدة من الطبقات…
+	No favorite fonts yet: click the star beside a font to add it.	لا توجد خطوط مفضلة بعد: انقر على النجمة بجانب الخط لإضافته.
+	No fonts match these filters.	لا توجد خطوط تطابق هذه المرشحات.
+	No similar fonts: the current font doesn't say what it looks like.	لا توجد خطوط مشابهة: الخط الحالي لا يحدد شكله.
+	OpenType font	خط OpenType
+	Percentile:	النسبة المئوية:
+	Profile	ملف التعريف
+	Release Notes	ملاحظات الإصدار
+	Remember Settings	تذكر الإعدادات
+	Remove from Favorites	إزالة من المفضلة
+	Resize Windows to Fit	تغيير حجم النوافذ لتلائم
+	Sans Serif	بدون زوائد
+	Script	مخطوطة
+	Serif	ذو زوائد
+	Set the tone sliders from the image	ضبط منزلقات النغمة من الصورة
+	Sets the source for the history brush	يحدد مصدر فرشاة السجل
+	Settings from {name}	إعدادات من {name}
+	Settings from {name}; {count} not supported: {names}	إعدادات من {name}؛ {count} غير مدعومة: {names}
+	Show All Fonts	إظهار كل الخطوط
+	Show Channels in Color	إظهار القنوات بالألوان
+	Show Favorite Fonts	إظهار الخطوط المفضلة
+	Show Font Classes	إظهار فئات الخطوط
+	Show Similar Fonts	إظهار الخطوط المشابهة
+	Show Statistics	إظهار الإحصاءات
+	Show Styles	إظهار الأنماط
+	Show Variable Fonts	إظهار الخطوط المتغيرة
+	Slab Serif	ذو زوائد سميكة
+	Source:	المصدر:
+	Stylized dabs from a history state	لمسات منمقة من حالة في السجل
+	Target	الهدف
+	Tight Curl	تجعيد ضيق
+	Tight Long	طويل ضيق
+	Tight Medium	متوسط ضيق
+	Tight Short	قصير ضيق
+	Too many clone strokes: apply Vanishing Point first	ضربات استنساخ كثيرة جداً: طبق نقطة التلاشي أولاً
+	TrueType font	خط TrueType
+	Uncached Refresh	تحديث غير مخزن مؤقتاً
+	Update and Restart	تحديث وإعادة التشغيل
+	Variable font	خط متغير
