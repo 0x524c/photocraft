@@ -48,6 +48,30 @@ pub struct LangInfo {
     catalog: OnceLock<Catalog>,
 }
 
+/// Arabic plural rule (CLDR):
+/// 0 → zero, 1 → one, 2 → two,
+/// n % 100 = 3–10 → few,
+/// n % 100 = 11–99 → many,
+/// otherwise → other (e.g., 100–102, 200–202, 1000+)
+fn plural_arabic(n: u64) -> usize {
+    if n == 0 {
+        0
+    } else if n == 1 {
+        1
+    } else if n == 2 {
+        2
+    } else {
+        let mod100 = n % 100;
+        if (3..=10).contains(&mod100) {
+            3  // few
+        } else if (11..=99).contains(&mod100) {
+            4  // many
+        } else {
+            5  // other
+        }
+    }
+}
+
 /// A script's reading direction.
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Dir {
@@ -187,9 +211,10 @@ fn expand(packed: &str, keys: &[&str]) -> Result<String, String> {
 }
 
 /// The registry. English first: it is the fallback and the source language.
-pub static LANGUAGES: [LangInfo; 22] = [
+pub static LANGUAGES: [LangInfo; 23] = [
     LangInfo { code: "en", name: "English", source: b"", plural: plural_one_other, complete_menus: false, catalog: OnceLock::new() },
     LangInfo { code: "ja", name: "日本語", source: catalog!("ja"), plural: plural_none, complete_menus: true, catalog: OnceLock::new() },
+    LangInfo { code: "ar", name: "العربية", source: catalog!("ar"), plural: plural_arabic, complete_menus: true, catalog: OnceLock::new() },
     LangInfo { code: "zh-hans", name: "简体中文", source: catalog!("zh-hans"), plural: plural_none, complete_menus: true, catalog: OnceLock::new() },
     // Traditional Chinese in the vocabulary used in Taiwan; `zh-TW`, `zh-HK`, `zh-MO` and `zh-Hant-*`
     // locales all resolve here (see `candidates`).
