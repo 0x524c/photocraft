@@ -72,7 +72,7 @@ engine localization or native review is complete.
   Urdu and other right-to-left codes (`direction.rs`), but panel interiors, dialogs, menu rows,
   submenus and document tabs stay left to right. Word order within a label is right: egui 0.37
   lays text out with the Unicode Bidirectional Algorithm.
-- Web build: no browser-locale detection, no CJK web fonts.
+- Web build: no browser-locale detection. It has no system fonts: Arabic, CJK and other non-Latin interface labels are drawn with the host's served script fonts (`packaging/web/README.md` › Fonts), and show as boxes on a host that serves none.
 - WebAssembly plug-ins disappear from Filter › Plug-ins when the UI isn't English (#2540).
 - A user couldn't find the language option (#2532): it is in Preferences › Interface.
 
