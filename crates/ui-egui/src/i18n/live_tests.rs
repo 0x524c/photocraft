@@ -244,7 +244,7 @@ fn first_launch_renders_the_system_language_without_overwriting_auto() {
 
 #[test]
 fn missing_or_unsupported_system_languages_render_english() {
-    for tags in [vec![], vec!["sv-SE", "ar-SA"]] {
+    for tags in [vec![], vec!["sv-SE", "sw-KE"]] {
         system::with_system_tags(&tags, || {
             with_language(Lang::EN, || {
                 let h = harness();
@@ -447,5 +447,26 @@ fn czech_shortcut_conflicts_keep_warning_state_and_shortcut_codes() {
             assert!(message.contains(piece), "{message:?} lacks {piece:?}");
         }
         assert_eq!(fields["overrides"]["file.new"], json!("Cmd+O"));
+    });
+}
+
+/// The catalog stays in logical order: egui puts a right-to-left label into display order itself,
+/// so the first word of an Arabic label lands to the right of its last, and a Latin brand name at
+/// the end of the sentence lands at the left.
+#[test]
+fn arabic_labels_are_laid_out_right_to_left() {
+    with_language(Lang::EN, || {
+        let mut h = harness();
+        h.state_mut().run("prefs.set", json!({"path": "interface.language", "value": "ar"})).unwrap();
+        h.run_steps(4);
+        let x_of = |text: &str, c: char| {
+            let galley = h.ctx.fonts_mut(|f| f.layout_no_wrap(text.to_string(), egui::FontId::proportional(13.0), egui::Color32::WHITE));
+            galley.rows.iter().flat_map(|r| r.glyphs.iter()).find(|g| g.chr == c).map(|g| g.pos.x).expect("glyph")
+        };
+        let label = tr(lang("ar"), "No properties");
+        assert_eq!(label, "لا توجد خصائص");
+        assert!(x_of(label, 'ل') > x_of(label, 'ص'), "{label}: first word at the right");
+        let join = tr(lang("ar"), "Join us on Discord");
+        assert!(x_of(join, 'D') < x_of(join, 'ن'), "{join}: Discord at the left");
     });
 }

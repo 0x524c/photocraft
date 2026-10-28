@@ -195,6 +195,28 @@ fn ukrainian_plural_rule_handles_teens_and_compound_counts() {
 }
 
 #[test]
+fn arabic_resolves_locales_and_preferences() {
+    let ar = Lang::from_code("ar").expect("ar registered");
+    assert_eq!(ar.name(), "العربية");
+    for tag in ["ar", "AR", "ar-SA", "ar_EG", "ar_EG.UTF-8", "ar-AE", "ar-MA"] {
+        assert_eq!(lang_from_tag(tag), Some(ar), "{tag}");
+        assert_eq!(Lang::from_pref(tag), ar, "{tag}");
+    }
+    assert_eq!(dir_for_code("ar"), Dir::Rtl);
+    assert_eq!(tr(ar, "File"), "ملف");
+}
+
+#[test]
+fn arabic_plural_rule_has_six_forms() {
+    let ar = Lang::from_code("ar").expect("ar registered");
+    let counts = [0, 1, 2, 3, 10, 11, 99, 100, 101, 102, 103, 111, 199, 1000, u64::MAX];
+    let forms: Vec<usize> = counts.into_iter().map(ar.0.plural).collect();
+    assert_eq!(forms, [0, 1, 2, 3, 3, 4, 4, 5, 5, 5, 3, 4, 4, 5, 4]);
+    assert_eq!(trn(ar, 2, "{n} layer", "{n} layers"), "2 طبقتان");
+    assert_eq!(trn(ar, 5, "{n} layer", "{n} layers"), "5 طبقات");
+}
+
+#[test]
 fn serbian_resolves_locales_and_preferences() {
     let sr = Lang::from_code("sr").expect("sr registered");
     assert_eq!(sr.name(), "Srpski");
