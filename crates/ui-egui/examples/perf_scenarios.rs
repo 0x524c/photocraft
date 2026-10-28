@@ -200,6 +200,8 @@ impl Bench {
         let mut run = || -> Res<()> {
             if warm {
                 f(self, s, 0)?;
+                // `refresh px` describes only the timed runs.
+                self.px.borrow_mut().clear();
             }
             for i in 0..reps.max(1) {
                 samples.push(f(self, s, i + 1)?);
