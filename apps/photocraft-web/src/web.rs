@@ -224,7 +224,10 @@ fn load_font_manifest(served: Served, ctx: egui::Context) {
         served_fonts::add_fonts(&fonts);
         // Fetch now the fallbacks of the scripts the browser's languages use (an Arabic reader gets
         // the Arabic font before typing); the rest is fetched when text or a font menu needs it.
-        served_fonts::request_for_languages(browser_languages().iter().map(String::as_str));
+        // Also the interface language's: `serve_fonts` asked for it once already, maybe before
+        // this manifest arrived, when no fallback was registered yet.
+        let ui_language = photocraft_ui_egui::i18n::current().code();
+        served_fonts::request_for_languages(browser_languages().iter().map(String::as_str).chain([ui_language]));
         ctx.request_repaint();
     });
 }
