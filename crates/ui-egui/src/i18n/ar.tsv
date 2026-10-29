@@ -265,7 +265,7 @@
 	Curves…	المنحنيات…
 	Exposure…	التعريض…
 	Vibrance…	الحيوية…
-	Hue/Saturation…	تدرج اللون/التشبع…
+	Hue/Saturation…	درجة اللون/التشبع…
 	Color Balance…	توازن الألوان…
 	Black & White…	أبيض وأسود…
 	Photo Filter…	فلتر الصور…
@@ -1199,9 +1199,9 @@
 	Highlights	الإضاءات
 	Home	الرئيسية
 	Horizontal scale	التحجيم الأفقي
-	Hue	تدرج اللون
-	Hue Jitter	تذبذب تدرج اللون
-	Hue/Saturation	تدرج اللون/التشبع
+	Hue	درجة اللون
+	Hue Jitter	تذبذب درجة اللون
+	Hue/Saturation	درجة اللون/التشبع
 	Hyphenate	وصل الكلمات
 	Ignore	تجاهل
 	Ignore All	تجاهل الكل
@@ -3475,7 +3475,7 @@ curves	Smooth	تنعيم
 # Print preview image (#8236)
 	Print preview image	معاينة صورة الطباعة
 # Color panel menu: modes, copy commands and colour ramps (#6000)
-	Hue Cube	مكعب تدرج اللون
+	Hue Cube	مكعب درجة اللون
 	Brightness Cube	مكعب السطوع
 	Color Wheel	عجلة الألوان
 	Grayscale Slider	منزلق التدرج الرمادي
