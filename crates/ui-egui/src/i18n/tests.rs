@@ -216,6 +216,16 @@ fn arabic_plural_rule_has_six_forms() {
     assert_eq!(trn(ar, 5, "{n} layer", "{n} layers"), "5 طبقات");
 }
 
+/// The preset-import result (`preset_files_ui::open`) picks its plural pair at run time, so the
+/// literal-key coverage check can't see these rows.
+#[test]
+fn arabic_preset_import_results_are_translated() {
+    let ar = Lang::from_code("ar").expect("ar registered");
+    assert_eq!(trn(ar, 3, "Imported {n} pattern from {file}", "Imported {n} patterns from {file}"), "تم استيراد 3 نقشات من {file}");
+    assert_eq!(trn(ar, 2, "Imported {n} gradient from {file}", "Imported {n} gradients from {file}"), "تم استيراد 2 تدرجين من {file}");
+    assert_eq!(trn(ar, 1, "Imported {n} brush from {file}", "Imported {n} brushes from {file}"), "تم استيراد 1 فرشاة من {file}");
+}
+
 #[test]
 fn serbian_resolves_locales_and_preferences() {
     let sr = Lang::from_code("sr").expect("sr registered");
